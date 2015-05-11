@@ -5,9 +5,9 @@
     <title>Designscook Styleguide</title>
     <meta name="description" content="Designscook developers styleguide">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="images/logo-sm.png">
     <style>
-    *{box-sizing:border-box}html{font-size:62.5%}body{background:url(images/background-1.jpg);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1.5rem;margin:0;text-align:center;color:#333}a{text-decoration:none;color:gray}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#ccc}::-webkit-scrollbar-thumb{background:#5D4D43}::-webkit-scrollbar-thumb:window-inactive{background:#ddd}header{border-bottom:solid 20px #5D4D43;padding:20px}pre{background:rgba(93,77,67,.5);text-align:left;padding:5px;border-top:solid 15px rgba(93,77,67,.7);box-shadow:0 2px 3px #4e4138}article{margin:10px auto;text-align:justify;width:500px;height:380px;padding:10px;font-size:2rem;overflow:auto}@media only screen and (max-width:502px){article{width:95%}}ul{margin:0;padding:0 15px;text-align:left}h3{margin:8px 0}footer{position:fixed;bottom:10px;padding:10px;width:100%;text-align:right;font-style:italic}.browsehappy{margin:.2em 0;background:#ccc;color:#000;padding:.2em 0}
+    *{box-sizing:border-box}html{font-size:62.5%}body{background:url(images/background.jpg);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1.5rem;margin:0;text-align:center;color:#333}a{text-decoration:none;color:gray}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#ccc}::-webkit-scrollbar-thumb{background:#5D4D43}::-webkit-scrollbar-thumb:window-inactive{background:#ddd}header{border-bottom:solid 20px #5D4D43;padding:20px}article{margin:10px auto;text-align:justify;width:500px;height:380px;padding:10px;font-size:2rem;overflow:auto}@media (max-width:502px){article{width:95%}}pre{background:rgba(93,77,67,.5);text-align:left;padding:5px;border-top:solid 15px rgba(93,77,67,.7);box-shadow:0 2px 3px #4e4138;word-wrap:break-word;}ul{margin:0;padding:0 15px;text-align:left}h3{margin:8px 0}footer{position:fixed;bottom:10px;padding:10px;width:100%;text-align:right;font-style:italic}@media(max-width:400px){footer{position: relative;text-align:center;}}.browsehappy{margin:.2em 0;background:#ccc;color:#000;padding:.2em 0}
     </style>
   </head>
   <body>
@@ -18,8 +18,8 @@
       <img src="images/logo.png" alt="logo">
     </header>
     <article>
-      <p>This project uses 2-spaces indentation on both front-end and back-end which insinuates that the CSS, JavaScript, and Rails should be 2-spaces indented. The CSS follows the <a href="https://smacss.com/">SMACSS guide</a>, <a href="https://en.bem.info/method/">BEM</a>, and a little <a href="http://amcss.github.io/">AMCSS</a> to reduce specificity spikes. No CSS frameworks are used to cut off on extra bytes for performance. No use of <a href="http://orderedlist.com/resources/html-css/single-line-css/">single line approach</a> CSS allowed as it gets the stylesheet disorganized.</p>
-      <p>SVG should not be embedded but called as sprites where possible to keep a minified HTML file size. <a href="https://github.com/svg/svgo">SVGO</a> is used for optimizing SVG files.</p>
+      <p>This project uses 2-spaces indentation on both front-end and back-end which insinuates that the CSS, JavaScript, and Rails should be 2-spaces indented. The CSS follows the <a href="https://smacss.com/">SMACSS guide</a>, <a href="https://en.bem.info/method/">BEM</a>, and a little <a href="http://amcss.github.io/">AMCSS</a> to reduce specificity spikes. No CSS frameworks are used to cut off on extra bytes for performance. No use of <a href="http://orderedlist.com/resources/html-css/single-line-css/">single line approach</a> CSS allowed as it gets the stylesheet messy and unreadable.</p>
+      <p>SVG should not be embedded but called as sprites where possible to keep a reduced HTML file size. <a href="https://github.com/svg/svgo">SVGO</a> is used for optimizing SVG files.</p>
       <p>A space should be left between CSS properties and values like below:</p>
       <pre>
         /* Right way */
@@ -28,10 +28,50 @@
         }
         /* Wrong */
         p{
-          letter-spacing: 1px;
+          letter-spacing:1px;
         }
       </pre>
-      <p>JavaScript code should have a 'use strict' for proper error debugging</p>
+      <p>Follow the rules of inception or in this case, <strong>codeception</strong> when nesting within SCSS. Nested selectors should never exceed 3 except in cases of namespaces as excess nesting will increase specificity. Example:</p>
+      <pre>
+        /* This is 4 levels deep and is wrong. Consider refactoring the code or rethinking the process */
+        .pod{
+            property: value;
+            .sidebar{
+              property: value;
+              a{
+                &amp;:hover{
+                  property: value;
+                }
+              }
+            }
+        }
+        /* This is 4 levels deep and it is acceptable */
+        .pod{
+          &amp;-cast{
+            &amp;-title{
+              a{
+                property: value;
+              }
+            }
+          }
+        }
+      </pre>
+      <p>Try as much as possible to avoid the use of <code>!important</code> in the CSS. In cases where specificity needs to be increased, consider using a chained class naming as shown</p>
+      <pre>
+        .pod{
+           color: red;
+         }
+         /* Overridding this with higher specificity */
+         .pod.pod{
+            color: blue;
+          }
+          /* not */
+          .pod{
+            color: blue !important;
+          }
+      </pre>
+      <p>Note that the number of chains in the chained class naming will depend on how much specificity you want. You can increase the chain to any length. <a href="http://josephrex.me/specificity-wars">Read detailed article</a></p>
+      <p>JavaScript code should have a 'use strict' for proper error debugging.</p>
       <h3>Frameworks Used</h3>
       <ul>
         <li>jQuery (Frontend)</li>
