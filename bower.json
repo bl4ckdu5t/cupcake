@@ -1,0 +1,26 @@
+{
+  "name": "designscook",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bl4ckdu5t/cupcake",
+  "authors": [
+    "bl4ckdu5t <joerexko@gmail.com>"
+  ],
+  "description": "online design marketplace",
+  "main": "app/views/layouts/application.html.erb",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "design",
+    "crowdsourcing",
+    "marketplace"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
