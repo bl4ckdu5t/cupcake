@@ -57,6 +57,17 @@
 	-webkit-filter: grayscale($level);
 	filter: grayscale($level);
 }
+
+@mixin clearfixable(){
+  &:after, &:before{
+    content: " ";
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+}
+
 @mixin socle(){
 	position: relative;
 	z-index: 2;
@@ -124,7 +135,7 @@
   height: $height;
 }
 @mixin breakpoint($value){
-	@media (max-width: $value){
+	@media (min-width: $value){
 		@content;
 	}
 }
