@@ -242,3 +242,16 @@ body{
 		}
 	}
 }
+.social-icons{
+	>a{
+		display: inline-block;
+		text-align: center;
+		background: $white;
+		color: $color-brand-1;
+		padding: 1.5px;
+		margin-right: 3px;
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+	}
+}
