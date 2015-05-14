@@ -231,3 +231,14 @@ body{
 		}
 	}
 }
+.section{
+	&-tour{
+		&-title{
+			text-align: center;
+			font-weight: lighter;
+			>strong{
+				font-weight: bold;
+			}
+		}
+	}
+}
