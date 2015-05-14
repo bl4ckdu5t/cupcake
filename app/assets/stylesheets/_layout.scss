@@ -167,8 +167,14 @@ body{
 .footer{
 	padding: 30px;
 	color: $white;
+	vertical-align: text-bottom;
 	&-primary{
 		@include tinted-bg(darken($color-brand-1, 8%), .95, "footer-bg.jpg", 100% 100%);
+		text-align: center;
+		@include breakpoint($breakpoint-tablet-landscape){
+			font-size: 1.6rem;
+			padding: 50px;
+		}
 	}
 	&-list{
 		list-style: none;
@@ -196,5 +202,24 @@ body{
 	margin: 15px 0;
 	&-option{
 		width: 70px;
+	}
+}
+/* Grids */
+.container{
+	@include container(100%);
+}
+[data-grid~="1:5"]{
+	@include span(100%);
+	@include breakpoint($breakpoint-tablet-portrait){
+		@include span(30%);
+		&:last-child{
+			@include span(100%);
+		}
+	}
+	@include breakpoint($breakpoint-tablet-landscape){
+		@include span(18%);
+		&:last-child{
+			@include span(18%);
+		}
 	}
 }
