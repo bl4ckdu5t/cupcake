@@ -39,3 +39,8 @@
 		<p>Then here's the fun part, you chose the #1 design</p>
 	</div>
 </section>
+<section class="section-portfolio section-mini">
+	<% (1..6).each do |x| %>
+	<%= image_tag "portfolio#{x}.jpg" %>
+	<% end %>
+</section>

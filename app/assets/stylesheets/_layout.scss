@@ -270,6 +270,17 @@ body{
 			}
 		}
 	}
+	&-portfolio{
+		padding: 10px 0;
+		img{
+			float: left;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			border-radius: 4px;
+			width: 32.85%;
+			height: 220px;
+		}
+	}
 }
 .social-icons{
 	>a{
