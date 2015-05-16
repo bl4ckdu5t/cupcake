@@ -65,9 +65,10 @@
 	<div data-grid="1:5" class="txtcenter">
 		<h4 class="footer-sub__heading">Convenient Payment Options</h4>
 		<div class="payment">
-			<%= image_tag 'paypal.png', class: 'payment-option' %>
-			<%= image_tag 'stripe.png', class: 'payment-option' %>
-			<%= image_tag 'mastercard.svg', class: 'payment-option' %>
+			<svg class="icon icon-payments"><use xlink:href="#icon-cc-visa"></use></svg>
+			<svg class="icon icon-payments"><use xlink:href="#icon-cc-mastercard"></use></svg>
+			<svg class="icon icon-payments"><use xlink:href="#icon-cc-paypal"></use></svg>
+			<svg class="icon icon-payments"><use xlink:href="#icon-cc-stripe"></use></svg>
 		</div>
 		<%= link_to 'http://google.com' do %>
 		<%= image_tag 'android-app.png', class: 'app-links' %>

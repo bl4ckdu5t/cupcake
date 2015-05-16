@@ -21,18 +21,6 @@ body{
   	transition: transform 500ms ease;
   }
 }
-.hamburger-menu{
-	background: image-url("hamburger.svg");
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	height: 32px;
-	width: 32px;
-	cursor: pointer;
-	@include breakpoint($breakpoint-android-landscape + 4px){
-		display: none;
-	}
-}
 .logo{
 	@include breakpoint($breakpoint-android-landscape + 4px){
 		position: absolute;
@@ -211,6 +199,27 @@ body{
 	width: 1em;
 	height: 1em;
 	fill: currentColor;
+	&-payments{
+		width: 4rem;
+		font-size: 3rem;
+		color: #ddd;
+	}
+	&-menu{
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		height: 32px;
+		width: 32px;
+		font-size: 3rem;
+		cursor: pointer;
+		@include breakpoint($breakpoint-android-landscape + 4px){
+			display: none;
+		}
+	}
+	&-postings{
+		width: 260px;
+		height: 260px;
+	}
 }
 /* Grids */
 .container{
@@ -233,8 +242,8 @@ body{
 }
 .section{
 	&-tour{
+		text-align: center;
 		&-title{
-			text-align: center;
 			font-weight: lighter;
 			>strong{
 				font-weight: bold;
