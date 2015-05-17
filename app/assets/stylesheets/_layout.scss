@@ -400,3 +400,15 @@ body{
 		}
 	}
 }
+.app{
+	&_button{
+		background: image-url("appbuttons.png");
+		width: 200px;
+		height: 57px;
+		display: inline-block;
+		border-radius: 6px;
+	}
+	&-ios{
+		background-position: 0 -63px;
+	}
+}

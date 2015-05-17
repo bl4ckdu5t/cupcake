@@ -1,8 +1,7 @@
 @font-face {
-  font-family: 'Source Sans Pro';
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), 
-  url(//fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlNV_2ngZ8dMf8fLgjYEouxg.woff2) format('woff2');
+  src: local('Open Sans'), local('OpenSans'), url(http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
 }
-$font-stack: 'Source Sans Pro', sans-serif;
+$font-stack: 'Open Sans', sans-serif;
