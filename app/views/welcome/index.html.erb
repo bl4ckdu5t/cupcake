@@ -41,6 +41,13 @@
 </section>
 <section class="section-portfolio section-mini">
 	<% (1..6).each do |x| %>
-	<%= image_tag "portfolio#{x}.jpg" %>
+	<div class="view view-tenth">  
+	  <%= image_tag "portfolio#{x}.jpg" %> 
+    <div class="mask">  
+      <h2>Logo designs</h2>  
+      <p>Custom brand logo for your company</p>  
+      <a href="#" class="info">View Examples</a>  
+    </div>  
+	</div> 
 	<% end %>
 </section>
