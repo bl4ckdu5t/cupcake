@@ -8,7 +8,7 @@ body{
   margin: 0;
   font-family: $font-stack;
   font-size: 15px; /* For Browsers with no support for root em */
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   background: image-url("background.jpg");
   /* Has to be out for zopim live chat to function properly but smoothness of mobile menu is affected */
   //transform: translate3d(0, 0, 0);
@@ -99,7 +99,6 @@ body{
 		  	@include clearfixable;
 		  	border: solid thin $white;
 		  	height: 40px;
-		  	font-size: 1.6rem;
 		  	border-radius: 4px;
 		  	padding: 4px 0;
 		  }
@@ -159,7 +158,6 @@ body{
 		@include tinted-bg(darken($color-brand-1, 8%), .95, "footer-bg.jpg", 100% 100%);
 		text-align: center;
 		@include breakpoint($breakpoint-tablet-landscape){
-			font-size: 1.6rem;
 			padding: 50px;
 			text-align: justify;
 		}
@@ -267,6 +265,9 @@ body{
 			font-weight: lighter;
 			>strong{
 				font-weight: bold;
+			}
+			@include breakpoint($breakpoint-tablet-landscape){
+				font-size: 2.8rem;
 			}
 		}
 	}
