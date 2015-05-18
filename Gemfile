@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby "2.1.2"
 
+# Devise for authentication
+gem 'devise'
 # Susy Grids
 gem 'susy', '2.1.2'
 # Use Autoprefixer
