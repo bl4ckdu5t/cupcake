@@ -3,17 +3,16 @@ html{
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
   font-size: 62.5%;
-  height: 100%;
 }
 body{
   margin: 0;
   font-family: $font-stack;
   font-size: 15px; /* For Browsers with no support for root em */
   font-size: 1.9rem;
-  height: 100%;
   background: image-url("background.jpg");
-  transform: translate3d(0, 0, 0);
-  transition: transform 500ms ease;
+  /* Has to be out for zopim live chat to function properly but smoothness of mobile menu is affected */
+  //transform: translate3d(0, 0, 0);
+  //transition: transform 500ms ease;
   overflow-x: hidden;
   .openNav &{
   	left: 0;
@@ -273,6 +272,11 @@ body{
 	&-portfolio{
 		padding: 10px;
 		text-align: center;
+	}
+	&-demo{
+		background: $color-brand-1;
+		padding: 20px;
+		margin: 10px 0;
 	}
 }
 .social-icons{
