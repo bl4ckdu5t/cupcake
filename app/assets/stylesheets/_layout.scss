@@ -170,6 +170,7 @@ body{
 		margin: 0;
 		li{
 			margin: 10px 0;
+			white-space: nowrap;
 		}
 		a:hover{
 			color: darken($white, 25%);
