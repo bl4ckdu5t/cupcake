@@ -36,8 +36,8 @@ body{
   	height: 500px;
 	}
 	&-authentication{
-		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-1.jpg", 100% 100%);
-  	height: 200px;
+		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-2.jpg", 100% 100%);
+  	height: 300px;
 	}
 	&-caption{
 		font-size: 3.2rem;
