@@ -16,7 +16,7 @@
 	<h1 class="header-caption">Get Custom Designs Today</h1>
 	<span class="header-description">Your online design marketplace. We deliver faster, better and cheaper</span>
 	<div class="header-button__options">
-		<a href="" class="button button-polarized button-large">I need designs</a>
+		<a href="#customers" class="button button-polarized button-large">I need designs</a>
 		<a href="" class="button button-bordered button-large">I'm a designer</a>
 	</div>
 </header>
@@ -43,12 +43,12 @@
 		<p>Then here's the fun part, you get to choose the #1 design</p>
 	</div>
 </section>
-<!-- <section class="section-demo">
-	<%= image_tag "plank.png" %>
+<section class="section-demo">
+	<img src="<%= asset_url 'plank.png' %>" srcset="<%= asset_url 'plank.png' %> 1024w, <%= asset_url 'wood-label.png' %> 320w" alt="Grow your business" sizes="(min-width: 40em) 80vw, 35vw">
 	<iframe src="https://player.vimeo.com/video/89546048" class="vimeo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</section> -->
+</section>
 <section class="section-categories section-mini">
-	<h2 class="section-divider-heading">What do you need designed</h2>
+	<h2 class="section-divider-heading" id="customers">What do you need designed?</h2>
 	<%= link_to "http://google.com" do %>
 	<div class="category-item"><span class="category-logo"></span>Logo</div>
 	<% end %>
@@ -67,6 +67,7 @@
 	<%= link_to "http://google.com" do %>
 	<div class="category-item"><span class="category-corporate"></span>Corporate</div>
 	<% end %>
+	<a href="" class="button button-bordered-brand">Other designs</a>
 </section>
 <section class="section-portfolio section-mini">
 	<h2 class="section-divider-heading">Portfolio</h2>
