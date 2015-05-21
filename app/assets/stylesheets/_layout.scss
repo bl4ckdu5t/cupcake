@@ -297,6 +297,18 @@ body{
 		padding: 40px 20px;
 		margin: 10px 0;
 		text-align: center;
+		&__caption{
+			@include breakpoint($breakpoint-tablet-portrait){
+				animation: woodbreeze 10s infinite;
+			}
+		}
+		@include breakpoint($breakpoint-tablet-landscape){
+			@include clearfixable;
+			> div{
+				float: left;
+				width: 50%;
+			}
+		}
 	}
 	&-divider-heading{
 		position: relative;
@@ -458,12 +470,17 @@ body{
 	}
 }
 .vimeo{
-	margin: 20px 0;
+	margin: 20px auto;
 	width: 100%;
 	height: 185px;
 	border: solid 4px $white;
 	@include breakpoint($breakpoint-android-landscape){
 		height: 320px;
+	}
+	@include breakpoint($breakpoint-laptop){
+		margin-top: 40px;
+		width: 80%;
+		height: 350px;
 	}
 }
 .category{
