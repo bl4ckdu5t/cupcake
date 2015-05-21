@@ -44,9 +44,20 @@
 	</div>
 </section>
 <!-- <section class="section-demo">
-	<iframe src="https://player.vimeo.com/video/89546048" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/89546048">You Won&#039;t Regret That Tattoo</a> from <a href="https://vimeo.com/user22666228">angie bird</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+	<%= image_tag "plank.png" %>
+	<iframe src="https://player.vimeo.com/video/89546048" class="vimeo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </section> -->
+<section class="section-categories">
+	<h2 class="section-divider-heading">What do you need designed</h2>
+	<div class="category-item"><span class="category-logo"></span>Logo</div>
+	<div class="category-item"><span class="category-stationery"></span>Stationery</div>
+	<div class="category-item"><span class="category-banner"></span>Banner/Flyer</div>
+	<div class="category-item"><span class="category-brochure"></span>Brochure</div>
+	<div class="category-item"><span class="category-website"></span>Website</div>
+	<div class="category-item"><span class="category-corporate"></span>Corporate</div>
+</section>
 <section class="section-portfolio section-mini">
+	<h2 class="section-divider-heading">Portfolio</h2>
 	<% (1..6).each do |x| %>
 	<div class="view view-tenth">  
 	  <%= image_tag "portfolio#{x}.jpg" %> 

@@ -224,6 +224,20 @@ body{
 		color: $color-brand-1;
 	}
 }
+@keyframes tourEffect{
+	0%{
+		transform: scale(.5);
+	}
+	35%{
+		transform: rotate(45deg);
+	}
+	75%{
+		transform: rotate(-45deg);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
 /* Grids */
 .container{
 	@include container(100%);
@@ -264,6 +278,9 @@ body{
 					right: -30px;
 				}
 			}
+			&:hover > .icon-postings{	
+			  animation: tourEffect 1s;
+			}
 		}
 		&-title{
 			font-weight: lighter;
@@ -283,6 +300,23 @@ body{
 		background: $color-brand-1;
 		padding: 20px;
 		margin: 10px 0;
+	}
+	&-divider-heading{
+		position: relative;
+		margin: 10px auto;
+		padding: 10px;
+		text-align: center;
+		&::before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			width: 250px;
+			height: 10px;
+			border-top: solid 2px $color-brand-1;
+		}
 	}
 }
 .social-icons{
@@ -316,7 +350,7 @@ body{
 	}
 	@include breakpoint($breakpoint-tablet-landscape){
 		width: 32.3%;
-		&:nth-child(3), &:nth-child(6){
+		&:nth-of-type(3), &:nth-of-type(6){
 			margin-right: 0;
 		}
 	}
@@ -420,5 +454,49 @@ body{
 	}
 	&-ios{
 		background-position: 0 -63px;
+	}
+}
+.vimeo{
+	width: 100%;
+	height: 185px;
+	border: solid 4px $white;
+}
+.category{
+	&-item{
+		text-align: center;
+		> span{
+			display: block;
+			margin: 5px auto;
+		}
+	}
+	&-logo{
+		background: image-url("category-sprite.png") no-repeat 0 -4px;
+		width: 92px;
+		height: 93px;
+	}
+	&-stationery{
+		background: image-url("category-sprite.png") no-repeat -219px -1px;
+		width: 87px;
+		height: 98px;
+	}
+	&-banner{
+		background: image-url("category-sprite.png") no-repeat -437px -5px;
+		width: 82px;
+		height: 87px;
+	}
+	&-brochure{
+		background: image-url("category-sprite.png") no-repeat -629px 0;
+		width: 133px;
+		height: 97px;
+	}
+	&-website{
+		background: image-url("category-sprite.png") no-repeat -860px -1px;
+		width: 103px;
+		height: 99px;
+	}
+	&-corporate{
+		background: image-url("category-sprite.png") no-repeat -1062px -8px;
+		width: 131px;
+		height: 90px;
 	}
 }
