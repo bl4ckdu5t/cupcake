@@ -224,20 +224,6 @@ body{
 		color: $color-brand-1;
 	}
 }
-@keyframes tourEffect{
-	0%{
-		transform: scale(.5);
-	}
-	35%{
-		transform: rotate(45deg);
-	}
-	75%{
-		transform: rotate(-45deg);
-	}
-	100%{
-		transform: scale(1);
-	}
-}
 /* Grids */
 .container{
 	@include container(100%);
@@ -464,30 +450,44 @@ body{
 .category{
 	&-item{
 		text-align: center;
+		margin-bottom: 20px;
+		&:hover{
+			font-weight: bold;
+		}
 		> span{
 			display: block;
 			margin: 5px auto;
+		}
+		@include breakpoint($breakpoint-iphone-landscape){
+			float: left;
+			width: 50%;
+		}
+		@include breakpoint($breakpoint-tablet-portrait){
+			width: 33.3%;
+		}
+		@include breakpoint($breakpoint-tablet-landscape){
+			width: 16.6%;
 		}
 	}
 	&-logo{
 		background: image-url("category-sprite.png") no-repeat 0 -4px;
 		width: 92px;
-		height: 93px;
+		height: 99px;
 	}
 	&-stationery{
 		background: image-url("category-sprite.png") no-repeat -219px -1px;
 		width: 87px;
-		height: 98px;
+		height: 99px;
 	}
 	&-banner{
 		background: image-url("category-sprite.png") no-repeat -437px -5px;
 		width: 82px;
-		height: 87px;
+		height: 99px;
 	}
 	&-brochure{
-		background: image-url("category-sprite.png") no-repeat -629px 0;
+		background: image-url("category-sprite.png") no-repeat -629px -1px;
 		width: 133px;
-		height: 97px;
+		height: 99px;
 	}
 	&-website{
 		background: image-url("category-sprite.png") no-repeat -860px -1px;
@@ -497,6 +497,6 @@ body{
 	&-corporate{
 		background: image-url("category-sprite.png") no-repeat -1062px -8px;
 		width: 131px;
-		height: 90px;
+		height: 99px;
 	}
 }
