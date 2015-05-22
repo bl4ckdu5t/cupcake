@@ -10,6 +10,7 @@ body{
   font-size: 15px; /* For Browsers with no support for root em */
   font-size: 1.5rem;
   background: image-url("background.jpg");
+  color: $color-brand-1;
   /* Has to be out for zopim live chat to function properly but smoothness of mobile menu is affected */
   //transform: translate3d(0, 0, 0);
   //transition: transform 500ms ease;
@@ -20,6 +21,7 @@ body{
   	transition: transform 500ms ease;
   }
 }
+input, textarea, select{ background: $white; font-family: $font-stack; }
 .logo{
 	@include breakpoint($breakpoint-android-landscape + 4px){
 		position: absolute;
@@ -36,8 +38,9 @@ body{
   	height: 500px;
 	}
 	&-authentication{
-		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-2.jpg", 100% 100%);
-  	height: 300px;
+		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-2.jpg", cover);
+  	height: 320px;
+  	padding: 100px 40px;
 	}
 	&-caption{
 		font-size: 3.2rem;
@@ -135,6 +138,7 @@ body{
 	padding: 10px;
 	color: $white;
 	border-radius: 4px;
+	cursor: pointer;
 	&-large{
 		width: 200px;
 	}
@@ -158,9 +162,8 @@ body{
 		border: solid 2px $color-brand-1;
 		color: $color-brand-1;
 		&:hover{
-			color: ligthen($color-brand-1, 10%);
-			border: ligthen($color-brand-1, 10%);
-			font-weight: bold;
+			background: $color-brand-1;
+			color: darken($white, 10%);
 		}
 	}
 }
@@ -294,7 +297,7 @@ body{
 	}
 	&-demo{
 		background: $color-brand-1;
-		padding: 40px 20px;
+		padding: 40px 10px;
 		margin: 10px 0;
 		text-align: center;
 		&__caption{
@@ -536,4 +539,55 @@ body{
 		width: 131px;
 		height: 99px;
 	}
+}
+.authentication{
+	&-box{
+		position: relative;
+		top: -80px;
+		width: 80%;
+		max-width: 400px;
+		margin: 0 auto;
+		background: $white;
+		border-radius: 4px;
+		box-shadow: 0 0 1.5px darken($white, 50%), 0 0 3px $color-brand-1;
+		text-align: center;
+	}
+	&-navigation{
+		border-bottom: solid thin #eee;
+		@include clearfixable;
+		> a{
+			display: block;
+			float: left;
+			width: 50%;
+			padding: 10px;
+			&:first-of-type{
+				border-top-left-radius: 4px;
+			}
+			&:last-of-type{
+				border-top-right-radius: 4px;
+			}
+		}
+		.is_inactive{
+			background: #eee;
+			color: #888;
+			box-shadow: 0 0 2px #888 inset;
+			&:hover{
+				box-shadow: 0 0 4px #777 inset;
+			}
+		}
+	}
+	&-form{
+		padding: 20px;
+		text-align: justify;
+		[type="text"],[type="email"],[type="password"]{
+			width: 100%;
+			height: 35px;
+			border: solid thin $color-brand-1;
+			border-radius: 3px;
+			padding: 0 5px;
+		}
+	}
+}
+.field{
+	margin: 8px 0;
 }

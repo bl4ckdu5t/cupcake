@@ -1,22 +1,15 @@
 <header class="header header-authentication">
-  <svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
-  <nav class="header-navigation">
-    <ul>
-      <li>
-        <%= link_to 'Sign up', new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to 'Log in', new_user_session_path %>
-      </li>
-    </ul>
-  </nav>
-  <%= link_to root_path do %>
-  <%= image_tag "logo.png", alt: 'DesignsCrowd', class: 'logo' %>
+  <%= link_to root_url do %>
+  <%= image_tag "logo-cap.png" %>
   <% end %>
 </header>
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="authentication-box">
+  <nav class="authentication-navigation">
+    <%= link_to 'Log in', new_user_session_path %>
+    <%= link_to 'Sign up', new_user_registration_path, class: 'is_inactive' %>
+  </nav>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'authentication-form'}) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -28,15 +21,15 @@
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div class="clearfix field">
+      <%= link_to 'Forgot Password?', new_user_password_path, class: 'fr' %>
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: 'button button-bordered-brand button-large' %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>
