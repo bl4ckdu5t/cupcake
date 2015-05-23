@@ -1,4 +1,16 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify notify-danger' %>
+<% end %>
 <header class="header header-authentication">
+  <nav class="page-navigation">
+    <div id="js-historyBack"><svg class="icon icon-arrow-back"><use xlink:href="#icon-arrow-back"></use></svg></div>
+    <div id="js-page-menu-trigger"><svg class="icon icon-more-vert"><use xlink:href="#icon-more-vert"></use></svg></div>
+    <ul id="js-page-menu">
+      <li><a href="">Pricing</a></li>
+      <li><a href="">Help</a></li>
+      <li><a href="">About us</a></li>
+    </ul>
+  </nav>
   <%= link_to root_url do %>
   <%= image_tag "logo-cap.png" %>
   <% end %>
@@ -22,16 +34,17 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    By signing up, you agree to our <a href="" class="link__decorated">Terms of Service</a>
   </div>
 
   <div class="actions">

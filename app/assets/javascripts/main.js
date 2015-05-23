@@ -17,4 +17,16 @@ $(function(){
       }
     }
   });
+  /* History back buttons */
+  $('#js-historyBack').click(function(){
+    window.history.back();
+  });
+  /* Show page menus */
+  $('#js-page-menu-trigger').click(function(){
+    $('#js-page-menu').slideToggle();
+  });
+  /* Closing notification */
+  $('.notify-clear').click(function(){
+    $(this).closest('.notify').slideUp();
+  });
 });
