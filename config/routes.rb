@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
+  get 'designer-account' => 'accounts#designers', as: :designer
+  get 'customer-account' => 'accounts#customers', as: :customer
   devise_for :users
-  get 'welcome/index'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
   root 'welcome#index'
 end

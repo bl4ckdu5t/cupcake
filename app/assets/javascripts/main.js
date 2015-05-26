@@ -1,4 +1,6 @@
 $(function(){
+  /* Auto disappear notifications */
+  $(".notify").filter(":visible").delay(6000).slideUp('slow');
 	/* Off-Canvas Navigation Toggle */
 	$('#js-toggle-nav').click(function(){
 		$('html').toggleClass('openNav');
