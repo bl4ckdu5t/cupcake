@@ -20,3 +20,6 @@
 
 # Local environment variable storage
 /.env
+
+# Ignore application configuration
+/config/application.yml

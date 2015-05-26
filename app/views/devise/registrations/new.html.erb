@@ -24,6 +24,10 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: 'authentication-form'}) do |f| %>
   <%= devise_error_messages! %>
   <div class="field">
+    <%= f.radio_button :usertype, "designer", checked: true, class: 'radio__custom', id: 'user_designer' %>
+    <%= f.label :designer %>
+    <%= f.radio_button :usertype, "customer", class: 'radio__custom', id: 'user_customer' %>
+    <%= f.label :customer %>
   </div>
 
   <div class="field">

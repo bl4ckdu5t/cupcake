@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby "2.1.2"
 
+# Figaro for local environment variables
+gem 'figaro'
 # Devise for authentication
 gem 'devise'
 # Susy Grids

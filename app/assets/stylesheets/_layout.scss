@@ -667,3 +667,28 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		border-left: solid thin rgba(#bbb, .5);
 	}
 }
+.radio__custom{
+	display: none;
+	+ label{
+		display: block;
+		float: left;
+		width: 50%;
+		padding: 10px;
+		text-align: center;
+		background-color: #ddd;
+		color: #888;
+		transition: background-color 0.3s ease-in-out;
+	}
+	&:checked + label{
+		background-color: $color-brand-1;
+		color: $white;
+	}
+	&:first-of-type + label{
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+	}
+	&:last-of-type + label{
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+	}
+}
