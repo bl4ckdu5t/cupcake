@@ -1,0 +1,39 @@
+<header class="header header-landing">
+	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
+	<nav class="header-navigation">
+		<ul>
+			<li>
+				<%= link_to 'Sign up', new_user_registration_path %>
+			</li>
+			<li>
+				<%= link_to 'Log in', new_user_session_path %>
+			</li>
+		</ul>
+	</nav>
+	<%= link_to root_path do %>
+	<%= image_tag "logo.png", alt: 'DesignsCrowd', class: 'logo' %>
+	<% end %>
+	<%= image_tag "wood-label.png" %>
+</header>
+<section class="section-categories section-mini">
+	<h2 class="section-divider-heading" id="customers">What do you need designed?</h2>
+	<%= link_to pricing_logo_path do %>
+	<div class="category-item"><span class="category-logo"></span>Logo</div>
+	<% end %>
+	<%= link_to pricing_stationery_path do %>
+	<div class="category-item"><span class="category-stationery"></span>Stationery</div>
+	<% end %>
+	<%= link_to pricing_banner_path do %>
+	<div class="category-item"><span class="category-banner"></span>Banner/Flyer</div>
+	<% end %>
+	<%= link_to pricing_brochure_path do %>
+	<div class="category-item"><span class="category-brochure"></span>Brochure</div>
+	<% end %>
+	<%= link_to pricing_website_path do %>
+	<div class="category-item"><span class="category-website"></span>Website</div>
+	<% end %>
+	<%= link_to pricing_corporate_path do %>
+	<div class="category-item"><span class="category-corporate"></span>Corporate</div>
+	<% end %>
+	<%= link_to 'Other designs', pricing_custom_path, class: 'button button-bordered-brand' %>
+</section>
