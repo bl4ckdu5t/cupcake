@@ -1,4 +1,4 @@
-<header class="header header-landing">
+<header class="header header-pricing">
 	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
 	<nav class="header-navigation">
 		<ul>
@@ -13,8 +13,12 @@
 	<%= link_to root_path do %>
 	<%= image_tag "logo.png", alt: 'DesignsCrowd', class: 'logo' %>
 	<% end %>
-	<%= image_tag "wood-label.png" %>
+	<%= image_tag "wood-label.png", class: 'header-caption header-caption__image' %>
 </header>
+<section class="section-pricing section-mini">
+	<h1>Tell us about your custom design</h1>
+	<textarea name="" id="" cols="30" rows="10"></textarea>
+</section>
 <section class="section-categories section-mini">
 	<h2 class="section-divider-heading" id="customers">What do you need designed?</h2>
 	<%= link_to pricing_logo_path do %>

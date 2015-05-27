@@ -23,92 +23,83 @@
 	<div class="pricing">
 		<div class="pricing-label">
 			<ul>
-				<li>Design Options</li>
-				<li>Designers</li>
-				<li>Days Duration</li>
-				<li>Revisions</li>
-				<li>Email &amp; Phone Support</li>
+				<li ng-repeat="label in brochurePricing.labels">{{label}}</li>
 			</ul>
 		</div>
 		<div class="pricing-block">
 			<div class="pricing-block__title">
 				<h3>Package 1</h3>
 				<div>
-					<sup>₦</sup> <span>30,000</span>
+					<sup>₦</sup> <span>{{brochurePricing.price1}}</span>
 				</div>
 			</div>
 			<div class="pricing-block__content">
 				<ul class="pricing-block__list">
-					<li title="Design Options">4</li>
-					<li title="Designers">2</li>
-					<li title="Days Duration">5</li>
-					<li title="Revisions">2</li>
-	        <li title="Email &amp; Phone Support">
+					<li title="{{brochurePricing.labels[0]}}">4</li>
+					<li title="{{brochurePricing.labels[1]}}">2</li>
+					<li title="{{brochurePricing.labels[2]}}">5</li>
+					<li title="{{brochurePricing.labels[3]}}">2</li>
+	        <li title="{{brochurePricing.labels[4]}}">
 	        	<svg class="icon icon-check checked"><use xlink:href="#icon-check"></use></svg>
 	        </li>
 				</ul>
 				<a href="" class="button button-pricing">Order Now</a>
 			</div>
 		</div>
-		
 		<div class="pricing-block">
 			<div class="pricing-block__title">
 				<h3>Package 2</h3>
 				<div>
-					<sup>₦</sup> <span>60,000</span>
+					<sup>₦</sup> <span>{{brochurePricing.price2}}</span>
 				</div>
 			</div>
 			<div class="pricing-block__content">
 				<ul class="pricing-block__list">
-					<li title="Design Options">10</li>
-					<li title="Designers">5</li>
-					<li title="Days Duration">5</li>
-					<li title="Revisions">3</li>
-	        <li title="Email &amp; Phone Support">
+					<li title="{{brochurePricing.labels[0]}}">10</li>
+					<li title="{{brochurePricing.labels[1]}}">5</li>
+					<li title="{{brochurePricing.labels[2]}}">5</li>
+					<li title="{{brochurePricing.labels[3]}}">3</li>
+	        <li title="{{brochurePricing.labels[4]}}">
 	        	<svg class="icon icon-check checked"><use xlink:href="#icon-check"></use></svg>
 	        </li>
 				</ul>
 				<a href="" class="button button-pricing">Order Now</a>
 			</div>
 		</div>
-
-
 		<div class="pricing-block">
 			<div class="pricing-block__title">
 				<h3>Package 3</h3>
 				<div>
-					<sup>₦</sup> <span>100,000</span>
+					<sup>₦</sup> <span>{{brochurePricing.price3}}</span>
 				</div>
 			</div>
 			<div class="pricing-block__content">
 				<ul class="pricing-block__list">
-					<li title="Design Options">20</li>
-					<li title="Designers">10</li>
-					<li title="Days Duration">5</li>
-					<li title="Revisions">5</li>
-	        <li title="Email &amp; Phone Support">
+					<li title="{{brochurePricing.labels[0]}}">20</li>
+					<li title="{{brochurePricing.labels[1]}}">10</li>
+					<li title="{{brochurePricing.labels[2]}}">5</li>
+					<li title="{{brochurePricing.labels[3]}}">5</li>
+	        <li title="{{brochurePricing.labels[4]}}">
 	        	<svg class="icon icon-check checked"><use xlink:href="#icon-check"></use></svg>
 	        </li>
 				</ul>
 				<a href="" class="button button-pricing">Order Now</a>
 			</div>
 		</div>
-
-
 		<div class="pricing-block">
 			<div class="pricing-block__title">
 				<h3>Package 4</h3>
 				<div>
-					<sup>₦</sup> <span>120,000</span>
+					<sup>₦</sup> <span>{{brochurePricing.price1}}</span>
 				</div>
 			</div>
 			<div class="pricing-block__content">
 				<ul class="pricing-block__list">
-					<li title="Design Options">10</li>
-					<li title="Designers">Dedicated</li>
-					<li title="Days Duration">5</li>
-					<li title="Revisions">Unlimited</li>
-	        <li title="Email &amp; Phone Support">
+					<li title="{{brochurePricing.labels[0]}}">10</li>
+					<li title="{{brochurePricing.labels[1]}}">Dedicated</li>
+					<li title="{{brochurePricing.labels[2]}}">5</li>
+					<li title="{{brochurePricing.labels[3]}}">Unlimited</li>
+	        <li title="{{brochurePricing.labels[4]}}">
 	        	<svg class="icon icon-check checked"><use xlink:href="#icon-check"></use></svg>
 	        </li>
 				</ul>
