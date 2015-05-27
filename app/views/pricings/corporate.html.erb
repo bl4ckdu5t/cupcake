@@ -1,4 +1,4 @@
-<header class="header header-landing">
+<header class="header header-pricing">
 	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
 	<nav class="header-navigation">
 		<ul>
@@ -13,8 +13,110 @@
 	<%= link_to root_path do %>
 	<%= image_tag "logo.png", alt: 'DesignsCrowd', class: 'logo' %>
 	<% end %>
-	<%= image_tag "wood-label.png" %>
+	<%= image_tag "header-corporate.png", class: 'header-caption header-caption__image' %>
 </header>
+<section class="section-pricing section-mini">
+	<h1>Choose your corporate design package and order</h1>
+	<p>Choose a design package, and we'll launch your project in our marketplace.</p>
+	<p>Remember, a higher price means a bigger designer prize, and a bigger prize attracts more designers to your project</p>
+	<p>All packages come with a full copyright ownership of the final size</p>
+	<div class="pricing">
+		<div class="pricing-label">
+			<ul>
+				<li>Design Options</li>
+				<li>Designers</li>
+				<li>Days Duration</li>
+				<li>Revisions</li>
+				<li>Email &amp; Phone Support</li>
+			</ul>
+		</div>
+		<div class="pricing-block">
+			<div class="pricing-block__title">
+				<h3>Package 1</h3>
+				<div>
+					<sup>₦</sup> <span>40,000</span>
+				</div>
+			</div>
+			<div class="pricing-block__content">
+				<ul class="pricing-block__list">
+					<li title="Design Options">4</li>
+					<li title="Designers">2</li>
+					<li title="Days Duration">5</li>
+					<li title="Revisions">2</li>
+	        <li title="Email &amp; Phone Support">
+	        	<svg class="icon icon-check checked"><use xlink:href="#icon-check"></use></svg>
+	        </li>
+				</ul>
+				<a href="" class="button button-pricing">Order Now</a>
+			</div>
+		</div>
+		
+		<div class="pricing-block">
+			<div class="pricing-block__title">
+				<h3>Package 2</h3>
+				<div>
+					<sup>₦</sup> <span>80,000</span>
+				</div>
+			</div>
+			<div class="pricing-block__content">
+				<ul class="pricing-block__list">
+					<li title="Design Options">10</li>
+					<li title="Designers">5</li>
+					<li title="Days Duration">5</li>
+					<li title="Revisions">3</li>
+	        <li title="Email &amp; Phone Support">
+	        	<svg class="icon icon-check checked"><use xlink:href="#icon-check"></use></svg>
+	        </li>
+				</ul>
+				<a href="" class="button button-pricing">Order Now</a>
+			</div>
+		</div>
+
+
+		<div class="pricing-block">
+			<div class="pricing-block__title">
+				<h3>Package 3</h3>
+				<div>
+					<sup>₦</sup> <span>250,000</span>
+				</div>
+			</div>
+			<div class="pricing-block__content">
+				<ul class="pricing-block__list">
+					<li title="Design Options">20</li>
+					<li title="Designers">10</li>
+					<li title="Days Duration">5</li>
+					<li title="Revisions">5</li>
+	        <li title="Email &amp; Phone Support">
+	        	<svg class="icon icon-check checked"><use xlink:href="#icon-check"></use></svg>
+	        </li>
+				</ul>
+				<a href="" class="button button-pricing">Order Now</a>
+			</div>
+		</div>
+
+
+		<div class="pricing-block">
+			<div class="pricing-block__title">
+				<h3>Package 4</h3>
+				<div>
+					<sup>₦</sup> <span>300,000</span>
+				</div>
+			</div>
+			<div class="pricing-block__content">
+				<ul class="pricing-block__list">
+					<li title="Design Options">10</li>
+					<li title="Designers">Dedicated</li>
+					<li title="Days Duration">5</li>
+					<li title="Revisions">Unlimited</li>
+	        <li title="Email &amp; Phone Support">
+	        	<svg class="icon icon-check checked"><use xlink:href="#icon-check"></use></svg>
+	        </li>
+				</ul>
+				<a href="" class="button button-pricing">Order Now</a>
+			</div>
+		</div>
+	</div>
+</section>
 <section class="section-categories section-mini">
 	<h2 class="section-divider-heading" id="customers">What do you need designed?</h2>
 	<%= link_to pricing_logo_path do %>

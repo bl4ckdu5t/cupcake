@@ -12,5 +12,6 @@
 //
 //= require jquery2.min
 //= require jquery_ujs
+//= require angular/angular
 //= require picturefill/dist/picturefill.min
 //= require_tree .
