@@ -1,31 +1,11 @@
 var app = angular.module('designscook', [])
 .controller('appController', ['$scope',function($scope){
-	$scope.genders = [
-		{
-			label: "Male",
-			value: "male"
-		},
-		{
-			label: "Female",
-			value: "female"
-		}
-	];
-	$scope.ageRanges = [
-		{
-			range: "18 - 29",
-			value: 1
-		},
-		{
-			range: "30 - 39",
-			value: 2,
-		},
-		{
-			range: "40 - 50",
-			value: 3
-		},
-		{
-			range: "51 - 70",
-			value: 4
-		}
-	];
+	$scope.logoPricing = {
+		price1: "20,000",
+		price2: "50,000",
+		price3: "120,000",
+		price4: "300,000",
+		labels: ["Design Options", "Designers", "Days Duration", "Revisions", "Email & Phone Support"]
+	}
+	$scope.stationeryPricing = {}
 }]);

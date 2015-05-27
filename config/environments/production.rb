@@ -86,4 +86,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # Telling Minifications not to mess up with AngularJS variables
+  config.assets.js_compressor = Uglifier.new(mangle: false)
 end
