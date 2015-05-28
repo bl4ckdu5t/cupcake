@@ -714,7 +714,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		transition: background-color 0.3s ease-in-out;
 	}
 	&:checked + label{
-		background-color: $color-brand-1;
+		background-color: darken($color-brand-2, 5%);
 		color: $white;
 	}
 	&:first-of-type + label{

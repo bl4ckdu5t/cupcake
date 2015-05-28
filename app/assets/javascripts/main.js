@@ -1,6 +1,7 @@
 $(function(){
-  /* Auto disappear notifications */
+  /* Auto disappear notifications and adjusting headers without relative position to take notification */
   $(".notify").filter(":visible").delay(6000).slideUp('slow');
+  $(".notify").filter(":visible").siblings('.header').css('position','relative');
 	/* Off-Canvas Navigation Toggle */
 	$('#js-toggle-nav').click(function(){
 		$('html').toggleClass('openNav');
