@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby "2.1.2"
 
+# Intercom for site monitoring
+gem 'intercom-rails'
 # Figaro for local environment variables
 gem 'figaro'
 # Devise for authentication
