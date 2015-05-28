@@ -511,7 +511,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 .vimeo{
 	margin: 20px auto;
 	width: 100%;
-	height: 185px;
+	height: 280px;
 	border: solid 4px $white;
 	@include breakpoint($breakpoint-android-landscape){
 		height: 320px;
