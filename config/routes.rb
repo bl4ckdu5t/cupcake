@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'about-us'         => 'welcome#about', as: :about_us
+  get 'usage-guide'      => 'welcome#help', as: :help
+  get 'terms-of-service' => 'welcome#terms', as: :tos
+  get 'privacy-policy'   => 'welcome#privacy', as: :privacy
   scope path: "/pricing" do
     get 'logo'       => 'pricings#logo', as: :pricing_logo
     get 'stationery' => 'pricings#stationery', as: :pricing_stationery

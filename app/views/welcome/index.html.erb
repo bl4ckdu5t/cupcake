@@ -4,26 +4,25 @@
 <header class="header header-landing">
 	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
 	<nav class="header-navigation">
-		<ul>
-			<li>
-				<%= link_to 'Sign up', new_user_registration_path %>
-			</li>
-			<li>
-				<%= link_to 'Log in', new_user_session_path %>
-			</li>
-		</ul>
+	<ul>
+		<% unless user_signed_in? %>
+		<li><%= link_to 'Sign up', new_user_registration_path %></li>
+		<li><%= link_to 'Log in', new_user_session_path %></li>
+		<% else %>
+		<li><%= link_to 'Account', 'http://google.com' %></li>
+		<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+		<% end %>
+	</ul>
 	</nav>
-	<%= link_to root_path do %>
-	<%= image_tag "logo.png", alt: 'DesignsCrowd', class: 'logo' %>
-	<% end %>
+	<%= link_to root_path do %><%= image_tag "logo.png", alt: 'DesignsCrowd', class: 'logo' %><% end %>
 	<h1 class="header-caption">Get Custom Designs Today</h1>
 	<span class="header-description">Your online design marketplace. We deliver faster, better and cheaper</span>
 	<div class="header-button__options">
 		<a href="#customers" class="button button-polarized button-large">I need designs</a>
-		<a href="" class="button button-bordered button-large">I'm a designer</a>
+		<%= link_to "I'm a designer", designer_path, class: 'button button-large button-bordered' %>
 	</div>
 </header>
-<section class="section-tour section-mini">
+<section class="section-tour section-mini" id="how-it-works">
 	<h2 class="section-tour-title">How <strong>DesignsCook</strong> works</h2>
 	<div class="section-tour__step">
 		<svg class="icon icon-postings"><use xlink:href="#icon-postings"></use></svg>
@@ -47,12 +46,12 @@
 	</div>
 </section>
 <section class="section-demo">
-	<div>
-	<img src="<%= asset_url 'plank.png' %>" srcset="<%= asset_url 'plank.png' %> 1024w, <%= asset_url 'wood-label.png' %> 320w" alt="Grow your business" class="section-demo__caption" sizes="(min-width: 40em) 70vw, 35vw">
-	</div>
-	<div>
-	<iframe src="https://player.vimeo.com/video/89546048" class="vimeo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  </div>
+<div>
+<img src="<%= asset_url 'plank.png' %>" srcset="<%= asset_url 'plank.png' %> 1024w, <%= asset_url 'wood-label.png' %> 320w" alt="Grow your business" class="section-demo__caption" sizes="(min-width: 40em) 70vw, 35vw">
+</div>
+<div>
+<iframe src="https://player.vimeo.com/video/89546048" class="vimeo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
 </section>
 <section class="section-categories section-mini">
 	<h2 class="section-divider-heading" id="customers">What do you need designed?</h2>
@@ -82,8 +81,8 @@
 	<div class="view view-tenth">  
 	  <%= image_tag "portfolio#{x}.jpg" %> 
     <div class="mask">  
-      <h2>Logo designs</h2>  
-      <p>Custom brand logo for your company</p>  
+      <h2>Portfolio Design</h2>  
+      <p>Get custom design today</p>
       <a href="#" class="info">View More</a>  
     </div>  
 	</div> 
