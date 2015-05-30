@@ -1,18 +1,5 @@
 <header class="header header-pricing">
-	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
-	<nav class="header-navigation">
-		<ul>
-			<li>
-				<%= link_to 'Sign up', new_user_registration_path %>
-			</li>
-			<li>
-				<%= link_to 'Log in', new_user_session_path %>
-			</li>
-		</ul>
-	</nav>
-	<%= link_to root_path do %>
-	<%= image_tag "logo.png", alt: 'DesignsCrowd', class: 'logo' %>
-	<% end %>
+	<%= render "welcome/nav" %>
 	<%= image_tag "header-corporate.png", class: 'header-caption header-caption__image' %>
 </header>
 <section class="section-pricing section-mini">

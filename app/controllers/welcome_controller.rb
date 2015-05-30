@@ -5,4 +5,8 @@ class WelcomeController < ApplicationController
   end
   def privacy
   end
+  def help
+  end
+  def about
+  end
 end
