@@ -388,6 +388,9 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		time{
 			font-style: italic;
 		}
+		li{
+			margin: 5px 0;
+		}
 	}
 }
 .social-icons{
