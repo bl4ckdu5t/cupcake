@@ -381,7 +381,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 	}
 	&-article{
 		font-size: 2rem;
-		padding: 40px 0;
+		padding: 40px 10px;
 		article{
 			text-align: justify;
 		}
@@ -390,6 +390,10 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		}
 		li{
 			margin: 5px 0;
+			>ul{
+				margin: 0;
+				padding: 0;
+			}
 		}
 	}
 }
