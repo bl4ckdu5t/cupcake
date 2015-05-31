@@ -2,7 +2,9 @@ class AccountsController < ApplicationController
 	before_action :authenticate_user!
 
 	def designers
-
+    if current_user.usertype == 'customer'
+    	redirect_to customer_path
+    end
 	end
 
 	def customers
