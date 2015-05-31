@@ -63,6 +63,32 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			height: 450px;
 		}
 	}
+	&-authenticated{
+		position: relative;
+		padding-top: 100px;
+		background: image-url("header-4.jpg");
+		background-position: 0 -530px;
+		transition: background-position 1s linear;
+		&:hover{
+			background-position: 0 -220px;
+		}
+		height: 220px;
+		@include breakpoint($breakpoint-android-landscape + 4px){
+			height: 400px;
+		}
+		.icon-menu{
+			z-index: 10;
+			@include breakpoint($breakpoint-android-landscape + 4px){
+				display: block;
+			}
+			@include breakpoint($breakpoint-tablet-portrait){
+				display: none;
+			}
+		}
+		.header-caption{
+			text-shadow: 1px 2px 2px $color-brand-1;
+		}
+	}
 	&-caption{
 		font-size: 3.2rem;
 		margin: 30px 0;
@@ -601,6 +627,42 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		width: 131px;
 		height: 99px;
 	}
+	&-custom{
+		::-webkit-input-placeholder{ color: $color-brand-1; }
+		:-moz-placeholder{ color: $color-brand-1; }
+		::-moz-placeholder { color: $color-brand-1; }
+		:-ms-input-placeholder { color: $color-brand-1; }
+		&__title{
+			display: block;
+			margin: 10px auto;
+			padding: 5px 10px;
+			width: 80%;
+			height: 40px;
+			border: solid 3px $color-brand-1;
+			background: transparent;
+			border-radius: 5px;
+		}
+		&__desc{
+			display: block;
+			margin: 10px auto;
+			padding: 10px;
+			width: 80%;
+			height: 200px;
+			border: solid 3px $color-brand-1;
+			border-radius: 5px;
+			background: transparent;
+		}
+		&__submit{
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			background: $color-brand-1;
+			color: $white;
+			&:hover{
+				box-shadow: 2px 3px 1px #666 inset;
+			}
+		}
+	}
 }
 .authentication{
 	&-box{
@@ -844,6 +906,78 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		li{
 			padding: 10px;
 			border-bottom: solid thin $color-brand-1;
+		}
+	}
+}
+.authenticated{
+	&-navigation{
+		padding: 20px;
+		@include breakpoint($breakpoint-tablet-portrait){
+			padding: 0;
+		}
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100px;
+		background: rgba(darken($color-brand-1, 12%), .9);
+		.logo{
+			@include breakpoint($breakpoint-android-landscape + 4px){
+			  position: static;
+			}
+			@include breakpoint($breakpoint-tablet-portrait){
+				position: absolute;
+				top: 20px;
+				left: 50px;
+			}
+		}
+	}
+	&-menu{
+		position: fixed;
+		top: 0;
+		left: -70%;
+		min-width: 70%;
+		height: 100%;
+		background: $color-brand-1;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		li>a{
+			display: block;
+			background: darken($color-brand-1, 5%);
+			padding: 15px;
+			margin: 2px 0;
+			&:hover{
+				background: darken($color-brand-1, 8%);
+			}
+		}
+		@include breakpoint($breakpoint-tablet-portrait){
+			position: absolute;
+			top: 0;
+			left: auto;
+			min-width: 0;
+			right: 20px;
+			>li{
+				display: inline-block;
+				margin: 0 -2px;
+				height: 100%;
+				>a{
+					display: block;
+					background: rgba(darken($color-brand-1, 15%), .9);
+					margin: 0;
+	        padding: 10px 20px;
+					height: 100%;
+					border-right: solid 2px rgba($white, .1);
+					&:hover{
+						background: rgba(darken($color-brand-2, 15%), .7);
+					}
+				}
+			}
+		}
+		.icon{
+			display: block;
+			margin: 10px auto;
+			font-size: 2.5rem;
 		}
 	}
 }

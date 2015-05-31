@@ -2,9 +2,13 @@
 	<%= render "welcome/nav" %>
 	<%= image_tag "wood-label.png", class: 'header-caption header-caption__image' %>
 </header>
-<section class="section-pricing section-mini">
+<section class="section-pricing section-mini category-custom">
 	<h1>Tell us about your custom design</h1>
-	<%= text_area_tag :message, html: { class: 'category-custom__desc' } %>
+	<%= label_tag :title, "Title of design" %>
+	<%= text_field_tag :title, nil, class: 'category-custom__title', placeholder: 'e.g Product design' %>
+	<%= label_tag :message, "Description of design" %>
+	<%= text_area_tag :message, nil, class: 'category-custom__desc', placeholder: 'e.g A design for our company candy wrapper' %>
+	<%= submit_tag "Request design", class: 'category-custom__submit' %>
 </section>
 <section class="section-categories section-mini">
 	<h2 class="section-divider-heading" id="customers">What do you need designed?</h2>
