@@ -1,6 +1,28 @@
-<h2>Forgot your password?</h2>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify notify-danger' %>
+<% end %>
+<header class="header header-authentication">
+  <nav class="page-navigation">
+    <div id="js-historyBack"><svg class="icon icon-arrow-back"><use xlink:href="#icon-arrow-back"></use></svg></div>
+    <div id="js-page-menu-trigger"><svg class="icon icon-more-vert"><use xlink:href="#icon-more-vert"></use></svg></div>
+    <ul id="js-page-menu">
+      <li><%= link_to 'Pricing', pricing_logo_path %></li>
+      <li><%= link_to 'Help', help_path %></li>
+      <li><%= link_to 'About us', about_us_path %></li>
+    </ul>
+  </nav>
+  <%= link_to root_url do %>
+  <%= image_tag "logo-cap.png" %>
+  <% end %>
+</header>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<div class="authentication-box">
+  <nav class="authentication-navigation">
+    <%= link_to 'Log in', new_user_session_path, class: 'is_inactive' %>
+    <%= link_to 'Sign up', new_user_registration_path, class: 'is_inactive' %>
+  </nav>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'authentication-form' }) do |f| %>
+  <h2>Forgot Password</h2>
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -9,8 +31,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send reset instructions", class: 'button button-bordered-brand button-large' %>
   </div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
