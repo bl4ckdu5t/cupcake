@@ -8,9 +8,9 @@ module.exports = function(grunt) {
        },
        files: [{
          expand: true,                         // enable dynamic expansion
-         cwd: 'app/assets/images/',            // src matches are relative to this path
+         cwd: 'app/assets/images/uncompressed',// src matches are relative to this path
          src: ['**/*.{png,jpg,gif}'],          // Actual patterns to match
-         dest: 'app/assets/images/compressed'  // Destination path prefix
+         dest: 'app/assets/images/'            // Destination path prefix
        }]
      }
     },
