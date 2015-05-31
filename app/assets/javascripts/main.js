@@ -1,6 +1,20 @@
 $(function(){
+  /* Scroll back to top function */
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+        $('.scrollup').fadeIn();
+    } else {
+        $('.scrollup').fadeOut();
+    }
+  });
+  $('.scrollup').click(function () {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 600);
+    return false;
+  });
   /* Auto disappear notifications and adjusting headers without relative position to take notification */
-  $(".notify").filter(":visible").delay(6000).slideUp('slow');
+  $(".notify:not(.notify-fixed)").filter(":visible").delay(6000).slideUp('slow');
   $(".notify").filter(":visible").siblings('.header').css('position','relative');
 	/* Off-Canvas Navigation Toggle */
 	$('#js-toggle-nav').click(function(){
