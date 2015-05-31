@@ -964,7 +964,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 				>a{
 					display: block;
 					background: rgba(darken($color-brand-1, 15%), .9);
-					margin: 0;
+					margin: 0 -.3px;
 	        padding: 10px 20px;
 					height: 100%;
 					border-right: solid 2px rgba($white, .1);
