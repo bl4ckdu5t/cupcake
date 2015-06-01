@@ -68,6 +68,8 @@ GEM
       thor (~> 0.14)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    heroku-deflater (0.5.3)
+      rack (>= 1.4.5)
     i18n (0.7.0)
     intercom-rails (0.2.28)
       activesupport (> 3.0)
@@ -172,6 +174,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   figaro
+  heroku-deflater
   intercom-rails
   jbuilder (~> 2.0)
   jquery-rails
