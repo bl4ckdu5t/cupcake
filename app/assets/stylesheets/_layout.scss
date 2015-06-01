@@ -68,7 +68,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		padding-top: 100px;
 		background: image-url("header-4.jpg");
 		background-position: 0 -530px;
-		transition: background-position 1s linear;
+		transition: background-position 1s linear 1.2s;
 		&:hover{
 			background-position: 0 -220px;
 		}
@@ -452,6 +452,9 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			padding: 20px;
 			@include breakpoint($breakpoint-tablet-portrait - 1px){
 			  width: 70%;
+		  }
+		  @include breakpoint($breakpoint-tablet-landscape){
+		  	width: 80%;
 		  }
 		}
 	}
@@ -1078,6 +1081,36 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 				  top: 25px;
 				  left: 80px;
 			  }
+			}
+		}
+	}
+}
+.widget{
+	height: 300px;
+	background: #222;
+	color: #eee;
+	overflow: hidden;
+	margin-bottom: 10px;
+	@include breakpoint($breakpoint-tablet-wide){
+		width: 49%;
+		float: left;
+		&:nth-of-type(odd){
+			margin-right: 10px;
+		}
+	}
+	&-title{
+		margin: 0;
+		height: 50px;
+		padding: 10px 15px;
+		border-bottom: solid thin #555;
+		> span{
+			font-size: 1.6rem;
+			margin-left: 10px;
+			&::before{
+				content: '(';
+			}
+			&::after{
+				content: ')';
 			}
 		}
 	}
