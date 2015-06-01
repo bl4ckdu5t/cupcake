@@ -406,7 +406,9 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		}
 	}
 	&-article{
-		font-size: 2rem;
+		@include breakpoint($breakpoint-tablet-portrait){
+		  font-size: 2rem;
+	  }
 		padding: 40px 10px;
 		article{
 			text-align: justify;
