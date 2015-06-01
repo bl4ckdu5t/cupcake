@@ -1,13 +1,5 @@
 <svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
 <nav class="header-navigation">
-<ul>
-	<% unless user_signed_in? %>
-	<li><%= link_to 'Sign up', new_user_registration_path %></li>
-	<li><%= link_to 'Log in', new_user_session_path %></li>
-	<% else %>
-	<li><%= link_to 'Account', current_user.usertype == "customer" ? customer_path : designer_path %></li>
-	<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-	<% end %>
-</ul>
+<ul><% unless user_signed_in? %><li><%= link_to 'Sign up', new_user_registration_path %></li><li><%= link_to 'Log in', new_user_session_path %></li><% else %><li><%= link_to 'Account', current_user.usertype == "customer" ? customer_path : designer_path %></li><li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li><% end %></ul>
 </nav>
 <%= link_to root_path do %><%= image_tag "logo.png", alt: 'DesignsCrowd', class: 'logo' %><% end %>

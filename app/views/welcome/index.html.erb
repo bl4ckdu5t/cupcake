@@ -1,79 +1,34 @@
 <% flash.each do |name, msg| %>
   <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify' %>
 <% end %>
-<header class="header header-landing">
-	<%= render "nav" %>
-	<h1 class="header-caption">Get Custom Designs Today</h1>
-	<span class="header-description">Your online design marketplace. We deliver faster, better and cheaper</span>
-	<div class="header-button__options">
-		<a href="#customers" class="button button-polarized button-large">I need designs</a>
-		<%= link_to "I'm a designer", designer_path, class: 'button button-large button-bordered' %>
-	</div>
+<header class="header header-landing"><%= render "nav" %>
+<h1 class="header-caption">Get Custom Designs Today</h1>
+<span class="header-description">Your online design marketplace. We deliver faster, better and cheaper</span>
+<div class="header-button__options"><a href="#customers" class="button button-polarized button-large">I need designs</a><%= link_to "I'm a designer", designer_path, class: 'button button-large button-bordered' %></div>
 </header>
 <section class="section-tour section-mini" id="how-it-works">
-	<h2 class="section-tour-title">How <strong>DesignsCook</strong> works</h2>
-	<div class="section-tour__step">
-		<svg class="icon icon-postings"><use xlink:href="#icon-postings"></use></svg>
-		<h3>Post a brief</h3>
-		<p>Make a short guideline about your design for designers</p>
-	</div>
-	<div class="section-tour__step">
-		<svg class="icon icon-postings"><use xlink:href="#icon-files"></use></svg>
-		<h3>Get designs</h3>
-		<p>Enjoy surfing through all the designs and have the ones you love and select sent to your mailbox</p>
-	</div>
-	<div class="section-tour__step">
-		<svg class="icon icon-postings"><use xlink:href="#icon-typing"></use></svg>
-		<h3>Feedbacks</h3>
-		<p>Get feedbacks from friends and artists and access to communicate with customer service for edit</p>
-	</div>
-	<div class="section-tour__step">
-		<svg class="icon icon-postings"><use xlink:href="#icon-hand"></use></svg>
-		<h3>Pick the best</h3>
-		<p>Then here's the fun part, you get to choose the #1 design</p>
-	</div>
+<h2 class="section-tour-title">How <strong>DesignsCook</strong> works</h2>
+<div class="section-tour__step"><svg class="icon icon-postings"><use xlink:href="#icon-postings"></use></svg><h3>Post a brief</h3><p>Make a short guideline about your design for designers</p></div><div class="section-tour__step"><svg class="icon icon-postings"><use xlink:href="#icon-files"></use></svg><h3>Get designs</h3><p>Enjoy surfing through all the designs and have the ones you love and select sent to your mailbox</p></div>
+<div class="section-tour__step"><svg class="icon icon-postings"><use xlink:href="#icon-typing"></use></svg><h3>Feedbacks</h3><p>Get feedbacks from friends and artists and access to communicate with customer service for edit</p></div>
+<div class="section-tour__step"><svg class="icon icon-postings"><use xlink:href="#icon-hand"></use></svg><h3>Pick the best</h3><p>Then here's the fun part, you get to choose the #1 design</p></div>
 </section>
 <section class="section-demo">
-<div>
-<img src="<%= asset_url 'plank.png' %>" srcset="<%= asset_url 'plank.png' %> 1024w, <%= asset_url 'wood-label.png' %> 320w" alt="Grow your business" class="section-demo__caption" sizes="(min-width: 40em) 70vw, 35vw">
-</div>
-<div>
-<iframe src="https://player.vimeo.com/video/89546048" class="vimeo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</div>
+<div><img src="<%= asset_url 'plank.png' %>" srcset="<%= asset_url 'plank.png' %> 1024w, <%= asset_url 'wood-label.png' %> 320w" alt="Grow your business" class="section-demo__caption" sizes="(min-width: 40em) 70vw, 35vw"></div>
+<div><iframe src="https://player.vimeo.com/video/89546048" class="vimeo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
 </section>
 <section class="section-categories section-mini">
-	<h2 class="section-divider-heading" id="customers">What do you need designed?</h2>
-	<%= link_to pricing_logo_path do %>
-	<div class="category-item"><span class="category-logo"></span>Logo</div>
-	<% end %>
-	<%= link_to pricing_stationery_path do %>
-	<div class="category-item"><span class="category-stationery"></span>Stationery</div>
-	<% end %>
-	<%= link_to pricing_banner_path do %>
-	<div class="category-item"><span class="category-banner"></span>Banner/Flyer</div>
-	<% end %>
-	<%= link_to pricing_brochure_path do %>
-	<div class="category-item"><span class="category-brochure"></span>Brochure</div>
-	<% end %>
-	<%= link_to pricing_website_path do %>
-	<div class="category-item"><span class="category-website"></span>Website</div>
-	<% end %>
-	<%= link_to pricing_corporate_path do %>
-	<div class="category-item"><span class="category-corporate"></span>Corporate</div>
-	<% end %>
-	<%= link_to 'Other designs', pricing_custom_path, class: 'button button-bordered-brand' %>
+<h2 class="section-divider-heading" id="customers">What do you need designed?</h2>
+<%= link_to pricing_logo_path do %><div class="category-item"><span class="category-logo"></span>Logo</div><% end %>
+<%= link_to pricing_stationery_path do %><div class="category-item"><span class="category-stationery"></span>Stationery</div><% end %>
+<%= link_to pricing_banner_path do %><div class="category-item"><span class="category-banner"></span>Banner/Flyer</div><% end %>
+<%= link_to pricing_brochure_path do %><div class="category-item"><span class="category-brochure"></span>Brochure</div><% end %>
+<%= link_to pricing_website_path do %><div class="category-item"><span class="category-website"></span>Website</div><% end %>
+<%= link_to pricing_corporate_path do %><div class="category-item"><span class="category-corporate"></span>Corporate</div><% end %>
+<%= link_to 'Other designs', pricing_custom_path, class: 'button button-bordered-brand' %>
 </section>
 <section class="section-portfolio section-mini">
-	<h2 class="section-divider-heading">Portfolio</h2>
-	<% (1..6).each do |x| %>
-	<div class="view view-tenth">  
-	  <%= image_tag "portfolio#{x}.jpg" %> 
-    <div class="mask">  
-      <h2>Portfolio Design</h2>  
-      <p>Get custom design today</p>
-      <a href="#" class="info">View More</a>  
-    </div>  
-	</div> 
-	<% end %>
-	<a href="" class="button button-bordered-brand button-large">View all</a>
+<h2 class="section-divider-heading">Portfolio</h2>
+<% (1..6).each do |x| %>
+<div class="view view-tenth"><%= image_tag "portfolio#{x}.jpg" %><div class="mask"><h2>Portfolio Design</h2><p>Get custom design today</p><a href="#" class="info">View More</a></div></div>
+<% end %><a href="" class="button button-bordered-brand button-large">View all</a>
 </section>
