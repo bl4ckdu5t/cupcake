@@ -230,6 +230,18 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			background: darken($color-brand-2, 15%);
 		}
 	}
+	&-widget__purchase{
+		background: $color-purchase;
+		&:hover{
+			background: darken($color-purchase, 5%);
+		}
+	}
+	&-widget__decline{
+		background: $color-unpurchase;
+		&:hover{
+      background: darken($color-unpurchase, 5%);
+		}
+	}
 }
 .footer{
 	padding: 30px;
@@ -425,9 +437,13 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		}
 	}
 	&-dashboard{
+		overflow: hidden;
 		@include clearfixable;
-		@include breakpoint($breakpoint-tablet-portrait){
-		  height: 700px;
+		@include breakpoint($breakpoint-tablet-portrait - 1px){
+		  height: 1320px;
+	  }
+	  @include breakpoint($breakpoint-tablet-wide){
+	  	height: 700px;
 	  }
 		> *{
 			@include breakpoint($breakpoint-tablet-portrait - 1px){
@@ -1087,7 +1103,6 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 }
 .widget{
 	height: 300px;
-	background: #222;
 	color: #eee;
 	overflow: hidden;
 	margin-bottom: 10px;
@@ -1101,8 +1116,8 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 	&-title{
 		margin: 0;
 		height: 50px;
-		padding: 10px 15px;
-		border-bottom: solid thin #555;
+		padding: 10px 20px;
+		@include ellipsis-line(100%);
 		> span{
 			font-size: 1.6rem;
 			margin-left: 10px;
@@ -1112,6 +1127,46 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			&::after{
 				content: ')';
 			}
+		}
+		.widget-draft &{
+		  border-bottom: solid thin darken($color-widget-draft, 5%);
+		}
+		.widget-opened &{
+	    border-bottom: solid thin darken($color-widget-open, 5%);
+		}
+		.widget-closed &{
+			border-bottom: solid thin darken($color-widget-closed, 5%);
+		}
+	}
+	&-draft{
+		background: $color-widget-draft;
+	}
+	&-opened{
+		background: $color-widget-open;
+	}
+	&-closed{
+		background: $color-widget-closed;
+	}
+	&-content{
+		padding: 20px 30px;
+		&__list{
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			font-size: 2rem;
+			li{
+				margin-bottom: 10px;
+			}
+		}
+		.icon{
+			margin-right: 10px;
+		}
+	}
+	&-meta{
+		padding: 6px 20px;
+		time{
+			float: right;
+			margin-top: 12px;
 		}
 	}
 }

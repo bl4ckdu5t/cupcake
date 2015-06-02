@@ -14,6 +14,11 @@
 .topmag10{ margin-top: 10px; }
 .topmag20{ margin-top: 20px; }
 .topmagcustom1{ margin-top: 60px; }
+.rightmag5{
+  @include breakpoint($breakpoint-android-landscape){
+    margin-right: 5px;
+  }
+}
 .color-white{ color: $white; }
 .middle-block{
   display: block;
