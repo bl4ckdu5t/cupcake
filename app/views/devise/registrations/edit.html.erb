@@ -1,4 +1,22 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify notify-danger' %>
+<% end %>
+<header class="header header-authentication">
+  <nav class="page-navigation">
+    <div id="js-historyBack"><svg class="icon icon-arrow-back"><use xlink:href="#icon-arrow-back"></use></svg></div>
+    <div id="js-page-menu-trigger"><svg class="icon icon-more-vert"><use xlink:href="#icon-more-vert"></use></svg></div>
+    <ul id="js-page-menu">
+      <li><%= link_to 'Pricing', pricing_logo_path %></li>
+      <li><%= link_to 'Help', help_path %></li>
+      <li><%= link_to 'About us', about_us_path %></li>
+    </ul>
+  </nav>
+  <%= link_to root_url do %>
+  <%= image_tag "logo-cap.png" %>
+  <% end %>
+</header>
+
+<div class="authentication-box">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -35,5 +53,4 @@
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

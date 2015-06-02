@@ -6,8 +6,16 @@
 	<nav class="authenticated-navigation">
 	  <%= link_to root_path do %><%= image_tag "logo.png", class: 'logo' %><% end %>
 	  <ul class="authenticated-menu">
-	  	<li><a href=""><svg class="icon icon-add-circle-outline"><use xlink:href="#icon-add-circle-outline"></use></svg>Post project</a></li>
-	  	<li><a href=""><svg class="icon icon-cog"><use xlink:href="#icon-cog"></use></svg>Account settings</a></li>
+	  	<li>
+	  		<%= link_to new_project_path do %>
+	  		<svg class="icon icon-add-circle-outline"><use xlink:href="#icon-add-circle-outline"></use></svg>Post project</a>
+	  		<% end %>
+	  	</li>
+	  	<li>
+	  		<%= link_to edit_user_registration_path do %>
+	  		<svg class="icon icon-cog"><use xlink:href="#icon-cog"></use></svg>Account settings</a>
+	  		<% end %>
+	  	</li>
 	  	<li>
 	  		<%= link_to destroy_user_session_path, :method => :delete do %>
 	  		<svg class="icon icon-backspace"><use xlink:href="#icon-backspace"></use></svg> Log out

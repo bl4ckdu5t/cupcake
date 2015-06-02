@@ -11,10 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518081540) do
+ActiveRecord::Schema.define(version: 20150602104225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "briefs", force: :cascade do |t|
+    t.integer  "project_id"
+    t.boolean  "is_new",              default: true
+    t.string   "company_name"
+    t.text     "company_description"
+    t.string   "company_address"
+    t.string   "city"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.string   "slogan"
+    t.string   "color_choices"
+    t.string   "website"
+    t.string   "recommended_website"
+    t.text     "website_pages"
+    t.text     "card_orientation"
+    t.text     "additional"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "design_type"
+    t.integer  "package"
+    t.string   "title"
+    t.string   "description"
+    t.integer  "duration"
+    t.string   "formats"
+    t.boolean  "paid",        default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'projects/new'
+
+  resources :projects
   get 'about-us'         => 'welcome#about', as: :about_us
   get 'usage-guide'      => 'welcome#help', as: :help
   get 'terms-of-service' => 'welcome#terms', as: :tos
