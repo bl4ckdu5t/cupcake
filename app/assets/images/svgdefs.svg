@@ -1,4 +1,4 @@
-<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <symbol id="icon-radio-checked" viewBox="0 0 1024 1024">
 	<title>radio-checked</title>
@@ -65,7 +65,7 @@
 	<path class="path1" d="M213.333 0v128h-128v896h725.333v-128h128v-896h-725.333zM725.333 938.667h-554.667v-725.333h42.667v682.667h512v42.667zM853.333 810.667h-554.667v-725.333h554.667v725.333zM640 213.333h-256v85.333h256v-85.333zM768 341.333h-384v42.667h384v-42.667zM768 426.667h-384v42.667h384v-42.667zM768 512h-384v42.667h384v-42.667zM512 597.333h-128v42.667h128v-42.667z"></path>
 </symbol>
 <symbol id="icon-postings" width="100" height="100" viewBox="0 0 100 100">
-	<g transform="matrix(.157 0 0 .148 -6.022 -15.559)"><path d="M656.857 456.648a295.714 295.714 0 1 1-591.428 0 295.714 295.714 0 1 1 591.427 0z" fill="none" stroke="#4c3a30" stroke-width="10"/><path d="M638.113 456.38a278.398 274.986 0 1 1-556.797 0 278.398 274.986 0 1 1 556.797 0z" fill="#4c3a30"/><rect transform="matrix(.779 -.627 .733 .681 0 0)" y="524.726" x="-221.694" ry="0" height="111.587" width="356.516" fill="#e7dfcc"/><path style="fill:#e7dfcc;stroke:none" d="M 202.85714,506.6479 280,580.93361 174.28571,595.21933 z" /></g>
+	<g transform="matrix(.157 0 0 .148 -6.022 -15.559)"><path d="M656.857 456.648a295.714 295.714 0 1 1-591.428 0 295.714 295.714 0 1 1 591.427 0z" fill="none" stroke="#4c3a30" stroke-width="10"/><path d="M638.113 456.38a278.398 274.986 0 1 1-556.797 0 278.398 274.986 0 1 1 556.797 0z" fill="#4c3a30"/><rect transform="matrix(.779 -.627 .733 .681 0 0)" y="524.726" x="-221.694" ry="0" height="111.587" width="356.516" fill="#e7dfcc"/><path fill="#e7dfcc" d="M 202.85714,506.6479 280,580.93361 174.28571,595.21933 z" /></g>
 </symbol>
 <symbol id="icon-cc-stripe" viewBox="0 0 1317 1024">
 	<title>cc-stripe</title>

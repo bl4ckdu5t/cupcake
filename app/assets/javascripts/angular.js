@@ -1,6 +1,8 @@
-var regularLabel = ["Design Options", "Designers", "Days Duration", "Revisions", "Email & Phone Support"];
+var label1 = ["Design Options", "Designers", "Days Duration", "Revisions", "Work process", "Email & Phone Support"];
+var label2 = ["Design options", "Number of stationery items", "Designers", "Days Duration", "Revisions", "Work process",
+ "Email & Phone Support"];
 var app = angular.module('designscook', [])
-.controller('appController', ['$scope', '$http',function($scope, $http){
+.controller('appController', ['$scope', '$http', '$location',function($scope, $http, $location){
 	$http.jsonp('http://api.ipify.org?format=jsonp&callback=JSON_CALLBACK').then(function(response) { 
 		var ip = response.data.ip;
 		$http.get('https://freegeoip.net/json/'+ip).then(function(r){
@@ -8,48 +10,57 @@ var app = angular.module('designscook', [])
 			$scope.currency = shortcode == 'NG' ? '₦' : '$';
 
 			$scope.logoPricing = {
-				price1: shortcode == 'NG' ? "20,000" : "100",
-				price2: shortcode == 'NG' ? "50,000" : "252",
-				price3: shortcode == 'NG' ? "120,000": "603",
-				price4: shortcode == 'NG' ? "300,000": "1508",
-				labels: regularLabel
+				price1: shortcode == 'NG' ? convertNGN("75") : "75",
+				price2: shortcode == 'NG' ? convertNGN("150") : "150",
+				price3: shortcode == 'NG' ? convertNGN("300"): "300",
+				price4: shortcode == 'NG' ? convertNGN("1000"): "1000",
+				labels: label1
 			}
 			$scope.stationeryPricing = {
-				price1: shortcode == 'NG' ? "20,000" : "100",
-				price2: shortcode == 'NG' ? "40,000" : "200",
-				price3: shortcode == 'NG' ? "60,000" : "300",
-				price4: shortcode == 'NG' ? "60,000" : "300",
-				labels: ["Design Concepts", "Included", "Designers", "Days Duration", "Revisions", "Email & Phone Support"]
+				price1: shortcode == 'NG' ? convertNGN("25") : "25",
+				price2: shortcode == 'NG' ? convertNGN("50") : "50",
+				price3: shortcode == 'NG' ? convertNGN("75") : "75",
+				price4: shortcode == 'NG' ? convertNGN("200") : "200",
+				labels: label2
 			}
 			$scope.bannerPricing = {
-				price1: shortcode == 'NG' ? "10,000" : "50",
-				price2: shortcode == 'NG' ? "25,000" : "126",
-				price3: shortcode == 'NG' ? "50,000" : "252",
-				price4: shortcode == 'NG' ? "60,000" : "300",
-				labels: regularLabel
+				price1: shortcode == 'NG' ? convertNGN("25") : "25",
+				price2: shortcode == 'NG' ? convertNGN("50") : "50",
+				price3: shortcode == 'NG' ? convertNGN("100") : "100",
+				price4: shortcode == 'NG' ? convertNGN("250") : "250",
+				labels: label1
 			}
 			$scope.brochurePricing = {
-				price1: shortcode == 'NG' ? "30,000" : "150",
-				price2: shortcode == 'NG' ? "60,000" : "300",
-				price3: shortcode == 'NG' ? "100,000" : "503",
-				price4: shortcode == 'NG' ? "120,000" : "603",
-				labels: regularLabel
+				price1: shortcode == 'NG' ? convertNGN("150") : "150",
+				price2: shortcode == 'NG' ? convertNGN("300") : "300",
+				price3: shortcode == 'NG' ? convertNGN("500") : "500",
+				price4: shortcode == 'NG' ? convertNGN("600") : "600",
+				labels: label1
 			}
 			$scope.websitePricing = {
-				price1: shortcode == 'NG' ? "100,000" : "503",
-				price2: shortcode == 'NG' ? "160,000" : "804",
-				price3: shortcode == 'NG' ? "210,000" : "1055",
-				price4: shortcode == 'NG' ? "300,000" : "1508",
-				labels: regularLabel
+				price1: shortcode == 'NG' ? convertNGN("500") : "500",
+				price2: shortcode == 'NG' ? convertNGN("800") : "800",
+				price3: shortcode == 'NG' ? convertNGN("1050") : "1050",
+				price4: shortcode == 'NG' ? convertNGN("1500") : "1500",
+				labels: label1
 			}
 			$scope.corporatePricing = {
-				price1: shortcode == 'NG' ? "40,000" : "200",
-				price2: shortcode == 'NG' ? "80,000" : "400",
-				price3: shortcode == 'NG' ? "250,000" : "1256",
-				price4: shortcode == 'NG' ? "600,000" : "3015",
-				labels: ["Design Concepts", "Included", "Designers", "Days Duration", "Revisions", "Email & Phone Support"]
+				price1: shortcode == 'NG' ? convertNGN("200") : "200",
+				price2: shortcode == 'NG' ? convertNGN("400") : "400",
+				price3: shortcode == 'NG' ? convertNGN("1250") : "1250",
+				price4: shortcode == 'NG' ? convertNGN("3000") : "3000",
+				labels: label2
 			}
 		});
 	});
   $scope.developer = 'Joseph Rex';
+  //console.log($location.absUrl());
 }]);
+/* Converting to Nigerian Naira (NGN) */
+var aDollarInNaira = 200;
+function convertNGN(str){
+  return numberWithCommas(parseInt(str.replace(",","")) * aDollarInNaira);
+}
+function numberWithCommas(x){
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

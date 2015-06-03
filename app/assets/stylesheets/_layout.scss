@@ -63,6 +63,10 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			height: 450px;
 		}
 	}
+	&-help{
+		@extend .header-laws;
+		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-2.jpg", 100% 100%);
+	}
 	&-authenticated{
 		position: relative;
 		padding-top: 100px;
@@ -613,7 +617,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		background-position: 0 -63px;
 	}
 }
-.vimeo{
+.video{
 	margin: 20px auto;
 	width: 100%;
 	height: 280px;
@@ -844,7 +848,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 }
 .scrollup{
 	position: fixed;
-	bottom: 70px;
+	bottom: 200px;
 	right: 10px;
 	z-index: 9000;
 	width: 60px;
