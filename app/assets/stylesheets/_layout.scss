@@ -1175,3 +1175,27 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		}
 	}
 }
+.steps{
+	margin: 30px auto;
+	width: 80%;
+	max-width: 500px;
+	text-align: center;
+	ul{
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		@include clearfixable;
+	}
+	li{
+		display: inline-block;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		float: left;
+		padding: 20px;
+		border: solid 3px $color-brand-1;
+		&:not(:last-of-type){
+			margin-right: 30px;
+		}
+	}
+}
