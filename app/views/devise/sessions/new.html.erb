@@ -1,5 +1,5 @@
 <% flash.each do |name, msg| %>
-  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify notify-danger' %>
+  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify notify-danger notify-fixed' %>
 <% end %>
 <header class="header header-authentication">
   <nav class="page-navigation">
