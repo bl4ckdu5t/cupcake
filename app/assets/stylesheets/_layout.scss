@@ -1177,6 +1177,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 }
 .steps{
 	margin: 30px auto;
+	display: none;
 	width: 80%;
 	max-width: 500px;
 	text-align: center;

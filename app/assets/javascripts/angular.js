@@ -1,6 +1,5 @@
 var label1 = ["Design Options", "Designers", "Days Duration", "Revisions", "Work process", "Email & Phone Support"];
-var label2 = ["Design options", "Number of stationery items", "Designers", "Days Duration", "Revisions", "Work process",
- "Email & Phone Support"];
+var label2 = ["Design options","Number of stationery items","Designers","Days Duration","Revisions","Work process","Email & Phone Support"];
 var app = angular.module('designscook', [])
 .controller('appController', ['$scope', '$http', '$location',function($scope, $http, $location){
 	$http.jsonp('http://api.ipify.org?format=jsonp&callback=JSON_CALLBACK').then(function(response) { 
