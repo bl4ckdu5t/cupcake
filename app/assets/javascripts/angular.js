@@ -1,7 +1,7 @@
 var label1 = ["Design Options", "Designers", "Days Duration", "Revisions", "Work process", "Email & Phone Support"];
 var label2 = ["Design options","Number of stationery items","Designers","Days Duration","Revisions","Work process","Email & Phone Support"];
-var app = angular.module('designscook', [])
-.controller('appController', ['$scope', '$http', '$location',function($scope, $http, $location){
+var app = angular.module('designscook', ['ngCookies'])
+.controller('appController', ['$scope', '$http', '$location', '$cookies',function($scope, $http, $location, $cookies){
 	$http.jsonp('http://api.ipify.org?format=jsonp&callback=JSON_CALLBACK').then(function(response) { 
 		var ip = response.data.ip;
 		$http.get('https://freegeoip.net/json/'+ip).then(function(r){
@@ -52,8 +52,23 @@ var app = angular.module('designscook', [])
 			}
 		});
 	});
+  $scope.state = 'all';
+  $scope.showAll = function(){
+  	$scope.state = 'all';
+  }
+  $scope.showDraft = function(){
+  	$scope.state = 'draft';
+  }
+  $scope.showOpen = function(){
+  	$scope.state = 'open';
+  }
+  $scope.showClosed = function(){
+  	$scope.state = 'closed';
+  }
+  $scope.all = function(){
+  	$scope.state = 'all';
+  }
   $scope.developer = 'Joseph Rex';
-  //console.log($location.absUrl());
 }]);
 /* Converting to Nigerian Naira (NGN) */
 var aDollarInNaira = 200;
