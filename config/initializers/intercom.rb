@@ -13,7 +13,7 @@ IntercomRails.config do |config|
   # This is required for some Intercom rake tasks like importing your users;
   # you can generate one at https://app.intercom.io/apps/api_keys.
   #
-  # config.api_key = "..."
+  config.api_key = "2bbc956ad0ff9ae141b980c5c3272ac9e7bfa550"
 
   # == Enabled Environments
   # Which environments is auto inclusion of the Javascript enabled for
@@ -34,7 +34,7 @@ IntercomRails.config do |config|
   # == User model class
   # The class which defines your user model
   #
-  # config.user.model = Proc.new { User }
+  config.user.model = Proc.new { User }
 
   # == Exclude users
   # A Proc that given a user returns true if the user should be excluded
@@ -47,10 +47,12 @@ IntercomRails.config do |config|
   # You can provide either a method name which will be sent to the current
   # user object, or a Proc which will be passed the current user.
   #
-  # config.user.custom_data = {
+  config.user.custom_data = {
   #   :plan => Proc.new { |current_user| current_user.plan.name },
   #   :favorite_color => :favorite_color
-  # }
+     :firstname => Proc.new { |current_user| current_user.firstname }
+     :usertype  => Proc.new { |current_user| current_user.usertype }
+  }
 
   # == User -> Company association
   # A Proc that given a user returns an array of companies

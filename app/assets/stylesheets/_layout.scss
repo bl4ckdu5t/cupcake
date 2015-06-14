@@ -1218,16 +1218,21 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 .pagination{
 	list-style-type: none;
 	padding: 0;
-	margin: 20px 25px;
+	margin: 20px 15px;
 	@include breakpoint($breakpoint-tablet-portrait - 1px){
-		margin: 0 25px;
+		margin: -10px 15px;
 	}
 	> li{
-    display: inline;
+    display: inline-block;
     background: $color-brand-1;
     @include gradient-dark-radial;
     color: $white;
-    padding: 10px 20px;
+    &.disabled{
+    	color: #777;
+    }
+    &:hover{
+    	@include gradient-light-radial;
+    }
     &:first-of-type{
     	border-radius: 5px 0 0 5px;
     }
@@ -1236,6 +1241,10 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
     }
     &:not(:last-of-type){
     	border-right: solid 2px lighten($color-brand-1, 10%);
+    }
+    > a{
+    	display: block;
+      padding: 10px 20px;
     }
 	}
 }
