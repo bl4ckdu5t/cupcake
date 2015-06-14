@@ -1,6 +1,6 @@
 var label1 = ["Design Options", "Designers", "Days Duration", "Revisions", "Work process", "Email & Phone Support"];
 var label2 = ["Design options","Number of stationery items","Designers","Days Duration","Revisions","Work process","Email & Phone Support"];
-var app = angular.module('designscook', ['ngCookies'])
+var app = angular.module('designscook', ['ngCookies','angularUtils.directives.dirPagination'])
 .controller('appController', ['$scope', '$http', '$location', '$cookies',function($scope, $http, $location, $cookies){
 	$http.jsonp('http://api.ipify.org?format=jsonp&callback=JSON_CALLBACK').then(function(response) { 
 		var ip = response.data.ip;
@@ -68,6 +68,14 @@ var app = angular.module('designscook', ['ngCookies'])
   $scope.all = function(){
   	$scope.state = 'all';
   }
+  $scope.projects = [
+    {"title": "Vector logo design", "state": "draft", "created": "20 Jan 2015", "stage": "4"},
+    {"title": "Vector logo design", "state": "open", "created": "20 Jan 2015", "stage": "4"},
+    {"title": "Vector logo design", "state": "draft", "created": "20 Jan 2015", "stage": "4"},
+    {"title": "Vector logo design", "state": "closed", "created": "20 Jan 2015", "stage": "4"},
+    {"title": "Vector logo design", "state": "closed", "created": "20 Jan 2015", "stage": "4"},
+    {"title": "Vector logo design", "state": "closed", "created": "20 Jan 2015", "stage": "4"}
+  ];
   $scope.developer = 'Joseph Rex';
 }]);
 /* Converting to Nigerian Naira (NGN) */

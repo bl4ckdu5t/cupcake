@@ -469,7 +469,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			}
 		}
 		> main{
-			padding: 20px;
+			padding: 20px 10px;
 			@include breakpoint($breakpoint-tablet-portrait - 1px){
 			  width: 70%;
 		  }
@@ -1118,10 +1118,13 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 	overflow: hidden;
 	margin-bottom: 10px;
 	@include breakpoint($breakpoint-tablet-wide){
-		width: 49%;
+		width: 48.8%;
 		float: left;
 		margin-right: 5px;
 		margin-left: 5px;
+	}
+	@include breakpoint(1275px){
+		width: 49%;
 	}
 	&-title{
 		margin: 0;
@@ -1141,7 +1144,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		.widget-draft &{
 		  border-bottom: solid thin darken($color-widget-draft, 5%);
 		}
-		.widget-opened &{
+		.widget-open &{
 	    border-bottom: solid thin darken($color-widget-open, 5%);
 		}
 		.widget-closed &{
@@ -1151,7 +1154,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 	&-draft{
 		background: $color-widget-draft;
 	}
-	&-opened{
+	&-open{
 		background: $color-widget-open;
 	}
 	&-closed{
@@ -1210,5 +1213,29 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 				border-top: solid 3px $white;
 			}
 		}
+	}
+}
+.pagination{
+	list-style-type: none;
+	padding: 0;
+	margin: 20px 25px;
+	@include breakpoint($breakpoint-tablet-portrait - 1px){
+		margin: 0 25px;
+	}
+	> li{
+    display: inline;
+    background: $color-brand-1;
+    @include gradient-dark-radial;
+    color: $white;
+    padding: 10px 20px;
+    &:first-of-type{
+    	border-radius: 5px 0 0 5px;
+    }
+    &:last-of-type{
+    	border-radius: 0 5px 5px 0;
+    }
+    &:not(:last-of-type){
+    	border-right: solid 2px lighten($color-brand-1, 10%);
+    }
 	}
 }

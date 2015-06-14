@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require angular/angular
 //= require angular-cookies/angular-cookies.min
+//= require angular-utils-pagination/dirPagination.js
 //= require picturefill/dist/picturefill.min
 //= require_tree .

@@ -30,7 +30,7 @@
 		<h3><%= current_user.firstname %></h3>
 		<ul>
 			<li><a href="javascript:void(0)" ng-click="all()" ng-class="{'is_active': state == 'all'}">
-				All <span>Projects</span> <span class="count">30</span>
+				All <span>Projects</span> <span class="count">3</span>
 			</a></li>
 			<li><a href="javascript:void(0)" ng-click="showDraft()" ng-class="{'is_active': state == 'draft'}">
 				<span>Drafts</span> <svg class="icon icon-feather"><use xlink:href="#icon-feather"></use></svg>
@@ -44,8 +44,8 @@
 		</ul>
 	</nav>
 	<main class="clearfix dashboard-content">
-		<div class="widget widget-draft" ng-show="state == 'draft' || state == 'all'">
-			<h2 class="widget-title">Vector logo design<span>draft</span></h2>
+		<div dir-paginate="project in projects | itemsPerPage: 4" class="widget widget-{{project.state}}" ng-show="state == project.state || state == 'all'">
+			<h2 class="widget-title">Vector logo design<span>{{project.state}}</span></h2>
 			<div class="widget-content">
 				<ul class="widget-content__list">
 					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Design Selection</li>
@@ -57,89 +57,9 @@
 			<div class="widget-meta">
 				<a href="" class="button button-widget__purchase rightmag5">Resume order</a>
 				<a href="" class="button button-widget__decline">Delete order</a>
-				<time>Date created: <strong>20 Jan 2015</strong></time>
-			</div>
-		</div>
-		<div class="widget widget-opened" ng-show="state == 'open' || state == 'all'">
-			<h2 class="widget-title">Banner design for company<span>open</span></h2>
-			<div class="widget-content">
-				<ul class="widget-content__list">
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Design Selection</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Brief</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Budget Options</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Checked out</li>
-				</ul>
-			</div>
-			<div class="widget-meta">
-				<a href="" class="button button-widget__purchase rightmag5">Resume order</a>
-				<a href="" class="button button-widget__decline">Delete order</a>
-				<time>Date created: <strong>20 Jan 2015</strong></time>
-			</div>
-		</div>
-		<div class="widget widget-draft" ng-show="state == 'draft' || state == 'all'">
-			<h2 class="widget-title">Vector logo design<span>draft</span></h2>
-			<div class="widget-content">
-				<ul class="widget-content__list">
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Design Selection</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Brief</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-unchecked"></use></svg> Budget Options</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-unchecked"></use></svg> Checked out</li>
-				</ul>
-			</div>
-			<div class="widget-meta">
-				<a href="" class="button button-widget__purchase rightmag5">Resume order</a>
-				<a href="" class="button button-widget__decline">Delete order</a>
-				<time>Date created: <strong>20 Jan 2015</strong></time>
-			</div>
-		</div>
-		<div class="widget widget-closed" ng-show="state == 'closed' || state == 'all'">
-			<h2 class="widget-title">Business card design<span>closed</span></h2>
-			<div class="widget-content">
-				<ul class="widget-content__list">
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Design Selection</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Brief</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Budget Options</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Checked out</li>
-				</ul>
-			</div>
-			<div class="widget-meta">
-				<a href="" class="button button-widget__purchase rightmag5">Resume order</a>
-				<a href="" class="button button-widget__decline">Delete order</a>
-				<time>Date created: <strong>20 Jan 2015</strong></time>
-			</div>
-		</div>
-		<div class="widget widget-closed" ng-show="state == 'closed' || state == 'all'">
-			<h2 class="widget-title">Business card design<span>closed</span></h2>
-			<div class="widget-content">
-				<ul class="widget-content__list">
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Design Selection</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Brief</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Budget Options</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Checked out</li>
-				</ul>
-			</div>
-			<div class="widget-meta">
-				<a href="" class="button button-widget__purchase rightmag5">Resume order</a>
-				<a href="" class="button button-widget__decline">Delete order</a>
-				<time>Date created: <strong>20 Jan 2015</strong></time>
-			</div>
-		</div>
-		<div class="widget widget-closed" ng-show="state == 'closed' || state == 'all'">
-			<h2 class="widget-title">Business card design<span>closed</span></h2>
-			<div class="widget-content">
-				<ul class="widget-content__list">
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Design Selection</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Brief</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Budget Options</li>
-					<li><svg class="icon icon-radio"><use xlink:href="#icon-radio-checked"></use></svg> Checked out</li>
-				</ul>
-			</div>
-			<div class="widget-meta">
-				<a href="" class="button button-widget__purchase rightmag5">Resume order</a>
-				<a href="" class="button button-widget__decline">Delete order</a>
-				<time>Date created: <strong>20 Jan 2015</strong></time>
+				<time>Date created: <strong>{{project.created}}</strong></time>
 			</div>
 		</div>
 	</main>
-	<a href="" class="button button-bordered-brand">Next</a>
+	<dir-pagination-controls></dir-pagination-controls>
 </section>
