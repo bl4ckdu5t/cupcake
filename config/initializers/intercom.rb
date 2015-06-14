@@ -50,7 +50,7 @@ IntercomRails.config do |config|
   config.user.custom_data = {
   #   :plan => Proc.new { |current_user| current_user.plan.name },
   #   :favorite_color => :favorite_color
-     :firstname => Proc.new { |current_user| current_user.firstname }
+     :firstname => Proc.new { |current_user| current_user.firstname },
      :usertype  => Proc.new { |current_user| current_user.usertype }
   }
 
