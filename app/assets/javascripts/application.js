@@ -15,5 +15,8 @@
 //= require angular/angular
 //= require angular-cookies/angular-cookies.min
 //= require angular-utils-pagination/dirPagination.js
+//= require angular-ui-router/release/angular-ui-router.min
+//= require angular-rails-templates
 //= require picturefill/dist/picturefill.min
+//= require_tree ../templates
 //= require_tree .

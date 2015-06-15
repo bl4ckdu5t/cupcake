@@ -30,7 +30,7 @@
 		<h3><%= current_user.firstname %></h3>
 		<ul>
 			<li><a href="javascript:void(0)" ng-click="all()" ng-class="{'is_active': state == 'all'}">
-				All <span>Projects</span> <span class="count">3</span>
+				All <span>Projects</span> <span class="count">{{projects.length > 1? projects.length : ''}}</span>
 			</a></li>
 			<li><a href="javascript:void(0)" ng-click="showDraft()" ng-class="{'is_active': state == 'draft'}">
 				<span>Drafts</span> <svg class="icon icon-feather"><use xlink:href="#icon-feather"></use></svg>
@@ -44,6 +44,11 @@
 		</ul>
 	</nav>
 	<main class="clearfix dashboard-content">
+		<div ng-if="projects.length < 1" class="dashboard-empty">
+			<svg class="icon icon-leanpub"><use xlink:href="#icon-leanpub"></use></svg>
+			<h2>No projects added yet</h2>
+			<p><%= link_to 'Add your first project', new_project_path %></p>
+		</div>
 		<div dir-paginate="project in projects | itemsPerPage: 4" class="widget widget-{{project.state}}" ng-show="state == project.state || state == 'all'">
 			<h2 class="widget-title">Vector logo design<span>{{project.state}}</span></h2>
 			<div class="widget-content">

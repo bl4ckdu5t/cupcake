@@ -1,10 +1,25 @@
 var label1 = ["Design Options", "Designers", "Days Duration", "Revisions", "Work process", "Email & Phone Support"];
 var label2 = ["Design options","Number of stationery items","Designers","Days Duration","Revisions","Work process","Email & Phone Support"];
-var app = angular.module('designscook', ['ngCookies','angularUtils.directives.dirPagination'])
+var app = angular.module('designscook', ['ngCookies','angularUtils.directives.dirPagination', 'ui.router', 'templates'])
+.config(function($stateProvider, $urlRouterProvider){
+  // For any unmatched url, redirect to /state1
+  $urlRouterProvider.otherwise("/step1");
+  //
+  // Now set up the states
+  $stateProvider
+    .state('step1', {
+      url: "/step1",
+      templateUrl: "step1.html"
+    })
+    .state('step2', {
+      url: "/step2",
+      template: "<h2>Wad up</h2>"
+    });
+})
 .controller('appController', ['$scope', '$http', '$location', '$cookies',function($scope, $http, $location, $cookies){
-	$http.jsonp('http://api.ipify.org?format=jsonp&callback=JSON_CALLBACK').then(function(response) { 
+	$http.jsonp('http://api.ipify.org?format=jsonp&callback=JSON_CALLBACK', { cache: true }).then(function(response) { 
 		var ip = response.data.ip;
-		$http.get('https://freegeoip.net/json/'+ip).then(function(r){
+		$http.get('https://freegeoip.net/json/'+ip, { cache: true }).then(function(r){
 			var shortcode = r.data.country_code;
 			$scope.currency = shortcode == 'NG' ? '₦' : '$';
 
@@ -68,14 +83,7 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
   $scope.all = function(){
   	$scope.state = 'all';
   }
-  $scope.projects = [
-    {"title": "Vector logo design", "state": "draft", "created": "20 Jan 2015", "stage": "4"},
-    {"title": "Vector logo design", "state": "open", "created": "20 Jan 2015", "stage": "4"},
-    {"title": "Vector logo design", "state": "draft", "created": "20 Jan 2015", "stage": "4"},
-    {"title": "Vector logo design", "state": "closed", "created": "20 Jan 2015", "stage": "4"},
-    {"title": "Vector logo design", "state": "closed", "created": "20 Jan 2015", "stage": "4"},
-    {"title": "Vector logo design", "state": "closed", "created": "20 Jan 2015", "stage": "4"}
-  ];
+  $scope.projects = [];
   $scope.developer = 'Joseph Rex';
 }]);
 /* Converting to Nigerian Naira (NGN) */

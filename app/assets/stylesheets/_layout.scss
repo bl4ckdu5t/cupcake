@@ -221,7 +221,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		background: transparent;
 		border: solid 2px $color-brand-1;
 		color: $color-brand-1;
-		&:hover{
+		&:hover, &:focus{
 			background: $color-brand-1;
 			color: darken($white, 10%);
 		}
@@ -1109,6 +1109,14 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 				  left: 80px;
 			  }
 			}
+		}
+	}
+	&-empty{
+		margin: 30px auto;
+		width: 250px;
+		text-align: center;
+		>.icon{
+			font-size: 15rem;
 		}
 	}
 }

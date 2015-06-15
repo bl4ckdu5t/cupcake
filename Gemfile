@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby "2.1.2"
 
+# Angular Rails Templating for templating within Angular
+gem 'angular-rails-templates'
 # Intercom for site monitoring
 gem 'intercom-rails'
 # Figaro for local environment variables
