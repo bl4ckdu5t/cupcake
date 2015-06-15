@@ -1231,7 +1231,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
     	color: #777;
     }
     &:hover{
-    	@include gradient-light-radial;
+    	@include gradient-light-linear;
     }
     &:first-of-type{
     	border-radius: 5px 0 0 5px;
