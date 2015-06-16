@@ -13,4 +13,16 @@
 		<ul><% (1..4).each do %><li></li><% end %></ul>
 	</nav>
 </header>
+<section class="section-categories section-mini">
+	<h1>Select the type of design you need</h1>
+	<div class="category-selection clearfix">
+	<div class="category-item"><span class="category-logo"></span>Logo</div>
+	<div class="category-item"><span class="category-stationery"></span>Stationery</div>
+	<div class="category-item"><span class="category-banner"></span>Banner/Flyer</div>
+	<div class="category-item"><span class="category-brochure"></span>Brochure</div>
+	<div class="category-item"><span class="category-website"></span>Website</div>
+	<div class="category-item"><span class="category-corporate"></span>Corporate</div>
+	</div>
+	<%= link_to 'Custom', pricing_custom_path, class: 'button button-large button-bordered-brand' %>
+</section>
 <div ui-view></div>

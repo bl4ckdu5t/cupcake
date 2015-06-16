@@ -20,5 +20,4 @@
 //= require angular-ui-router/release/angular-ui-router.min
 //= require angular-rails-templates
 //= require picturefill/dist/picturefill.min
-//= require_tree ../templates
 //= require_tree .

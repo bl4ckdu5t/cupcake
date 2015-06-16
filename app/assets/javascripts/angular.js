@@ -1,7 +1,7 @@
 var label1 = ["Design Options", "Designers", "Days Duration", "Revisions", "Work process", "Email & Phone Support"];
 var label2 = ["Design options","Number of stationery items","Designers","Days Duration","Revisions","Work process",
 "Email & Phone Support"];
-var app = angular.module('designscook', ['ngCookies','angularUtils.directives.dirPagination', 'ui.router', 'templates', 'angularMoment'])
+var app = angular.module('designscook', ['ngCookies','angularUtils.directives.dirPagination', 'ui.router', 'angularMoment'])
 .config(function($stateProvider, $urlRouterProvider){
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise("/step1");

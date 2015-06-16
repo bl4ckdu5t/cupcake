@@ -36,10 +36,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    angular-rails-templates (0.1.4)
-      railties (>= 3.1)
-      sprockets
-      tilt
     arel (6.0.0)
     autoprefixer-rails (5.1.11)
       execjs
@@ -173,7 +169,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angular-rails-templates
   autoprefixer-rails
   byebug
   coffee-rails (~> 4.1.0)
