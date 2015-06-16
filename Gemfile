@@ -3,6 +3,10 @@ ruby "2.1.2"
 
 # Angular Rails Templating for templating within Angular
 #gem 'angular-rails-templates'
+# Rack timeout for timeouts preventing clogging
+gem 'rack-timeout'
+# Puma web server for concurrent requests
+gem 'puma'
 # Intercom for site monitoring
 gem 'intercom-rails'
 # Figaro for local environment variables
