@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-  layout 'compressed'
   def index
   end
   def terms

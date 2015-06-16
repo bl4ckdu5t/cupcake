@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20150602104225) do
     t.integer  "package"
     t.string   "title"
     t.string   "description"
+    t.string   "state"
+    t.integer  "stage"
     t.integer  "duration"
     t.string   "formats"
     t.boolean  "paid",        default: false

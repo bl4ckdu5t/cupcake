@@ -1,6 +1,7 @@
 var label1 = ["Design Options", "Designers", "Days Duration", "Revisions", "Work process", "Email & Phone Support"];
-var label2 = ["Design options","Number of stationery items","Designers","Days Duration","Revisions","Work process","Email & Phone Support"];
-var app = angular.module('designscook', ['ngCookies','angularUtils.directives.dirPagination', 'ui.router', 'templates'])
+var label2 = ["Design options","Number of stationery items","Designers","Days Duration","Revisions","Work process",
+"Email & Phone Support"];
+var app = angular.module('designscook', ['ngCookies','angularUtils.directives.dirPagination', 'ui.router', 'templates', 'angularMoment'])
 .config(function($stateProvider, $urlRouterProvider){
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise("/step1");
@@ -83,7 +84,12 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
   $scope.all = function(){
   	$scope.state = 'all';
   }
-  $scope.projects = [];
+  $scope.checkStage = function(stageId, index){
+    return stageId >= index ? '#icon-radio-checked' : '#icon-radio-unchecked';
+  }
+  $http.get('/projects').then(function(response){
+   $scope.projects = response.data;
+  });
   $scope.developer = 'Joseph Rex';
 }]);
 /* Converting to Nigerian Naira (NGN) */

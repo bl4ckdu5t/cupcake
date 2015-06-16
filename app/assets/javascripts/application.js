@@ -10,9 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require moment/moment
 //= require jquery2.min
 //= require jquery_ujs
 //= require angular/angular
+//= require angular-moment/angular-moment
 //= require angular-cookies/angular-cookies.min
 //= require angular-utils-pagination/dirPagination.js
 //= require angular-ui-router/release/angular-ui-router.min

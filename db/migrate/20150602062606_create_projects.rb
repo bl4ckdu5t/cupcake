@@ -6,6 +6,8 @@ class CreateProjects < ActiveRecord::Migration
     	t.integer :package
       t.string :title
       t.string :description
+      t.string :state
+      t.integer :stage
       t.integer :duration # duration in days
       t.string :formats
       t.boolean :paid, default: false
