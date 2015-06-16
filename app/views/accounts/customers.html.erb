@@ -28,6 +28,7 @@
 <section class="section-dashboard dashboard">
 	<nav class="dashboard-nav">
 		<h3><%= current_user.firstname %></h3>
+		<input type="text" ng-model="q" class="middle-block dashboard-search__filter" placeholder="Search to filter projects">
 		<ul>
 			<li><a href="javascript:void(0)" ng-click="all()" ng-class="{'is_active': state == 'all'}">
 				All <span>Projects</span> <span class="count">{{projects.length > 1? projects.length : ''}}</span>
@@ -49,7 +50,7 @@
 			<h2>No projects added yet</h2>
 			<p><%= link_to 'Add your first project', new_project_path %></p>
 		</div>
-		<div dir-paginate="project in projects | itemsPerPage: 4" class="widget widget-{{project.state}}" ng-show="state == project.state || state == 'all'">
+		<div dir-paginate="project in projects | filter:q | itemsPerPage: 4" class="widget widget-{{project.state}}" ng-show="state == project.state || state == 'all'">
 			<h2 class="widget-title">{{project.title}}<span>{{project.design_type}}</span></h2>
 			<div class="widget-content">
 				<ul class="widget-content__list">

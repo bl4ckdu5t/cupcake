@@ -1119,6 +1119,15 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			font-size: 15rem;
 		}
 	}
+	&-search__filter{
+		width: 80%;
+		height: 35px;
+		padding: 5px;
+		border-radius: 5px;
+		border: solid 4px lighten($color-brand-1, 20%);
+		box-shadow: 0 1px 3px #222 inset;
+		@include gradient-dark-linear;
+	}
 }
 .widget{
 	height: 300px;
