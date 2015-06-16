@@ -4,8 +4,20 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
+one:
+ title: The Chuck Norris design
+ design_type: logo
+ description: A logo for Chuck Norris cause dammit he is CN
+ package: 1
+ state: open
+ stage: 3
+ duration: 21
 #
-two: {}
-#  column: value
+two:
+  title: Barcamp MKE banner
+  design_type: banner
+  description: Banner design for tech Barcamp at Milwaukee
+  package: 3
+  state: draft
+  stage: 2
+  duration: 14
