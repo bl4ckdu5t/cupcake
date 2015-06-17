@@ -9,7 +9,8 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     user.email = "stdio@protonmail.ch"
     user.password = "123456789"
-    user.firstname = nil
-    assert_not user.save, "Saved without firstname"
+    user.firstname = "Jenkens"
+    user.usertype = nil
+    assert_not user.save, "Saved without usertype"
   end
 end
