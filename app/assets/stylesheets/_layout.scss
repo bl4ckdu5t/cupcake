@@ -1269,3 +1269,63 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
     }
 	}
 }
+.settings{
+	&-box{
+		position: relative;
+		top: -80px;
+		width: 80%;
+		max-width: 600px;
+		margin: 0 auto;
+		background: $white;
+		border-radius: 4px;
+		box-shadow: 0 0 1.5px darken($white, 50%), 0 0 3px $color-brand-1;
+	}
+	&-form{
+		padding: 20px;
+		text-align: justify;
+		[type="text"],[type="email"],[type="password"]{
+			width: 100%;
+			height: 35px;
+			border: solid thin $color-brand-1;
+			border-radius: 3px;
+			padding: 10px;
+		}
+		[disabled]{
+			background: darken($white, 10%);
+			color: darken($white, 50%);
+		}
+		label{
+			white-space: pre;
+		}
+	}
+	&-extras{
+		padding: 10px 20px;
+	}
+	&-navigation{
+		background: darken($white, 5%);
+		height: 50px;
+		border-bottom: solid thin #888;
+		padding: 0 20px;
+		text-align: left;
+		ul{
+			list-style-type: none;
+			padding: 8px 0 0;
+			margin: 0;
+			li{
+				display: inline-block;
+				>a{
+					display: block;
+					padding: 10px 20px;
+					color: $color-brand-2;
+					border-radius: 4px 4px 0 0;
+					&.is_active{
+						background: $white;
+						border: solid thin darken($white, 20%);
+						border-bottom: solid thin $white;
+						color: $color-brand-1;
+					}
+				}
+			}
+		}
+	}
+}
