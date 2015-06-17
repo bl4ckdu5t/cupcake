@@ -67,6 +67,10 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		@extend .header-laws;
 		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-2.jpg", 100% 100%);
 	}
+	&-careers{
+		@extend .header-laws;
+		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-5.jpg", 100% 100%);
+	}
 	&-authenticated{
 		position: relative;
 		padding-top: 100px;
