@@ -65,11 +65,15 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 	}
 	&-help{
 		@extend .header-laws;
-		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-2.jpg", 100% 100%);
+		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-2.jpg", cover);
+		background-position: 0 -530px;
 	}
 	&-careers{
 		@extend .header-laws;
-		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-5.jpg", 100% 100%);
+		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-5.jpg", cover);
+		@include breakpoint(1400px){
+		 background-position: 0 -480px;
+		}
 	}
 	&-authenticated{
 		position: relative;
@@ -1291,7 +1295,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			padding: 10px;
 		}
 		[disabled]{
-			background: darken($white, 10%);
+			background: darken($white, 5%);
 			color: darken($white, 50%);
 		}
 		label{

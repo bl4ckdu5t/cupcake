@@ -27,11 +27,11 @@
 </header>
 <section class="section-dashboard dashboard">
 	<nav class="dashboard-nav">
-		<h3><%= current_user.firstname %></h3>
+		<h3><%= "#{current_user.firstname} #{current_user.lastname}" %></h3>
 		<input type="text" ng-model="q" class="middle-block dashboard-search__filter" placeholder="Search to filter projects">
 		<ul>
 			<li><a href="javascript:void(0)" ng-click="all()" ng-class="{'is_active': state == 'all'}">
-				All <span>Projects</span> <span class="count">{{projects.length > 1? projects.length : ''}}</span>
+				All <span>Projects</span> <span class="count">{{projects.length >= 1? projects.length : ''}}</span>
 			</a></li>
 			<li><a href="javascript:void(0)" ng-click="showDraft()" ng-class="{'is_active': state == 'draft'}">
 				<span>Drafts</span> <svg class="icon icon-feather"><use xlink:href="#icon-feather"></use></svg>

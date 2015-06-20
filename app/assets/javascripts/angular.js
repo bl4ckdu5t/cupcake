@@ -87,9 +87,15 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
   $scope.checkStage = function(stageId, index){
     return stageId >= index ? '#icon-radio-checked' : '#icon-radio-unchecked';
   }
-  $http.get('/projects').then(function(response){
-   $scope.projects = response.data;
-  });
+  if (location.pathname == '/customer-account'){
+	  $http.get('/projects').then(function(response){
+	   $scope.projects = response.data;
+	  });
+	}
+  $scope.changePwd = false;
+  $scope.showPwd = function(){
+  	$scope.changePwd = $scope.changePwd == true ? false : true;
+  }
   $scope.developer = 'Joseph Rex';
 }]);
 /* Converting to Nigerian Naira (NGN) */
