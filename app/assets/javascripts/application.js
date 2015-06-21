@@ -19,4 +19,5 @@
 //= require angular-utils-pagination/dirPagination
 //= require angular-ui-router/release/angular-ui-router.min
 //= require picturefill/dist/picturefill.min
+//= require_tree ../templates
 //= require_tree .
