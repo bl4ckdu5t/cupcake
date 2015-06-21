@@ -10,7 +10,7 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
   $stateProvider
     .state('step1', {
       url: "/step1",
-      templateUrl: "<h2>Under development</h2>"
+      template: "<h2>Under development</h2>"
     })
     .state('step2', {
       url: "/step2",
