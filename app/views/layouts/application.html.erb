@@ -10,7 +10,8 @@
 <div data-grid="1:5" class="txtcenter"><h4 class="footer-sub__heading">Convenient Payment Options</h4><div class="payment"><svg class="icon icon-payments"><use xlink:href="#icon-cc-visa"></use></svg><svg class="icon icon-payments"><use xlink:href="#icon-cc-mastercard"></use></svg><svg class="icon icon-payments"><use xlink:href="#icon-cc-paypal"></use></svg><svg class="icon icon-payments"><use xlink:href="#icon-cc-stripe"></use></svg></div>
 <%= link_to '#' do %><span class="app_button"></span><% end %><%= link_to '#' do %><span class="app_button app-ios"></span><% end %></div></footer>
 <script>
-var url = "<%= asset_path 'svgdefs.svg' %>";
+var rawURL = "<%= asset_path 'svgdefs.svg' %>";
+var url = rawURL.replace(/(http:\/).+\/assets\//, 'http://designscook.com/assets/');
 var c=new XMLHttpRequest(); c.open('GET', url, false); c.setRequestHeader('Content-Type', 'text/xml'); c.send();
 document.body.insertBefore(c.responseXML.firstChild, document.body.firstChild);
 /* GA */
