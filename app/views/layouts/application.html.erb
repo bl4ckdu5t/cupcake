@@ -33,7 +33,8 @@ function loadCSS( href, before, media ){
 </script>
 <% end %>
 <script>
-var rawURL = "<%= asset_path 'svgdefs.svg' %>", url = rawURL.replace(/(http:\/).+\/assets\//, location.protocol+'//'+location.hostname+'/');
+var rawURL = "<%= asset_path 'svgdefs.svg' %>";
+var url = rawURL.replace(/(http:\/).+\/assets\//, location.protocol+'//'+location.hostname+'/assets/');
 var c=new XMLHttpRequest(); c.open('GET', url, false); c.setRequestHeader('Content-Type', 'text/xml'); c.send();
 document.body.insertBefore(c.responseXML.firstChild, document.body.firstChild);
 /* GA */
