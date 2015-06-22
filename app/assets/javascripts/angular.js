@@ -4,7 +4,7 @@ var label2 = ["Design options","Number of stationery items","Designers","Days Du
 var app = angular.module('designscook', ['ngCookies','angularUtils.directives.dirPagination', 'ui.router', 'angularMoment'])
 .config(function($stateProvider, $urlRouterProvider){
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/step1");
+  //$urlRouterProvider.otherwise("/step1");
   //
   // Now set up the states
   $stateProvider

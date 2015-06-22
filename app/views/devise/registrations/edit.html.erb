@@ -73,9 +73,14 @@
   </div>
 <% end %>
   <div class="settings-extras">
-  <h3>Account Deactivation</h3>
-  <p>If you are having problems with using this web application, you can inform us and we will guide you through. Contact our online customer support with the live chat button at the bottom right or send us an email to support [at] designscook.com</p>
-  <p>If you have chosen to leave finally then we can't prevent you. We do hope you change your mind</p>
-  <p><%= button_to "Deactivate Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class: 'button button-bordered-brand button-large', method: :delete %></p>
+    <% unless current_user.usertype == 'both' %>
+    <button class="button button-large button-solid">Create <%= current_user.usertype == 'designer' ? 'Customer' : 'Designer' %> Account</button>
+    <% else %>
+    <button class="button button-large">Switch to <%= current_user.usertype == 'designer' ? 'Customer' : 'Designer' %> Account</button>
+    <% end %>
+    <h3>Account Deactivation</h3>
+    <p>If you are having problems with using this web application, you can inform us and we will guide you through. Contact our online customer support with the live chat button at the bottom right or send us an email to support [at] designscook.com</p>
+    <p>If you have chosen to leave finally then we can't prevent you. We do hope you change your mind</p>
+    <p><%= button_to "Deactivate Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, class: 'button button-bordered-brand button-large', method: :delete %></p>
   </div>
 </div>

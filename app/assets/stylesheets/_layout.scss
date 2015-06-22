@@ -254,6 +254,14 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
       background: darken($color-unpurchase, 5%);
 		}
 	}
+	&-solid{
+		background-image: linear-gradient(#ddd, #999);
+		color: #555;
+		text-shadow: 0 0 2px #eee;
+		&:focus, &:active{
+			outline-color: #bbb;
+		}
+	}
 }
 .footer{
 	padding: 30px;
