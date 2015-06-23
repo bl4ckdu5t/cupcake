@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :projects
+  get 'portfolio'        => 'welcome#portfolio', as: :portfolio
   get 'careers'          => 'welcome#jobs', as: :job_vacancy
   get 'about-us'         => 'welcome#about', as: :about_us
   get 'usage-guide'      => 'welcome#help', as: :help

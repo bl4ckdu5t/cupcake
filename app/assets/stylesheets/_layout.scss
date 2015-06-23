@@ -75,6 +75,13 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		 background-position: 0 -480px;
 		}
 	}
+	&-team{
+		@extend .header-laws;
+		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-6.jpg", cover);
+		@include breakpoint(1400px){
+		 background-position: 0 -220px;
+		}
+	}
 	&-authenticated{
 		position: relative;
 		padding-top: 100px;
@@ -493,6 +500,9 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		  	width: 80%;
 		  }
 		}
+	}
+	&-team{
+		padding: 10px;
 	}
 }
 .social-icons{
@@ -1339,5 +1349,117 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 				}
 			}
 		}
+	}
+}
+
+p{
+  margin: 0;
+  padding: 0;
+}
+.team{
+  &-member{
+	  position: relative;
+	  background: url(http://placehold.it/300x300);
+	  background-size: cover;
+	  backface-visibility: hidden;
+	  width: 100%;
+	  height: 350px;
+	  margin: 10px auto;
+	  overflow: hidden;
+	  @include breakpoint($breakpoint-android-landscape){
+	  	float: left;
+	  	width: 47.8%;
+	  	height: 280px;
+	  	margin: 5px;
+	  }
+	  @include breakpoint($breakpoint-iphone-landscape){
+	  	width: 48.2%;
+	  	height: 350px;
+	  }
+	  @include breakpoint($breakpoint-tablet-portrait - 1px){
+	  	width: 31.95%;
+	  }
+	  @include breakpoint($breakpoint-tablet-landscape){
+	  	width: 32.2%;
+	  }
+	  .overlay{
+	    border-bottom: 100px solid $color-brand-2;
+	    border-left: 100px solid transparent;
+	    bottom: 0;
+	    height: 0;
+	    opacity: .75;
+	    position: absolute;
+	    right: 0;
+	    text-indent: -9999px;
+	    transition: all .5s ease-out;
+	    width: 0;
+	  }
+	  &:hover .overlay{
+	    border-bottom: 1200px solid $color-brand-2;
+	    border-left: 1200px solid transparent;
+	    transition: all .5s ease-out;
+	  }
+	  .corner-overlay-content{
+	    bottom: 15px;
+	    color: #333;
+	    position: absolute;
+	    right: 15px;
+	    transition: all .5s ease-out;
+	  }
+	  &:hover .corner-overlay-content{
+	    opacity: 0;
+	    transition: all .5s ease-out;
+	  }
+	  .overlay-content{
+	    bottom: 0;
+	    color: #333;
+	    left: 0;
+	    opacity: 0;
+	    padding: 30px 0;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    transition: all .3s ease-out;
+	    &__header{
+	    	padding: 5px 10px;
+        background: rgba($color-brand-1, .8);
+        height: 80px;
+        color: $white;
+        text-align: center;
+	    }
+	    &__links{
+	    	padding: 20px 40px;
+				text-align: center;
+	    	> a{
+					display: inline-block;
+					background: $color-brand-1;
+					color: lighten($color-brand-2, 10%);
+					padding: 2px;
+					margin-right: 3px;
+					margin-bottom: 10px;
+					border-radius: 50%;
+					width: 60px;
+					height: 60px;
+					font-size: 3.5rem;
+				}
+	    }
+	    h2{ margin: 5px 0; }
+	  }
+	  &:hover .overlay-content{
+	    opacity: 1;
+	    transition: all .3s ease-out;
+	    transition-delay: .3s;
+	  }
+	}
+	&-detail{
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		padding: 2px 8.5px;
+		background: $color-brand-1;
+		color: $white;
+		font-weight: bold;
+		font-size: 2rem;
 	}
 }

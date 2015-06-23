@@ -1,4 +1,8 @@
 $(function(){
+  /* Selecting Team member images with data value */
+  $('.team-member').each(function() {
+      $(this).css('background-image', 'url(' + $(this).data('img') + ')');
+  });
   /* Scroll back to top function */
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
