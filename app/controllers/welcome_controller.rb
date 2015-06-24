@@ -11,4 +11,6 @@ class WelcomeController < ApplicationController
   end
   def jobs
   end
+  def portfolio
+  end
 end

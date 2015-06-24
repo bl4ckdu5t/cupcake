@@ -78,8 +78,11 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 	&-team{
 		@extend .header-laws;
 		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-6.jpg", cover);
+		@include breakpoint($breakpoint-tablet-landscape){
+		 background-position: 0 -120px;
+		}
 		@include breakpoint(1400px){
-		 background-position: 0 -220px;
+			background-position: 0 -220px;
 		}
 	}
 	&-authenticated{
@@ -375,6 +378,8 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 				width: 25%;
 				&:not(:last-of-type)::after{
 					content: image-url("forward.svg");
+					width: 64px;
+					height: 64px;
 					position: absolute;
 					top: 30px;
 					right: -30px;
