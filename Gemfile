@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby "2.1.2"
 
+# Newrelic for monitoring
+gem 'newrelic_rpm'
 # Angular Rails Templating for templating within Angular
 gem 'angular-rails-templates'
 # Rack timeout for timeouts preventing clogging
