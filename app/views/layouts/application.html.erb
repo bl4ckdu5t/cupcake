@@ -1,8 +1,7 @@
-<!DOCTYPE html><html lang="en" ng-app="designscook" ng-controller="appController"><head><title>Designscook - Online design marketplace</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Designscook is an online design marketplace for crowdsourcing design jobs and getting corporate designs"><meta name="keywords" content="crowdsourcing, designs, printing, illustrations, logo, stationery, banner, stationery, 3d, product design, graphic, designers">
+<!DOCTYPE html><html lang="en" prefix="og: http://ogp.me/ns#" ng-app="designscook" ng-controller="appController"><head><title>Designscook - Online design marketplace</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Designscook is an online design marketplace for crowdsourcing design jobs and getting corporate designs"><meta name="keywords" content="crowdsourcing, designs, printing, illustrations, logo, stationery, banner, stationery, 3d, product design, graphic, designers">
 <meta property="og:type" content="website">
-<meta property="og:site_property" content="DesignsCook">
-<meta property="og:url" content="http://designscook.com">
-<meta property="og:title" content="Designscook online design marketplace">
+<meta property="og:url" content="<%= request.original_url %>">
+<meta property="og:title" content="DesignsCook online design marketplace">
 <meta property="og:image" content="<%= asset_url 'designscook-allforone.png' %>">
 <meta property="og:description" content="Designscook is an online design marketplace for crowdsourcing design jobs and getting corporate designs">
 <%= csrf_meta_tags %><link rel="shortcut icon" href="/favicon.png">
