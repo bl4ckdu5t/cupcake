@@ -18,7 +18,7 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
     });
 })
 .controller('appController', ['$scope', '$http', '$location', '$cookies',function($scope, $http, $location, $cookies){
-	$http.jsonp('http://api.ipify.org?format=jsonp&callback=JSON_CALLBACK', { cache: true }).then(function(response) { 
+	$http.jsonp('//api.ipify.org?format=jsonp&callback=JSON_CALLBACK', { cache: true }).then(function(response) { 
 		var ip = response.data.ip;
 		$http.get('https://freegeoip.net/json/'+ip, { cache: true }).then(function(r){
 			var shortcode = r.data.country_code;
