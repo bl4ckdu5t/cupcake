@@ -1,12 +1,12 @@
 <% flash.each do |name, msg| %>
-  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify notify-danger' %>
+  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify' %>
 <% end %>
 <header class="header header-authentication">
   <nav class="page-navigation">
     <div id="js-historyBack"><svg class="icon icon-arrow-back"><use xlink:href="#icon-arrow-back"></use></svg></div>
     <div id="js-page-menu-trigger"><svg class="icon icon-more-vert"><use xlink:href="#icon-more-vert"></use></svg></div>
     <ul id="js-page-menu">
-      <li><%= link_to 'Pricing', pricing_logo_path %></li>
+      <li><%= link_to 'Home', customer_path %></li>
       <li><%= link_to 'Help', help_path %></li>
       <li><%= link_to 'About us', about_us_path %></li>
     </ul>
@@ -60,11 +60,6 @@
     <div class="field">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :current_password %>
-      <%= f.password_field :current_password, autocomplete: "off" %>
     </div>
   </div>
 

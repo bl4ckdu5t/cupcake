@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   end
   get 'designer-account' => 'accounts#designers', as: :designer
   get 'customer-account' => 'accounts#customers', as: :customer
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'users/registrations'}
   root 'welcome#index'
 end

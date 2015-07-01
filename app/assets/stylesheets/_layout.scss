@@ -325,6 +325,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 	height: 1em;
 	fill: currentColor;
 	&-payments{
+		margin: 0 2px;
 		width: 4rem;
 		font-size: 3rem;
 		color: #ddd;
