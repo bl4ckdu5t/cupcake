@@ -74,7 +74,7 @@
     </button>
     <% else %>
     <button class="button button-large button-solid" id="js-calvary" data-usertype="<%= session[:usertype] %>" data-request="switch">
-      Switch to <%= current_user.usertype == 'designer' ? 'Customer' : 'Designer' %> Account
+      Switch to <%= session[:usertype] == 'designer' ? 'Customer' : 'Designer' %> Account
     </button>
     <% end %>
     <h3>Account Deactivation</h3>
