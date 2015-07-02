@@ -1557,3 +1557,54 @@ p{
 		}
 	}
 }
+.choice--page{
+	height: 100vh;
+	background: $white;
+	text-align: center;
+	&__showcase{
+		@include tinted-bg(darken($color-brand-1, 12%), .9, "apple-mac.jpg", cover);
+		background-position: center;
+		height: 45%;
+		> img{
+			margin: 20px 0;
+			width: 200px;
+			@include breakpoint($breakpoint-android-landscape){
+				margin: 20% 0;
+				width: 80%;
+			}
+			@include breakpoint($breakpoint-tablet-portrait){
+				margin: 25% 0;
+			}
+			@include breakpoint($breakpoint-tablet-landscape){
+				width: auto;
+			}
+		}
+	}
+	&__options{
+		height: 55%;
+		padding: 10px;
+		h2, p{
+			margin: 10px 0;
+		}
+		@include breakpoint($breakpoint-android-landscape){
+			padding: 40px 10px;
+		}
+		@include breakpoint($breakpoint-tablet-portrait){
+			padding: 20% 10px;
+			.button{
+				width: 70%
+			}
+			h2, p{
+				margin: 20px 0;
+			}
+		}
+	}
+	&__showcase, &__options{
+		overflow: hidden;
+		@include breakpoint($breakpoint-android-landscape){
+			float: left;
+			width: 50%;
+			height: 100vh;
+		}
+	}
+}

@@ -1,4 +1,27 @@
 $(function(){
+  /* Calvary to the rescue */
+  $('#js-calvary').click(function(){
+    //console.log("I am Calvary!");
+    var request = $(this).data('request');
+    var usertype = $(this).data('usertype');
+    var urlprefix = location.protocol + '//' + location.host + '/';
+    if(request == 'switch'){
+      urlprefix += usertype == 'designer' ? 'customer-account' : 'designer-account';
+      window.location.replace(urlprefix);
+    }else if(request == 'create'){
+      url = urlprefix+'calvary';
+      $.ajax({
+        type: 'POST',
+        url: url,
+        data: 'usertype='+usertype
+      }).done(function(response){
+        if(response.status == 'success'){
+          urlprefix += usertype == 'designer' ? 'customer-account' : 'designer-account';
+          window.location.replace(urlprefix);
+        }
+      });
+    }
+  });
   /* Selecting Team member images with data value */
   $('.team-member').each(function() {
       $(this).css('background-image', 'url(' + $(this).data('img') + ')');

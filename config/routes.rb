@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'calvary' => 'accounts#calvary'
   get 'choose' => 'accounts#choice', as: :type_choice
   resources :projects
   get 'portfolio'        => 'welcome#portfolio', as: :portfolio

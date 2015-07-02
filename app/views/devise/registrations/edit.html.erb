@@ -6,7 +6,7 @@
     <div id="js-historyBack"><svg class="icon icon-arrow-back"><use xlink:href="#icon-arrow-back"></use></svg></div>
     <div id="js-page-menu-trigger"><svg class="icon icon-more-vert"><use xlink:href="#icon-more-vert"></use></svg></div>
     <ul id="js-page-menu">
-      <li><%= link_to 'Home', customer_path %></li>
+      <li><%= link_to 'Home', type_choice_path %></li>
       <li><%= link_to 'Help', help_path %></li>
       <li><%= link_to 'About us', about_us_path %></li>
     </ul>
@@ -69,9 +69,13 @@
 <% end %>
   <div class="settings-extras">
     <% unless current_user.usertype == 'both' %>
-    <button class="button button-large button-solid">Create <%= current_user.usertype == 'designer' ? 'Customer' : 'Designer' %> Account</button>
+    <button class="button button-large button-solid" id="js-calvary" data-usertype="<%= current_user.usertype %>" data-request="create">
+      Create <%= current_user.usertype == 'designer' ? 'Customer' : 'Designer' %> Account
+    </button>
     <% else %>
-    <button class="button button-large">Switch to <%= current_user.usertype == 'designer' ? 'Customer' : 'Designer' %> Account</button>
+    <button class="button button-large button-solid" id="js-calvary" data-usertype="<%= session[:usertype] %>" data-request="switch">
+      Switch to <%= current_user.usertype == 'designer' ? 'Customer' : 'Designer' %> Account
+    </button>
     <% end %>
     <h3>Account Deactivation</h3>
     <p>Sometimes things just don't work out. We have no hard feelings and hope we can still be friends.</p>

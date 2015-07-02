@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_devise_params, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    customer_path
+    type_choice_path
   end
 
   def configure_devise_params
