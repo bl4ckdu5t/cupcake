@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'choose' => 'accounts#choice', as: :type_choice
   resources :projects
   get 'portfolio'        => 'welcome#portfolio', as: :portfolio
   get 'careers'          => 'welcome#jobs', as: :job_vacancy

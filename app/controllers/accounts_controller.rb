@@ -12,4 +12,8 @@ class AccountsController < ApplicationController
 			redirect_to designer_path
 		end
 	end
+
+	def choice
+		
+	end
 end
