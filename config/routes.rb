@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  post 'calvary' => 'accounts#calvary'
-  get 'choose' => 'accounts#choice', as: :type_choice
+  patch 'profile-submit' => 'profile#update', as: :profile_update
+  get 'profile-edit' => 'profile#edit', as: :profile_settings
+  post 'calvary'     => 'accounts#calvary'
+  get 'choose'       => 'accounts#choice', as: :type_choice
   resources :projects
   get 'portfolio'        => 'welcome#portfolio', as: :portfolio
   get 'careers'          => 'welcome#jobs', as: :job_vacancy

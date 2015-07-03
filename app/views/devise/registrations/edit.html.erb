@@ -19,8 +19,10 @@
 <div class="settings-box">
 <nav class="settings-navigation">
   <ul>
-    <li><a href="" class="is_active">Account</a></li>
-    <!--<li><a href="">Emails</a></li>-->
+    <li><%= link_to 'Account', edit_user_registration_path, class: 'is_active' %></li>
+    <% if current_user.usertype == 'both' or current_user.usertype == 'designer' %>
+    <li><%= link_to 'Profile', profile_settings_path %></li>
+    <% end %>
   </ul>
 </nav>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'settings-form' }) do |f| %>
