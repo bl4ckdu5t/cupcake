@@ -1,7 +1,8 @@
 $(function(){
+  //console.log(getCookie('postStep1'));
   /* Calvary to the rescue */
   $('#js-calvary').click(function(){
-    //console.log("I am Calvary!");
+    console.log("I am Calvary!");
     var request = $(this).data('request');
     var usertype = $(this).data('usertype');
     var urlprefix = location.protocol + '//' + location.host + '/';

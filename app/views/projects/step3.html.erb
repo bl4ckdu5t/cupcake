@@ -1,0 +1,26 @@
+<header class="header header-authentication">
+	<nav class="page-navigation">
+    <div id="js-historyBack"><svg class="icon icon-arrow-back"><use xlink:href="#icon-arrow-back"></use></svg></div>
+    <div id="js-page-menu-trigger"><svg class="icon icon-more-vert"><use xlink:href="#icon-more-vert"></use></svg></div>
+    <ul id="js-page-menu">
+      <li><%= link_to 'Home', type_choice_path %></li>
+      <li><%= link_to 'Help', help_path %></li>
+      <li><%= link_to 'About us', about_us_path %></li>
+    </ul>
+  </nav>
+	<%= image_tag "logo-cap.png" %>
+	<nav class="steps">
+		<ul><% (1..4).each do |x| %><li class="<%= x <= 3? 'is_active':'' %>"></li><% end %></ul>
+	</nav>
+</header>
+<% if cookies[:postStep3].present? %>
+<section class="section-mini">
+	<%= cookies[:postStep3] %>
+</section>
+<% else %>
+<section class="section-mini txtcenter pad10">
+	<div class="alert alert-warning alert-alone">
+		You need to select a design type. Go to the <a href="/projects/new?step=2" class="alert-link">previous step</a> to choose a design type
+	</div>
+</section>
+<% end %>

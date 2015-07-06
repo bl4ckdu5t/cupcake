@@ -1266,6 +1266,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 				border-top: solid 3px $white;
 			}
 		}
+		&.is_active{ background: $white; }
 	}
 }
 .pagination{
@@ -1605,6 +1606,35 @@ p{
 			float: left;
 			width: 50%;
 			height: 100vh;
+		}
+	}
+}
+.alert{
+	padding: 10px;
+	border-radius: 4px;
+	&-warning{
+		background: $color-warning;
+		border: solid thin darken($color-warning, 40%);
+		color: darken($color-warning, 75%);
+	}
+	&-info{
+		background: $color-info;
+		border: solid thin darken($color-info, 40%);
+		color: darken($color-info, 75%);
+	}
+	&-error{
+		background: $color-error;
+		border: solid thin darken($color-error, 40%);
+		color: darken($color-error, 75%)
+	}
+	&-alone{
+		margin: 20px 0;
+		padding: 20px 0;
+	}
+	&-link{
+		font-weight: bold;
+		&:hover{
+			text-decoration: underline;
 		}
 	}
 }

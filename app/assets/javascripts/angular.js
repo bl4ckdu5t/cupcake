@@ -20,8 +20,8 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
 .controller('appController', ['$scope', '$http', '$location', '$cookies',function($scope, $http, $location, $cookies){
 	$http.jsonp('//api.ipify.org?format=jsonp&callback=JSON_CALLBACK', { cache: true }).then(function(response) { 
 		var ip = response.data.ip;
-		$http.get('https://freegeoip.net/json/'+ip, { cache: true }).then(function(r){
-			var shortcode = r.data.country_code;
+		$http.jsonp('http://ip-api.com/json/'+ip+'?callback=JSON_CALLBACK', { cache: true }).then(function(r){
+			var shortcode = r.data.countryCode;
 			$scope.currency = shortcode == 'NG' ? '₦' : '$';
 
 			$scope.logoPricing = {
@@ -95,6 +95,10 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
   $scope.changePwd = false;
   $scope.showPwd = function(){
   	$scope.changePwd = $scope.changePwd == true ? false : true;
+  }
+  $scope.projectStep = function(step, value){
+  	$cookies.put('postStep'+step, value);
+  	location.replace('?step='+step);
   }
   $scope.developer = 'Joseph Rex';
 }]);

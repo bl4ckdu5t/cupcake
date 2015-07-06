@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
   before_filter :configure_devise_params, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    type_choice_path
+    sign_in_url = new_user_session_url
+    if request.referer == sign_in_url
+      super
+    else
+      type_choice_path
+    end
   end
 
   def configure_devise_params
