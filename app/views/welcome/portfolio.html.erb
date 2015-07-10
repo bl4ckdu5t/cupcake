@@ -14,15 +14,15 @@
 <div class="portfolio-box">
 	<nav class="portfolio-nav">
 		<ul>
-			<li><a href="javascript:void(0)" class="active">All</a></li>
-			<li><a href="javascript:void(0)">Logos</a></li>
-			<li><a href="javascript:void(0)">Websites</a></li>
-			<li><a href="javascript:void(0)">Stationeries</a></li>
+			<li><a href="javascript:void(0)" ng-click="all()" ng-class="{'active': state == 'all'}">All</a></li>
+			<li><a href="javascript:void(0)" ng-click="showDraft()" ng-class="{'active': state == 'draft'}">Logos</a></li>
+			<li><a href="javascript:void(0)" ng-click="showOpen()" ng-class="{'active': state == 'open'}">Websites</a></li>
+			<li><a href="javascript:void(0)" ng-click="showClosed()" ng-class="{'active': state == 'closed'}">Stationeries</a></li>
 		</ul>
 	</nav>
 	<main class="portfolio-gallery clearfix">
 		<% (1..22).each do |x| %>
-		<div class="portfolio-item">
+		<div class="portfolio-item" ng-show="state == '<%= x % 2 == 0 ? 'open' : 24 % x == 0 ? 'draft' : 'closed' %>' || state == 'all'">
 			<%= image_tag "print_design_portfolio_designscook_#{x}.jpg", alt: 'portfolio item' %>
 			<p>Client Design <%= x %></p>
 		</div>

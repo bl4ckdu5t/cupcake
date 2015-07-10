@@ -1,5 +1,10 @@
 $(function(){
-  //console.log(getCookie('postStep1'));
+  /* Taking orders */
+  $('.js-orderPackage').click(function(){
+    var designType = $(this).data('type'), Package = $(this).data('package');
+    setCookie('postStep2', designType);
+    setCookie('postStep3', Package);
+  });
   /* Calvary to the rescue */
   $('#js-calvary').click(function(){
     console.log("I am Calvary!");

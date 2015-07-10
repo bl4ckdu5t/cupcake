@@ -514,6 +514,12 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 	&-team{
 		padding: 10px;
 	}
+	&-posting{
+		width: 100%;
+		max-width: 600px;
+		padding: 10px;
+		margin: 0 auto;
+	}
 }
 .social-icons{
 	>a{
@@ -749,6 +755,21 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			border: solid 3px $color-brand-1;
 			border-radius: 5px;
 			background: transparent;
+		}
+		&__select{
+			display: block;
+			min-width: 200px;
+			height: 40px;
+			border: solid 3px $color-brand-1;
+			border-radius: 5px;
+			background: transparent;
+		}
+		&__file{
+			border: solid 2px $color-brand-1;
+			height: 30px;
+			padding: 4px 2px;
+			background: transparent;
+			border-radius: 5px;
 		}
 		&__submit{
 			padding: 10px 20px;
@@ -1637,4 +1658,25 @@ p{
 			text-decoration: underline;
 		}
 	}
+}
+.form--posting{
+	padding: 30px 20px;
+	&_title{
+		font-size: 2rem;
+		display: block;
+		margin: 10px 0;
+	}
+	[type="text"]:not(.color-box){
+		display: block;
+		width: 100%;
+	}
+	ol{ margin: 0; padding: 0 0 0 20px; }
+	h2, li{ margin: 10px 0; }
+	.category-custom__desc{
+		height: 100px;
+		margin: 10px 0;
+	}
+}
+.color-box{
+	width: 55px;
 }
