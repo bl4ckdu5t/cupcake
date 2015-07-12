@@ -1,1 +1,49 @@
-<h2>I am step 4</h2>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify' %>
+<% end %>
+<header class="header header-authentication">
+	<nav class="page-navigation">
+    <div id="js-historyBack"><svg class="icon icon-arrow-back"><use xlink:href="#icon-arrow-back"></use></svg></div>
+    <div id="js-page-menu-trigger"><svg class="icon icon-more-vert"><use xlink:href="#icon-more-vert"></use></svg></div>
+    <ul id="js-page-menu">
+      <li><%= link_to 'Home', type_choice_path %></li>
+      <li><%= link_to 'Help', help_path %></li>
+      <li><%= link_to 'About us', about_us_path %></li>
+    </ul>
+  </nav>
+	<%= image_tag "logo-cap.png" %>
+	<nav class="steps">
+		<ul><% (1..4).each do |x| %><li class="is_active"></li><% end %></ul>
+	</nav>
+</header>
+<% if cookies[:postStep4].present? %>
+<section class="section-posting category-custom">
+	<h2>Payment Checkout</h2>
+	<label for="">Select Payment Option</label>
+	<select name="" id="" class="category-custom__select">
+		<option value="">MasterCard/VisaCard (VoguePay)</option>
+		<option value="" disabled>Paypal</option>
+		<option value="" disabled>Wiretranser</option>
+		<option value="" disabled>Western Union</option>
+		<option value="" disabled>Stripe</option>
+	</select>
+	<form method="POST" action="https://voguepay.com/pay/">
+		<input type="hidden" name="v_merchant_id" value="6165-0026057">
+		<input type="hidden" name="memo" value="<%= Project.last.design_type %> design from <%= "#{current_user.firstname} #{current_user.lastname}" %>">
+		<input type="hidden" name="notify_url" value="http://designscook.com/projects/notification">
+		<input type="hidden" name="success_url" value="http://designscook.com/projects/paid">
+		<input type="hidden" name="fail_url" value="http://designscook.com/project/pay_fail">
+		<input type="hidden" name="item_1" value="<%= Project.last.title %>">
+		<input type="hidden" name="price_1" value="{{ getPrice('<%= Project.last.design_type %>', <%= Project.last.package %>) }}">
+		<input type="hidden" name="description_1" value="Design project from design cook">
+		<br>
+		<input type="submit" class="category-custom__submit button-large" value="Make Payment">
+	</form>
+</section>
+<% else %>
+<section class="section-mini txtcenter pad10">
+	<div class="alert alert-warning alert-alone">
+		You need to select a design type. Go to the <a href="/projects/new?step=3" class="alert-link">previous step</a> to choose a design type
+	</div>
+</section>
+<% end %>

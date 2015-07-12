@@ -1,3 +1,6 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify' %>
+<% end %>
 <header class="header header-authentication">
 	<nav class="page-navigation">
     <div id="js-historyBack"><svg class="icon icon-arrow-back"><use xlink:href="#icon-arrow-back"></use></svg></div>
@@ -15,9 +18,11 @@
 </header>
 <% if cookies[:postStep3].present? %>
 <section class="section-posting category-custom">
-	<form class="form--posting">
+	<%= form_tag({controller: "projects", action: "create"}, class: 'form--posting', id: 'js-projectPost') do %>
+	  <%= hidden_field_tag :design_type, cookies[:postStep2] %>
+	  <%= hidden_field_tag :package, cookies[:postStep3] %>
 		<%= label_tag 'title', 'Project Title', class: 'form--posting_title' %>
-		<%= text_field_tag 'title', nil,class: 'category-custom__title', placeholder: 'e.g Logo design for XYZ company' %>
+		<%= text_field_tag 'title', nil,class: 'category-custom__title', placeholder: 'e.g Logo design for Hooli XYZ company' %>
 		<h2>Add Brief</h2>
 		<ol>
 		<% if cookies[:postStep2] == 'logo' %>
@@ -70,7 +75,7 @@
 	  </ol>
 	  <br>
 	  <%= submit_tag "Proceed", class: 'category-custom__submit button-large' %>
-	</form>
+	<% end %>
 </section>
 <% else %>
 <section class="section-mini txtcenter pad10">

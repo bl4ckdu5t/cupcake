@@ -1,4 +1,18 @@
 $(function(){
+  $('#js-projectPost').submit(function(e){
+    e.preventDefault();
+    var url = $(this).prop('action'), data = $(this).serialize();
+    $.ajax({
+      type: 'POST',
+      url: url,
+      data: data
+    }).done(function(response){
+      if(response.status == 'success'){
+        setCookie('postStep4', 'saved');
+        location.replace('?step=4');
+      }
+    });
+  });
   /* Taking orders */
   $('.js-orderPackage').click(function(){
     var designType = $(this).data('type'), Package = $(this).data('package');
@@ -24,6 +38,8 @@ $(function(){
         if(response.status == 'success'){
           urlprefix += usertype == 'designer' ? 'customer-account' : 'designer-account';
           window.location.replace(urlprefix);
+        }else{
+          alert(response.status);
         }
       });
     }

@@ -28,11 +28,40 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    if params[:title].blank?
+      render json: {'status' => 'The title can not be left blank'}
+    else
+      project = Project.new
+      project.title = params[:title]
+      project.stage = 3
+      project.state = 'draft'
+      project.design_type = params[:design_type]
+      project.package = params[:package]
+      project.user_id = current_user.id
+      brief_data = brief_params.except('utf8', 'authenticity_token', 'title', 'commit', 'controller', 'action',
+        'color1', 'color2', 'color3', 'design_type', 'package')
+      brief_data[:color_choices] = ""
+      (1..3).each { |x| brief_data[:color_choices] += params["color#{x}"]+':' }
+      if project.save!
+        brief_data[:project_id] = project.id
+        Brief.new(brief_data).save!
+        render json: {'status' => 'success'}
+      end
+    end
+  end
 
+  def edit
+    
   end
 
   def update
   	
+  end
+
+  private
+
+  def brief_params
+    params.permit!
   end
   
 end

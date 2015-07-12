@@ -66,6 +66,9 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
 				price4: shortcode == 'NG' ? convertNGN("3000") : "3000",
 				labels: label2
 			}
+			$scope.getPrice = function(type, package){
+			  return $scope[type+'Pricing']['price'+package];
+			}
 		});
 	});
   $scope.state = 'all';

@@ -55,13 +55,13 @@
 			<div class="widget-content">
 				<ul class="widget-content__list">
 					<li><svg class="icon icon-radio"><use xlink:href="{{checkStage(project.stage, 1)}}"></use></svg> Design Selection</li>
-					<li><svg class="icon icon-radio"><use xlink:href="{{checkStage(project.stage, 2)}}"></use></svg> Brief</li>
-					<li><svg class="icon icon-radio"><use xlink:href="{{checkStage(project.stage, 3)}}"></use></svg> Budget Options</li>
+					<li><svg class="icon icon-radio"><use xlink:href="{{checkStage(project.stage, 2)}}"></use></svg> Budget Options</li>
+					<li><svg class="icon icon-radio"><use xlink:href="{{checkStage(project.stage, 3)}}"></use></svg> Brief</li>
 					<li><svg class="icon icon-radio"><use xlink:href="{{checkStage(project.stage, 4)}}"></use></svg> Checked out</li>
 				</ul>
 			</div>
 			<div class="widget-meta">
-				<a href="" class="button button-widget__purchase rightmag5">Resume order</a>
+				<a href="/projects/{{project.id}}/edit" class="button button-widget__purchase rightmag5">Resume order</a>
 				<a href="" class="button button-widget__decline">Delete order</a>
 				<time>Date created: <strong>{{project.created_at | amDateFormat: 'Do MMMM, YYYY' }}</strong></time>
 			</div>
