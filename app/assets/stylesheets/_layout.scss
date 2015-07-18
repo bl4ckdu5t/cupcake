@@ -111,6 +111,19 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 			text-shadow: 1px 2px 2px $color-brand-1;
 		}
 	}
+	&-filler{
+		height: 100px;
+		margin-bottom: 20px;
+		.icon-menu{
+			z-index: 10;
+			@include breakpoint($breakpoint-android-landscape + 4px){
+				display: block;
+			}
+			@include breakpoint($breakpoint-tablet-portrait){
+				display: none;
+			}
+		}
+	}
 	&-caption{
 		font-size: 3.2rem;
 		margin: 30px 0;
@@ -368,11 +381,28 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		}
 	}
 }
+[data-grid~="2:12"]{
+	@include breakpoint($breakpoint-tablet-portrait - 1px){
+	  @include span(32%);
+	}
+	@include breakpoint($breakpoint-tablet-landscape){
+		@include span(25%);
+	}
+}
+[data-grid~="10:12"]{
+	@include breakpoint($breakpoint-tablet-portrait - 1px){
+	  @include span(64.5%);
+	}
+	@include breakpoint($breakpoint-tablet-landscape){
+		@include span(71.5%);
+	}
+}
 .section{
 	&-mini{
 		max-width: 1100px;
 		margin: 0 auto;
 		@include clearfixable;
+		p{ padding: 10px }
 	}
 	&-tour{
 		text-align: center;
@@ -521,6 +551,11 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		padding: 10px;
 		margin: 0 auto;
 	}
+	&-designer__dashboard{
+		width: 95%;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
 }
 .social-icons{
 	>a{
@@ -529,7 +564,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		background: $white;
 		color: $color-brand-1;
 		padding: 1.5px;
-		margin-right: 3px;
+		margin-right: 8px;
 		border-radius: 50%;
 		width: 30px;
 		height: 30px;
@@ -1282,8 +1317,8 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 				content: '';
 				display: block;
 				position: absolute;
-				left: $step-size - 2;
-				top: ($step-size / 2) - 3px;
+				left: $step-size - 4;
+				top: ($step-size / 2) - 4px;
 				width: $step-space + 2px;
 				border-top: solid 3px $white;
 			}
@@ -1680,4 +1715,82 @@ p{
 }
 .color-box{
 	width: 55px;
+	height: 25px;
+	margin-right: 10px;
+	margin-left: -5px;
+	&__preview{
+		display: inline-block;
+		width: 50px;
+		height: 25px;
+		background: $black;
+		vertical-align: bottom;
+	}
+}
+.profile{
+	&--box{
+		width: 100%;
+		margin-bottom: 10px;
+		padding: 20px;
+		background: $white;
+		border-radius: 2px;
+		box-shadow: 0 1px 3px #888;
+		text-align: center;
+	}
+	&--avatar{
+		width: 198px;
+		height: 198px;
+	}
+	&--name{
+		@include ellipsis-line(98%);
+	}
+	&--meta{
+		text-align: left;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		li{
+			padding: 10px;
+			border-bottom: solid thin #ccc;
+		}
+	}
+}
+.job{
+	&--list{
+		@extend .profile--box;
+		padding: 0;
+		text-align: left;
+		&__title{
+			margin: 0;
+			padding: 20px;
+			background: $color-brand-1;
+			@include ellipsis-line(98%);
+			@include gradient-light-linear;
+			width: 100%;
+			height: 70px;
+			color: $white;
+			text-shadow: 0 2px 3px #222 inset;
+		}
+		&__list{
+			list-style-type: none;
+			padding: 10px 20px;
+			li{
+				&:first-of-type{
+					border-top: solid 2px #bbb;
+				}
+				border-bottom: solid 2px #bbb;
+				padding: 10px;
+			}
+			h4{
+				margin: 10px 0;
+			}
+		}
+	}
+}
+.img{
+	&-circular{
+		border-radius: 50%;
+	}
+	&-curvy{
+		border-radius: 4px;
+	}
 }

@@ -1,10 +1,18 @@
-<header class="header header-authenticated">
+<header class="header header-filler">
 	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
 	<nav class="authenticated-navigation">
 	  <%= link_to root_path do %><%= image_tag "logo.png", class: 'logo' %><% end %>
 	  <ul class="authenticated-menu">
-	  	<li><a href=""><svg class="icon icon-add-circle-outline"><use xlink:href="#icon-add-circle-outline"></use></svg>Post project</a></li>
-	  	<li><a href=""><svg class="icon icon-cog"><use xlink:href="#icon-cog"></use></svg>Account settings</a></li>
+	  	<li>
+	  		<%= link_to notifications_path do %>
+	  		<svg class="icon icon-flag"><use xlink:href="#icon-flag"></use></svg> Notifications
+	  		<% end %>
+	  	</li>
+	  	<li>
+	  		<%= link_to edit_user_registration_path do %>
+	  		<svg class="icon icon-cog"><use xlink:href="#icon-cog"></use></svg> Account settings
+	  		<% end %>
+	  	</li>
 	  	<li>
 	  		<%= link_to destroy_user_session_path, :method => :delete do %>
 	  		<svg class="icon icon-backspace"><use xlink:href="#icon-backspace"></use></svg> Log out
@@ -12,5 +20,46 @@
 	  	</li>
 	  </ul>
 	</nav>
-	<h1 class="header-caption">My Account</h1>
 </header>
+<section class=" [ section section-designer__dashboard ] container">
+	<div data-grid="2:12">
+		<div class="profile--box">
+			<%= image_tag 'avatar.png', alt: 'profile image', class: 'profile--avatar img-circular' %>
+			<h3 class="profile--name" title="<%= "#{current_user.firstname} #{current_user.lastname}" %>">
+				<%= "#{current_user.firstname} #{current_user.lastname}" %>
+			</h3>
+			<ul class="profile--meta">
+				<li>Earnings: {{currency}}0.00</li>
+				<li>Submissions: 0</li>
+			</ul>
+		</div>
+	</div>
+	<div data-grid="10:12">
+		<div class="job--list">
+			<h2 class="job--list__title">Recommended Jobs</h2>
+			<ul class="job--list__list">
+				<li>
+					<h4><a href="">A Design for Hooli XYZ</a></h4>
+					<span>banner</span> <time>2 days left</time>
+				</li>
+				<li>
+					<h4><a href="">A Design for Hooli XYZ</a></h4>
+					<span>logo</span> <time>2 days left</time>
+				</li>
+			</ul>
+		</div>
+		<div class="job--list">
+			<h2 class="job--list__title">All Hot Jobs</h2>
+			<ul class="job--list__list">
+				<li>
+					<h4><a href="">A Design for Hooli XYZ</a></h4>
+					<span>banner</span> <time>2 days left</time>
+				</li>
+				<li>
+					<h4><a href="">A Design for Hooli XYZ</a></h4>
+					<span>logo</span> <time>2 days left</time>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>

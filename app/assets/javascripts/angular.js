@@ -67,7 +67,7 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
 				labels: label2
 			}
 			$scope.getPrice = function(type, package){
-			  return $scope[type+'Pricing']['price'+package];
+			  return $scope[type+'Pricing']['price'+package].split(',').join('');
 			}
 		});
 	});

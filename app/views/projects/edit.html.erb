@@ -1,0 +1,82 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify' %>
+<% end %>
+<header class="header header-filler">
+	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
+	<nav class="authenticated-navigation">
+	  <%= link_to root_path do %><%= image_tag "logo.png", class: 'logo' %><% end %>
+	  <ul class="authenticated-menu">
+	  	<li>
+	  		<%= link_to customer_path do %>
+	  		<svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg> Home
+	  		<% end %>
+	  	</li>
+	  	<li>
+	  		<%= link_to edit_user_registration_path do %>
+	  		<svg class="icon icon-cog"><use xlink:href="#icon-cog"></use></svg> Account settings
+	  		<% end %>
+	  	</li>
+	  	<li>
+	  		<%= link_to destroy_user_session_path, :method => :delete do %>
+	  		<svg class="icon icon-backspace"><use xlink:href="#icon-backspace"></use></svg> Log out
+	  		<% end %>
+	  	</li>
+	  </ul>
+	</nav>
+</header>
+<section class="section-mini pad10">
+	<h2>Edit <%= @project.design_type %> project</h2>
+	<%= form_for @project do |f| %>
+		<%= f.label :title, 'Project title:' %>
+		<%= f.text_field :title, class: 'category-custom__title form--posting_title' %>
+		<% if Brief.find_by(project_id: @project.id) %>
+		<h2>Briefs</h2>
+
+		<p><%= label_tag :color_choices, 'Desired Colors:' %></p>
+		<span><i class="color-box__preview" style="background: #<%= Brief.find_by(project_id: @project.id).color_choices.split(':')[1] %>"></i><input type="text" id="colorpicker1" class="color-box" name="color1" value="<%= Brief.find_by(project_id: @project.id).color_choices.split(':')[1] %>"></span>
+		<span><i class="color-box__preview" style="background: #<%= Brief.find_by(project_id: @project.id).color_choices.split(':')[2] %>"></i><input type="text" id="colorpicker2" class="color-box" name="color2" value="<%= Brief.find_by(project_id: @project.id).color_choices.split(':')[2] %>"></span>
+		<span><i class="color-box__preview" style="background: #<%= Brief.find_by(project_id: @project.id).color_choices.split(':')[3] %>"></i><input type="text" id="colorpicker3" class="color-box" name="color3" value="<%= Brief.find_by(project_id: @project.id).color_choices.split(':')[1] %>"></span>
+
+		<% if @project.design_type == 'logo' %>
+
+		<p><%= label_tag :slogan, 'Company Slogan:' %></p>
+		<%= text_field_tag :slogan, Brief.find_by(project_id: @project.id).slogan, class: 'category-custom__title form--posting_title' %>
+
+		<% elsif @project.design_type == 'website' %>
+
+		<p>Website domain name:</p>
+		<%= text_field_tag :website, Brief.find_by(project_id: @project.id).website, class: 'category-custom__title form--posting_title' %>
+		<p>Number of web pages:</p>
+		<%= text_field_tag :website_pages, nil, class: 'category-custom__title form--posting_title' %>
+		<p>Recommended websites you like:</p>
+		<%= text_field_tag :recommended_website, nil, class: 'category-custom__title form--posting_title' %>
+
+		<% else %>
+
+		<p>Company name:</p>
+		<%= text_field_tag :company_name, nil, class: 'category-custom__title form--posting_title' %>
+		<p>Company Description:</p>
+		<%= text_area_tag :company_description, nil, class: 'category-custom__desc form--posting_title' %>
+		<p>Company Address:</p>
+		<%= text_field_tag :company_address, nil, class: 'category-custom__title form--posting_title' %>
+		<p>City:</p>
+		<%= text_field_tag :city, nil, class: 'category-custom__title form--posting_title' %>
+		<p>State/Province:</p>
+		<%= text_field_tag :state, nil, class: 'category-custom__title form--posting_title' %>
+		<p>Zip Code:</p>
+		<%= text_field_tag :zip, nil, class: 'category-custom__title form--posting_title' %>
+		<p>Telephone:</p>
+		<%= text_field_tag :phone, nil, class: 'category-custom__title form--posting_title' %>
+		<p>Fax:</p>
+		<%= text_field_tag :fax, nil, class: 'category-custom__title form--posting_title' %>
+		<p>Country:</p>
+		<%= text_field_tag :country, nil, class: 'category-custom__title form--posting_title' %>
+		<p>For Business Cards, select your card orientation:</p>
+		<%= select_tag :card_orientation, options_for_select([['Portrait','portrait'],['Landscape', 'landscape']]), class: 'category-custom__select' %>
+		<% end %>
+		<p>Additional Information:</p>
+		<%= text_area_tag :additional, Brief.find_by(project_id: @project.id).additional, class: 'category-custom__desc form--posting_title' %>
+		<%= submit_tag "Update", class: 'category-custom__submit button-large' %>
+		<% end %>
+	<% end %>
+</section>

@@ -30,9 +30,9 @@
 		<%= radio_button_tag :is_new, true %> <%= label_tag 'is_new_true', 'New logo' %>
 		<%= radio_button_tag :is_new, false %> <%= label_tag 'is_new_false', 'Redesign' %>
 		<li>Desired Colors:</li>
-		# <input type="text" id="colorpicker1" class="color-box" name="color1">
-		# <input type="text" id="colorpicker2" class="color-box" name="color2">
-		# <input type="text" id="colorpicker3" class="color-box" name="color3">
+		<span><i class="color-box__preview"></i><input type="text" id="colorpicker1" class="color-box" name="color1"></span>
+		<span><i class="color-box__preview"></i><input type="text" id="colorpicker2" class="color-box" name="color2"></span>
+		<span><i class="color-box__preview"></i><input type="text" id="colorpicker3" class="color-box" name="color3"></span>
 		<li>Business Slogan</li>
 		<%= text_field_tag :slogan, nil, class: 'category-custom__title' %>
 		<% elsif cookies[:postStep2] == 'website' %>
@@ -43,9 +43,9 @@
 		<li>Recommended websites you like:</li>
 		<%= text_field_tag :recommended_website, nil, class: 'category-custom__title' %>
 		<li>Desired Colors:</li>
-		# <input type="text" id="colorpicker1" class="color-box" name="color1">
-		# <input type="text" id="colorpicker2" class="color-box" name="color2">
-		# <input type="text" id="colorpicker3" class="color-box" name="color3">
+		<span><i class="color-box__preview"></i><input type="text" id="colorpicker1" class="color-box" name="color1"></span>
+		<span><i class="color-box__preview"></i><input type="text" id="colorpicker2" class="color-box" name="color2"></span>
+		<span><i class="color-box__preview"></i><input type="text" id="colorpicker3" class="color-box" name="color3"></span>
 		<% else %>
 		<li>Company name:</li>
 		<%= text_field_tag :company_name, nil, class: 'category-custom__title' %>

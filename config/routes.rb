@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications' => 'accounts#notifications', as: :notifications
   patch 'profile-submit' => 'profile#update', as: :profile_update
   get 'profile-edit' => 'profile#edit', as: :profile_settings
   post 'calvary'     => 'accounts#calvary'

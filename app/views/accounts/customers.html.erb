@@ -62,7 +62,7 @@
 			</div>
 			<div class="widget-meta">
 				<a href="/projects/{{project.id}}/edit" class="button button-widget__purchase rightmag5">Resume order</a>
-				<a href="" class="button button-widget__decline">Delete order</a>
+				<a href="/projects/{{project.id}}" class="button button-widget__decline" data-method="delete" data-confirm="Are you sure?" rel="nofollow">Delete project</a>
 				<time>Date created: <strong>{{project.created_at | amDateFormat: 'Do MMMM, YYYY' }}</strong></time>
 			</div>
 		</div>

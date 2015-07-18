@@ -1,4 +1,8 @@
 $(function(){
+  /* Posting Project at stage 3 */
+  $('.color-box').change(function(){
+    $(this).siblings('.color-box__preview').css('background', '#'+$(this).val());
+  });
   $('#js-projectPost').submit(function(e){
     e.preventDefault();
     var url = $(this).prop('action'), data = $(this).serialize();
@@ -11,7 +15,7 @@ $(function(){
         setCookie('postStep4', 'saved');
         location.replace('?step=4');
       }
-    });
+    }).fail(function(response){ console.log(response.responseText); });
   });
   /* Taking orders */
   $('.js-orderPackage').click(function(){

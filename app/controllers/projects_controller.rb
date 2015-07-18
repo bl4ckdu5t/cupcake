@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:show]
 
   def index
   	render json: Project.where(user_id: current_user)
@@ -51,11 +51,34 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    
+    @project = Project.find(params[:id])
   end
 
   def update
-  	
+    project = Project.find(params[:id])
+    project.title = params[:project][:title]
+    brief_data = brief_params.except('utf8','_method','authenticity_token','project','commit','controller','action','id','color1','color2',
+      'color3')
+    brief_data[:color_choices] = ""
+    (1..3).each { |x| brief_data[:color_choices] += params["color#{x}"]+':' }
+  	if project.save!
+      brief = Brief.find_by(project_id: project.id)
+      updated = brief.update_attributes(brief_data)
+      if updated
+        redirect_to :back, notice: 'Project successfully updated'
+      end
+    end
+  end
+
+  def show
+
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    if @project.destroy
+      redirect_to :back
+    end
   end
 
   private

@@ -6,6 +6,7 @@ $(document).ready(function(){
 		onSubmit: function(hsb, hex, rgb, el) {
 			$(el).val(hex);
 			$(el).ColorPickerHide();
+			$('#'+$(el).prop('id')).siblings('.color-box__preview').css('background', '#'+hex);
 		},
 		onBeforeShow: function () {
 			$(this).ColorPickerSetColor(this.value);

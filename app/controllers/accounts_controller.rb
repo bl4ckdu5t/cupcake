@@ -6,6 +6,8 @@ class AccountsController < ApplicationController
     if current_user.usertype == 'customer'
     	redirect_to customer_path
     end
+    @projects = Project.all
+    @recommended = Project.where(design_type: current_user.specialty)
 	end
 
 	def customers
