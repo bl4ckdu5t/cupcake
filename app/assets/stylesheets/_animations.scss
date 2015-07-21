@@ -26,3 +26,14 @@
     transform-origin: top center;
   }
 }
+@keyframes blinkNotify{
+	0%{
+		color: #fff;
+	}
+	50%{
+		color: #f00;
+	}
+	100%{
+		color: #fff;
+	}
+}

@@ -1,0 +1,164 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<header class="header header-filler">
+	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
+	<nav class="authenticated-navigation">
+	  <%= link_to root_path do %><%= image_tag "logo.png", class: 'logo' %><% end %>
+	  <ul class="authenticated-menu">
+<% if user_signed_in? %>
+	  	<li>
+	  		<%= link_to type_choice_path do %>
+	  		<svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg> Home
+	  		<% end %>
+	  	</li>
+	  	<li>
+	  		<%= link_to edit_user_registration_path do %>
+	  		<svg class="icon icon-cog"><use xlink:href="#icon-cog"></use></svg> Account settings
+	  		<% end %>
+	  	</li>
+	  	<li>
+	  		<%= link_to destroy_user_session_path, :method => :delete do %>
+	  		<svg class="icon icon-backspace"><use xlink:href="#icon-backspace"></use></svg> Log out
+	  		<% end %>
+	  	</li>
+<% else %>
+	  	<li>
+	  		<%= link_to new_user_session_path do %>
+	  		<svg class="icon icon-system-update-tv"><use xlink:href="#icon-system-update-tv"></use></svg> Sign In
+	  		<% end %>
+	  	</li>
+<% end %>
+	  </ul>
+	</nav>
+</header>
+<section class="section section-project">
+	<h1 class="project--title"><%= @project.title %>
+		<div class="job--list__detail">
+			<span><svg class="icon icon-style"><use xlink:href="#icon-style"></use></svg> <%= @project.design_type %></span>
+			<time><svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg> <%= !@project.duration ? 'No time limit' : "#{@project.duration} days left" %></time>
+		</div>
+	</h1>
+	<div class="project--preview ghost">
+		<%= image_tag 'http://images.strich.io/profile.jpg', class: 'project--preview__background' %>
+		<%= image_tag 'http://images.strich.io/profile.jpg', class: 'project--preview__image' %>
+	</div>
+	<div class="project--toggler"><svg class="icon icon-unfold-more"><use xlink:href="#icon-unfold-more"></use></svg></div>
+	<main class="project--content">
+		<article>
+			<% if @project.state == 'closed' %>
+			<p class="alert alert-warning txtcenter">Closed</p>
+			<% end %>
+			<% if Brief.find_by(project_id: @project.id).present? %>
+			<% brief = Brief.find_by(project_id: @project.id) %>
+			<h3>Company Name</h3>
+			<p><%= brief.company_name %></p>
+			<h3>Company Slogan</h3>
+			<p><%= brief.slogan %></p>
+			<% if @project.design_type == 'website' %>
+			<p><strong>Website:</strong> <%= brief.website %></p>
+			<h3>Website Pages</h3>
+			<p><%= brief.website_pages %></p>
+			<p><strong>Recommended website:</strong> <%= brief.recommended_website %></p>
+			<% elsif @project.design_type == 'logo' %>
+			<p><strong>Note:</strong>	<%= brief.is_new == true ? 'This is a new design' : 'This is a redesign' %></p>
+			<% else %>
+			<h3>Company description</h3>
+			<p><%= brief.company_description %></p>
+			<h3>Company Address</h3>
+			<p><%= brief.company_address %></p>
+			<p><strong>City:</strong> <%= brief.city %></p>
+			<p><strong>Postal code/Zip:</strong> <%= brief.zip %></p>
+			<p><strong>State:</strong> <%= brief.state %></p>
+			<p><strong>Country:</strong> <%= brief.country %></p>
+			<p><strong>Phone:</strong> <%= brief.phone %></p>
+			<p><strong>Fax:</strong> <%= brief.fax %></p>
+			<p><strong>Card orientation:</strong> <%= brief.card_orientation %></p>
+			<% end %>
+			<h3>Preferred Colors</h3>
+			<% brief.color_choices.split(':').each_with_index do |x, i| %>
+			<em><%= "##{x}" %></em>
+			<i class="color-box__preview" style="background: #<%= x %>"></i>
+			<% end %>
+			<h3>Additional Project Information</h3>
+			<p><%= brief.additional %></p>
+			<% end %>
+			<br>
+			<!-- Sharing -->
+			<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20project&via=designscook"  data-size="large">Tweet</a>
+			<% if user_signed_in? %>
+			<% if current_user.id == @project.user_id %>
+			<div class="comments">
+				<h4 class="comments--header">Submissions</h4>
+				<div class="comments--form">
+					<h3><%= @submissions.count %> Submissions</h3>
+					<% @submissions.each do |x| %>
+					cool
+					<% end %>
+					<div class="comments--thread clearfix">
+						<div class="comments--avatar"><%= image_tag 'http://placehold.it/100x100', class: 'img-circular' %></div>
+						<div class="comments--content">
+							<div class="comments--message">
+								<div class="comments--message__header">Thea Haldrich <time>submitted on 23 June, 2012</time></div>
+								<div class="comments--message__text clearfix">
+									<%= image_tag 'http://placehold.it/150x150', class: 'fr' %>
+									<a href="" class="link__decorated">Download Package</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="comments--thread clearfix">
+						<div class="comments--avatar"><%= image_tag 'http://placehold.it/100x100', class: 'img-circular' %></div>
+						<div class="comments--content">
+							<div class="comments--message">
+								<div class="comments--message__header">Thea Haldrich <time>submitted on 23 June, 2012</time></div>
+								<div class="comments--message__text clearfix">
+									<%= image_tag 'http://placehold.it/150x150', class: 'fr' %>
+									<a href="" class="link__decorated">Download Package</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<% elsif session[:usertype] == 'designer' && @project.paid == true %>
+			<div class="comments">
+				<h4 class="comments--header">Submission</h4>
+				<div class="comments--form">
+					<form>
+						<label for="">Upload preview image (*.jpg, *.png, *.gif files only are accepted):</label><br>
+						<input type="file"><br>
+						<label for="">Upload project (*.zip, *.rar files only are accepted. You can pack all your file formats in a compressed zip file)</label><br>
+						<input type="file">
+						<p><input type="submit" class="button button-bordered button-large" value="Submit"></p>
+					</form>
+				</div>
+			</div>
+			<% end %>
+			<% end %>
+		</article>
+	</main>
+</section>
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));</script>

@@ -556,6 +556,21 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		max-width: 1200px;
 		margin: 0 auto;
 	}
+	&-project{
+		width: 90%;
+		max-width: 1100px;
+		min-height: 200px;
+		margin: 20px auto;
+		background: $white;
+		box-shadow: 0 2px 2px #222;
+	}
+	&-notifications{
+		width: 90%;
+		max-width: 1100px;
+		background: $white;
+		margin: 20px auto;
+		padding: 20px 10px;
+	}
 }
 .social-icons{
 	>a{
@@ -1784,6 +1799,15 @@ p{
 				margin: 10px 0;
 			}
 		}
+		&__detail{
+			color: #888;
+			.icon{
+				width: 16px;
+			}
+			span{
+				margin-right: 10px;
+			}
+		}
 	}
 }
 .img{
@@ -1792,5 +1816,142 @@ p{
 	}
 	&-curvy{
 		border-radius: 4px;
+	}
+}
+.blink-notify{
+	animation: blinkNotify 1s infinite;
+}
+.project{
+	&--title{
+		background: $color-brand-1;
+		color: $white;
+		margin: 0;
+		padding: 20px;
+		text-align: center;
+		.job--list__detail{
+			margin-top: 10px;
+			font-size: 1.4rem;
+			font-weight: light;
+		}
+	}
+	&--preview{
+		position: relative;
+		width: 100%;
+		height: 250px;
+		text-align: center;
+		background: #555;
+		overflow: hidden;
+		&__background{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			filter: blur(10px);
+			transform: translate3d(0 ,0 , 0);
+			z-index: 1;
+		}
+		&__image{
+			position: relative;
+			z-index: 2;
+			width: 300px;
+			height: 100%;
+		}
+	}
+	&--toggler{
+		height: 35px;
+		padding: 5px;
+		background: $color-brand-1;
+		@include gradient-dark-linear;
+		color: $white;
+		text-align: center;
+		cursor: pointer;
+	}
+	&--content{
+		padding: 20px 30px;
+		line-height: 2;
+		h3{
+			margin: 10px 0;
+		}
+	}
+}
+.comments{
+	color: $white;
+	&--header{
+		margin: 0;
+		border-radius: 5px 5px 0 0;
+		background: $color-brand-1;
+		padding: 10px 20px;
+		width: 200px;
+		font-size: 2.2rem;
+	}
+	&--form{
+		background: $color-brand-1;
+		border-radius: 0 4px 4px 4px;
+		padding: 10px 30px 20px;
+	}
+	&--thread{
+		margin-bottom: 20px;
+	}
+	&--avatar{
+		float: left;
+		width: 11%;
+	}
+	&--content{
+		float: left;
+		width: 89%;
+		padding: 0 0 0 20px;
+		color: $color-brand-1;
+	}
+	&--message{
+		position: relative;
+		width: 100%;
+		background: $white;
+		border-radius: 5px;
+		box-shadow: 1px 1px 2px #ccc;
+		&::before{
+			content: '';
+			position: absolute;
+			left: -15px;
+			top: 70px;
+			width: 30px;
+			height: 30px;
+			background: $white;
+			transform: rotate(45deg);
+			z-index: 1;
+		}
+		&__header{
+			background: #eee;
+			border-radius: 5px 5px 0 0;
+			padding: 10px 20px;
+			height: 60px;
+			font-weight: bold;
+			color: $color-brand-2;
+			font-size: 2rem;
+			time{
+				margin-left: 10px;
+				font-style: italic;
+				font-size: 1.4rem;
+				color: #555;
+			}
+		}
+		&__text{
+			position: relative;
+			z-index: 5;
+			padding: 10px 20px;
+		}
+	}
+	p{ padding: 10px 0 }
+}
+.notifications{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	h3{
+		margin: 10px 0;
+	}
+	> li{
+		border-bottom: dashed thin #aaa;
+		padding: 10px 20px;
 	}
 }

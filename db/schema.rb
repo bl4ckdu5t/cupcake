@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718180205) do
+ActiveRecord::Schema.define(version: 20150721000322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20150718180205) do
     t.datetime "updated_at",                         null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.string   "message"
+    t.boolean  "seen",        default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "design_type"
@@ -52,6 +61,15 @@ ActiveRecord::Schema.define(version: 20150718180205) do
     t.boolean  "paid",        default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "selections", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "customer_id"
+    t.integer  "designer_id"
+    t.integer  "rank"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "submissions", force: :cascade do |t|

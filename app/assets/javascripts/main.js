@@ -1,4 +1,7 @@
 $(function(){
+  $('.project--toggler').click(function(){
+    $('.project--preview').slideToggle();
+  });
   /* Posting Project at stage 3 */
   $('.color-box').change(function(){
     $(this).siblings('.color-box__preview').css('background', '#'+$(this).val());

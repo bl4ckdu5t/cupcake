@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
-	before_action :authenticate_user!, except: [:show]
+	before_action :authenticate_user!, except: [:show, :stream_api]
 
   def index
-  	render json: Project.where(user_id: current_user)
+  	render json: Project.where(user_id: current_user).order(updated_at: :desc)
   end
 
   def new
@@ -71,7 +71,12 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project = Project.find(params[:id])
+    @submissions = Submission.where(project_id: params[:id]).order(created_at: :desc)
+  end
 
+  def stream_api
+    render json: Project.order(created_at: :desc)
   end
 
   def destroy

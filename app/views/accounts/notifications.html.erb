@@ -1,0 +1,33 @@
+<header class="header header-filler">
+	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
+	<nav class="authenticated-navigation">
+	  <%= link_to root_path do %><%= image_tag "logo.png", class: 'logo' %><% end %>
+	  <ul class="authenticated-menu">
+	  	<li>
+	  		<%= link_to type_choice_path do %>
+	  		<svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg> Home
+	  		<% end %>
+	  	</li>
+	  	<li>
+	  		<%= link_to edit_user_registration_path do %>
+	  		<svg class="icon icon-cog"><use xlink:href="#icon-cog"></use></svg> Account settings
+	  		<% end %>
+	  	</li>
+	  	<li>
+	  		<%= link_to destroy_user_session_path, :method => :delete do %>
+	  		<svg class="icon icon-backspace"><use xlink:href="#icon-backspace"></use></svg> Log out
+	  		<% end %>
+	  	</li>
+	  </ul>
+	</nav>
+</header>
+<section class="section section-notifications">
+	<% if @notifications.blank? %>
+	<p class="pad20">There are no notifications here yet</p>
+	<% end %>
+	<ul class="notifications">
+		<% @notifications.each do |n| %>
+		<li><h3><%= n.message %></h3><time><%= n.created_at.strftime('%B %e, %Y') %> at time <%= n.created_at.strftime('%R') %></time></li>
+		<% end %>
+	</ul>
+</section>

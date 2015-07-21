@@ -1,13 +1,14 @@
 class AccountsController < ApplicationController
 	before_action :authenticate_user!
+	before_filter :init
 
 	def designers
 		session[:usertype] = 'designer'
     if current_user.usertype == 'customer'
     	redirect_to customer_path
     end
-    @projects = Project.all
-    @recommended = Project.where(design_type: current_user.specialty)
+    @submissions_count = Submission.where(designer_id: current_user.id).count
+    @notification_presence = Notification.where(receiver_id: current_user.id, seen: false)
 	end
 
 	def customers
@@ -33,5 +34,15 @@ class AccountsController < ApplicationController
 		else
 			render json: {status: 'failed'}
 		end
+	end
+
+	def notifications
+		@notifications.update_all(seen: true)
+	end
+
+	private
+
+	def init
+    @notifications = Notification.where(receiver_id: current_user.id).order(updated_at: :desc)
 	end
 end

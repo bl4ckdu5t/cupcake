@@ -29,10 +29,6 @@
 		<li>Is this a new logo or re-design?</li>
 		<%= radio_button_tag :is_new, true %> <%= label_tag 'is_new_true', 'New logo' %>
 		<%= radio_button_tag :is_new, false %> <%= label_tag 'is_new_false', 'Redesign' %>
-		<li>Desired Colors:</li>
-		<span><i class="color-box__preview"></i><input type="text" id="colorpicker1" class="color-box" name="color1"></span>
-		<span><i class="color-box__preview"></i><input type="text" id="colorpicker2" class="color-box" name="color2"></span>
-		<span><i class="color-box__preview"></i><input type="text" id="colorpicker3" class="color-box" name="color3"></span>
 		<li>Business Slogan</li>
 		<%= text_field_tag :slogan, nil, class: 'category-custom__title' %>
 		<% elsif cookies[:postStep2] == 'website' %>
@@ -42,10 +38,6 @@
 		<%= text_field_tag :website_pages, nil, class: 'category-custom__title' %>
 		<li>Recommended websites you like:</li>
 		<%= text_field_tag :recommended_website, nil, class: 'category-custom__title' %>
-		<li>Desired Colors:</li>
-		<span><i class="color-box__preview"></i><input type="text" id="colorpicker1" class="color-box" name="color1"></span>
-		<span><i class="color-box__preview"></i><input type="text" id="colorpicker2" class="color-box" name="color2"></span>
-		<span><i class="color-box__preview"></i><input type="text" id="colorpicker3" class="color-box" name="color3"></span>
 		<% else %>
 		<li>Company name:</li>
 		<%= text_field_tag :company_name, nil, class: 'category-custom__title' %>
@@ -68,6 +60,10 @@
 		<li>For Business Cards, select your card orientation:</li>
 		<%= select_tag :card_orientation, options_for_select([['Portrait','portrait'],['Landscape', 'landscape']]), class: 'category-custom__select' %>
 		<% end %>
+		<li>Desired Colors:</li>
+		<span><i class="color-box__preview"></i><input type="text" id="colorpicker1" class="color-box" name="color1"></span>
+		<span><i class="color-box__preview"></i><input type="text" id="colorpicker2" class="color-box" name="color2"></span>
+		<span><i class="color-box__preview"></i><input type="text" id="colorpicker3" class="color-box" name="color3"></span>
 		<li>Upload sketch or sample if available</li>
 		<%= file_field_tag :sample, class: 'category-custom__file' %>
 		<li>Additional Information:</li>

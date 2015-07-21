@@ -4,7 +4,7 @@
 	  <%= link_to root_path do %><%= image_tag "logo.png", class: 'logo' %><% end %>
 	  <ul class="authenticated-menu">
 	  	<li>
-	  		<%= link_to notifications_path do %>
+	  		<%= link_to notifications_path, class: @notification_presence.present? ? 'blink-notify' : '' do %>
 	  		<svg class="icon icon-flag"><use xlink:href="#icon-flag"></use></svg> Notifications
 	  		<% end %>
 	  	</li>
@@ -29,37 +29,30 @@
 				<%= "#{current_user.firstname} #{current_user.lastname}" %>
 			</h3>
 			<ul class="profile--meta">
-				<li>Earnings: {{currency}}0.00</li>
-				<li>Submissions: 0</li>
+				<li>Earnings: $<%= current_user.earnings.present? ? current_user.earnings : '0' %></li>
+				<li>Submissions: <%= @submissions_count %></li>
 			</ul>
 		</div>
 	</div>
 	<div data-grid="10:12">
 		<div class="job--list">
-			<h2 class="job--list__title">Recommended Jobs</h2>
+			<h2 class="job--list__title">Available design jobs</h2>
+			<div ng-if="projects.length < 1" class="dashboard-empty">
+				<h2>Well, this is a weird thing but it appears there are no projects available</h2>
+			</div>
 			<ul class="job--list__list">
-				<li>
-					<h4><a href="">A Design for Hooli XYZ</a></h4>
-					<span>banner</span> <time>2 days left</time>
-				</li>
-				<li>
-					<h4><a href="">A Design for Hooli XYZ</a></h4>
-					<span>logo</span> <time>2 days left</time>
+				<li dir-paginate="project in projects | itemsPerPage: 5">
+					<h4><a href="/projects/{{project.id}}">{{project.title}}</a></h4>
+					<div class="job--list__detail">
+						<span><svg class="icon icon-style"><use xlink:href="#icon-style"></use></svg> {{ project.design_type }}</span>
+						<time><svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg> {{ !project.duration ? 'No limit' : project.duration + ' days left' }}</time>
+					</div>
 				</li>
 			</ul>
-		</div>
-		<div class="job--list">
-			<h2 class="job--list__title">All Hot Jobs</h2>
-			<ul class="job--list__list">
-				<li>
-					<h4><a href="">A Design for Hooli XYZ</a></h4>
-					<span>banner</span> <time>2 days left</time>
-				</li>
-				<li>
-					<h4><a href="">A Design for Hooli XYZ</a></h4>
-					<span>logo</span> <time>2 days left</time>
-				</li>
-			</ul>
+			<div class="pad10 topmag10 position-parent">
+				<dir-pagination-controls></dir-pagination-controls>
+			</div>
+			<div class="pad10">&nbsp;</div>
 		</div>
 	</div>
 </section>

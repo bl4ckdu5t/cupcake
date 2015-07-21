@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'profile-edit' => 'profile#edit', as: :profile_settings
   post 'calvary'     => 'accounts#calvary'
   get 'choose'       => 'accounts#choice', as: :type_choice
-  resources :projects
+  resources :projects do
+    get 'stream-api', on: :collection
+  end
   get 'portfolio'        => 'welcome#portfolio', as: :portfolio
   get 'careers'          => 'welcome#jobs', as: :job_vacancy
   get 'about-us'         => 'welcome#about', as: :about_us

@@ -95,6 +95,11 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
 	   $scope.projects = response.data;
 	  });
 	}
+	if (location.pathname == '/designer-account'){
+		$http.get('/projects/stream-api').then(function(response){
+			$scope.projects = response.data;
+		});
+	}
   $scope.changePwd = false;
   $scope.showPwd = function(){
   	$scope.changePwd = $scope.changePwd == true ? false : true;
