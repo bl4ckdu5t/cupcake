@@ -1,4 +1,10 @@
 $(function(){
+  /* Constraint for users to only use Larger screens for work reviews */
+  if(window.innerWidth < 1024){
+    $('.comments--thread:first').before('Reviewing submissions can only be done on a screen above 1024 pixels.'+
+      ' Use a landscape view on a tablet device or a PC');
+  }
+  /* Display Project preview nicely */
   $('.project--toggler').click(function(){
     $('.project--preview').slideToggle();
   });

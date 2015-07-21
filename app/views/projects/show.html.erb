@@ -41,7 +41,10 @@
 	<h1 class="project--title"><%= @project.title %>
 		<div class="job--list__detail">
 			<span><svg class="icon icon-style"><use xlink:href="#icon-style"></use></svg> <%= @project.design_type %></span>
-			<time><svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg> <%= !@project.duration ? 'No time limit' : "#{@project.duration} days left" %></time>
+			<time>
+				<svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg> 
+				<%= !@project.duration ? 'No time limit' : @dl < 0 ? 'expired' : @dl == 0 ? "#{@hl} hours left" : "#{@dl} days left" %>
+			</time>
 		</div>
 	</h1>
 	<div class="project--preview ghost">
@@ -100,6 +103,7 @@
 					<% @submissions.each do |x| %>
 					cool
 					<% end %>
+					<!-- Start Thread -->
 					<div class="comments--thread clearfix">
 						<div class="comments--avatar"><%= image_tag 'http://placehold.it/100x100', class: 'img-circular' %></div>
 						<div class="comments--content">
@@ -108,24 +112,21 @@
 								<div class="comments--message__text clearfix">
 									<%= image_tag 'http://placehold.it/150x150', class: 'fr' %>
 									<a href="" class="link__decorated">Download Package</a>
+									<h5>Rank this</h5>
+									<em>Note that we award users based on your rating so make sure to not give 2 users the same rank</em>
+									<p>
+									<input type="radio" name="rank" id="best">
+									<label for="best">1 (Wow)</label>
+									<input type="radio" name="rank" id="better">
+									<label for="better">2 (Looks admirable)</label>
+									<input type="radio" name="rank" id="good">
+									<label for="good">3 (It's ok)</label>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-
-					<div class="comments--thread clearfix">
-						<div class="comments--avatar"><%= image_tag 'http://placehold.it/100x100', class: 'img-circular' %></div>
-						<div class="comments--content">
-							<div class="comments--message">
-								<div class="comments--message__header">Thea Haldrich <time>submitted on 23 June, 2012</time></div>
-								<div class="comments--message__text clearfix">
-									<%= image_tag 'http://placehold.it/150x150', class: 'fr' %>
-									<a href="" class="link__decorated">Download Package</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
+					<!-- End Thread -->
 				</div>
 			</div>
 			<% elsif session[:usertype] == 'designer' && @project.paid == true %>

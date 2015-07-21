@@ -60,6 +60,13 @@
 		<li>For Business Cards, select your card orientation:</li>
 		<%= select_tag :card_orientation, options_for_select([['Portrait','portrait'],['Landscape', 'landscape']]), class: 'category-custom__select' %>
 		<% end %>
+		<li>Duration:</li>
+		<select name="duration" id="">
+			<option value="" selected>No Limits</option>
+			<% (1..30).each do |x| %>
+			<option value="<%= x %>"><%= "#{x} days" %></option>
+			<% end %>
+		</select>
 		<li>Desired Colors:</li>
 		<span><i class="color-box__preview"></i><input type="text" id="colorpicker1" class="color-box" name="color1"></span>
 		<span><i class="color-box__preview"></i><input type="text" id="colorpicker2" class="color-box" name="color2"></span>

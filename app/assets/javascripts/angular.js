@@ -100,6 +100,13 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
 			$scope.projects = response.data;
 		});
 	}
+	$scope.getDuration = function(allocatedTime, createdDate){
+		var today = new Date().getTime();
+		var created = new Date(createdDate).getTime();
+		s = Math.floor( (today - created) / 3600 );
+		hl = (parseInt(allocatedTime) * 24) - (s/1000)
+		return Math.floor(hl) > 24 ? Math.floor(hl / 24)+' days left' : Math.floor(hl)+' hours left';
+	}
   $scope.changePwd = false;
   $scope.showPwd = function(){
   	$scope.changePwd = $scope.changePwd == true ? false : true;
@@ -108,7 +115,9 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
   	$cookies.put('postStep'+step, value);
   	location.replace('?step='+step);
   }
-  $scope.developer = 'Joseph Rex';
+  $scope.developer = '\nDeveloper: Joseph Rex (@joerex101) http://josephrex.me, http://strich.io\n'+
+  '\nNeed a web application like this? Find me';
+  console.log($scope.developer);
 }]);
 /* Converting to Nigerian Naira (NGN) */
 var aDollarInNaira = 200;

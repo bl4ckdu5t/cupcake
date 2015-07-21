@@ -35,6 +35,7 @@ class ProjectsController < ApplicationController
       project.title = params[:title]
       project.stage = 3
       project.state = 'draft'
+      project.duration = params[:duration]
       project.design_type = params[:design_type]
       project.package = params[:package]
       project.user_id = current_user.id
@@ -73,6 +74,15 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @submissions = Submission.where(project_id: params[:id]).order(created_at: :desc)
+    # Time difference between and now project creation in hours
+    td = ((Time.now - @project.created_at) / 1.hour).round
+    duration = @project.duration.blank? ? 0 : @project.duration
+    # Total Hours
+    th = duration.to_i * 24
+    # Hours Left
+    @hl = th - td
+    # Days Left
+    @dl = @hl / 24
   end
 
   def stream_api
