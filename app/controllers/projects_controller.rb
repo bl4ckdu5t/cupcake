@@ -76,7 +76,7 @@ class ProjectsController < ApplicationController
   end
 
   def stream_api
-    render json: Project.order(created_at: :desc)
+    render json: Project.where(paid: true).order(created_at: :desc)
   end
 
   def destroy
