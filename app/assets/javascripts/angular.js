@@ -105,7 +105,7 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
 		var created = new Date(createdDate).getTime();
 		s = Math.floor( (today - created) / 3600 );
 		hl = (parseInt(allocatedTime) * 24) - (s/1000)
-		return Math.floor(hl) > 24 ? Math.floor(hl / 24)+' days left' : Math.floor(hl)+' hours left';
+		return Math.floor(hl) > 24 ? Math.floor(hl / 24)+' days left' : hl < 0 ? 'expired' : Math.floor(hl)+' hours left';
 	}
   $scope.changePwd = false;
   $scope.showPwd = function(){
@@ -116,7 +116,7 @@ var app = angular.module('designscook', ['ngCookies','angularUtils.directives.di
   	location.replace('?step='+step);
   }
   $scope.developer = '\nDeveloper: Joseph Rex (@joerex101) http://josephrex.me, http://strich.io\n'+
-  '\nNeed a web application like this? Find me';
+  '\nNeed a web application like this? Find me!!\n\n';
   console.log($scope.developer);
 }]);
 /* Converting to Nigerian Naira (NGN) */

@@ -99,33 +99,32 @@
 			<div class="comments">
 				<h4 class="comments--header">Submissions</h4>
 				<div class="comments--form">
-					<h3><%= @submissions.count %> Submissions</h3>
-					<% @submissions.each do |x| %>
-					cool
-					<% end %>
+					<h3><%= @submissions.count %> Submission<%= @submissions.count > 1 ? 's':'' %></h3>
 					<!-- Start Thread -->
+					<% @submissions.each do |x| %>
 					<div class="comments--thread clearfix">
 						<div class="comments--avatar"><%= image_tag 'http://placehold.it/100x100', class: 'img-circular' %></div>
 						<div class="comments--content">
 							<div class="comments--message">
-								<div class="comments--message__header">Thea Haldrich <time>submitted on 23 June, 2012</time></div>
+								<div class="comments--message__header"><%= User.find(x) ? "#{User.find(x.designer_id).firstname} #{User.find(x.designer_id).lastname}" : "Deactivated Account" %> <time>submitted on <%= x.created_at.strftime('%B %d, %Y') %></time></div>
 								<div class="comments--message__text clearfix">
 									<%= image_tag 'http://placehold.it/150x150', class: 'fr' %>
 									<a href="" class="link__decorated">Download Package</a>
 									<h5>Rank this</h5>
 									<em>Note that we award users based on your rating so make sure to not give 2 users the same rank</em>
-									<p>
-									<input type="radio" name="rank" id="best">
+									<p class="js-rank" data-project="<%= x.project_id %>" data-customer="<%= @project.user_id %>" data-designer="<%= x.designer_id %>">
+									<input type="radio" name="rank" id="best" value="1">
 									<label for="best">1 (Wow)</label>
-									<input type="radio" name="rank" id="better">
+									<input type="radio" name="rank" id="better" value="2">
 									<label for="better">2 (Looks admirable)</label>
-									<input type="radio" name="rank" id="good">
+									<input type="radio" name="rank" id="good" value="3">
 									<label for="good">3 (It's ok)</label>
 									</p>
 								</div>
 							</div>
 						</div>
 					</div>
+					<% end %>
 					<!-- End Thread -->
 				</div>
 			</div>

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   post 'calvary'     => 'accounts#calvary'
   get 'choose'       => 'accounts#choice', as: :type_choice
   resources :projects do
-    get 'stream-api', on: :collection
+    collection do
+      get 'stream-api'
+      post 'selecting'
+    end
   end
   get 'portfolio'        => 'welcome#portfolio', as: :portfolio
   get 'careers'          => 'welcome#jobs', as: :job_vacancy

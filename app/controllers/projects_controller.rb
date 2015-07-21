@@ -86,7 +86,16 @@ class ProjectsController < ApplicationController
   end
 
   def stream_api
-    render json: Project.where(paid: true).order(created_at: :desc)
+    render json: Project.where(paid: true, state: 'open').order(created_at: :desc)
+  end
+
+  def selecting
+    render json: { status: 'found'}
+    # if Selection.exists?(designer_id: params[:designer], rank: params[:rank], project_id: params[:project])
+    #   s = Selection.where(project_id: params[:project], designer_id: params[:designer])
+    # else
+    #   s = Selection.new
+    # end
   end
 
   def destroy
