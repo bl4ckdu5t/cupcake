@@ -20,5 +20,4 @@
 //= require angular-ui-router/release/angular-ui-router.min
 //= require picturefill/dist/picturefill.min
 //= require colorpicker/js/colorpicker
-//= require_tree ../templates
 //= require_tree .
