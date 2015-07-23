@@ -48,8 +48,8 @@
 		</div>
 	</h1>
 	<div class="project--preview ghost">
-		<%= image_tag 'http://images.strich.io/profile.jpg', class: 'project--preview__background' %>
-		<%= image_tag 'http://images.strich.io/profile.jpg', class: 'project--preview__image' %>
+		<%= image_tag 'http://images.strich.io/no-preview.jpg', class: 'project--preview__background' %>
+		<%= image_tag 'http://images.strich.io/no-preview.jpg', class: 'project--preview__image' %>
 	</div>
 	<div class="project--toggler"><svg class="icon icon-unfold-more"><use xlink:href="#icon-unfold-more"></use></svg></div>
 	<main class="project--content">
@@ -112,13 +112,14 @@
 									<a href="" class="link__decorated">Download Package</a>
 									<h5>Rank this</h5>
 									<em>Note that we award users based on your rating so make sure to not give 2 users the same rank</em>
-									<p class="js-rank" data-project="<%= x.project_id %>" data-customer="<%= @project.user_id %>" data-designer="<%= x.designer_id %>">
+									<p class="js-rank" data-project="<%= x.project_id %>" data-customer="<%= @project.user_id %>" data-designer="<%= x.designer_id %>" data-x="<%= Selection.exists?(designer_id: x.designer_id, project_id: x.project_id) ? "y":"n" %>">
 									<input type="radio" name="rank" id="best" value="1">
 									<label for="best">1 (Wow)</label>
 									<input type="radio" name="rank" id="better" value="2">
 									<label for="better">2 (Looks admirable)</label>
 									<input type="radio" name="rank" id="good" value="3">
 									<label for="good">3 (It's ok)</label>
+									<span class="fr rn ghost" style="padding-right:20px; color: #0AB354; font-weight:bold">Ranked</span>
 									</p>
 								</div>
 							</div>

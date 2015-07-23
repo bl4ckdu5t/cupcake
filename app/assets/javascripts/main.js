@@ -1,9 +1,23 @@
 $(function(){
   /* Selecting Designs */
-  $('.js-rank [name="rank"]').click(function(){
-    var rank = $(this).val();
-    console.log(rank);
-  });
+  $('.js-rank [name="rank"]').on('click',_.debounce(function(){
+    var rank = $(this).val(), parent = $(this).closest('.js-rank'), designer = parent.data('designer'),
+    customer = parent.data('customer'),
+    project = parent.data('project'), exist = parent.data('x');
+    var data = {rank: rank, customer: customer, designer: designer, project: project};
+    if(exist == 'y'){
+      data["_method"] = "patch";
+    }
+    $.ajax({
+      type: 'POST',
+      url: '/projects/selecting',
+      data: data
+    }).done(function(response){
+      parent.find('.rn').fadeIn().delay(9000).fadeOut();
+    }).fail(function(response){
+      console.log(response.responseText);
+    });
+  }, 800));
   /* Constraint for users to only use Larger screens for work reviews */
   if(window.innerWidth < 1024){
     $('.comments--thread:first').before('Reviewing submissions can only be done on a screen above 1024 pixels.'+

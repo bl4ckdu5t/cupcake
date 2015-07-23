@@ -90,12 +90,24 @@ class ProjectsController < ApplicationController
   end
 
   def selecting
-    render json: { status: 'found'}
-    # if Selection.exists?(designer_id: params[:designer], rank: params[:rank], project_id: params[:project])
-    #   s = Selection.where(project_id: params[:project], designer_id: params[:designer])
-    # else
-    #   s = Selection.new
-    # end
+    unless Selection.exists?(designer_id: params[:designer], project_id: params[:project])
+      s = Selection.new
+    end
+    s.project_id = params[:project]
+    s.designer_id = params[:designer]
+    s.customer_id = params[:customer]
+    s.rank = params[:rank]
+    if s.save!
+      render json: { status: 'success' }
+    end
+  end
+
+  def update_selecting
+    s = Selection.find_by(project_id: params[:project], designer_id: params[:designer])
+    s.rank = params[:rank]
+    if s.save!
+      render json: { status: 'success' }
+    end
   end
 
   def destroy
