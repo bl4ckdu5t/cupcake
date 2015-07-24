@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721000322) do
+ActiveRecord::Schema.define(version: 20150723093309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "briefs", force: :cascade do |t|
     t.integer  "project_id"
-    t.boolean  "is_new",              default: true
+    t.boolean  "is_new",               default: true
     t.string   "company_name"
     t.text     "company_description"
     t.string   "company_address"
@@ -35,8 +35,12 @@ ActiveRecord::Schema.define(version: 20150721000322) do
     t.text     "website_pages"
     t.text     "card_orientation"
     t.text     "additional"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "preview_updated_at"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -75,8 +79,16 @@ ActiveRecord::Schema.define(version: 20150721000322) do
   create_table "submissions", force: :cascade do |t|
     t.integer  "designer_id"
     t.integer  "project_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "preview_file_name"
+    t.string   "preview_content_type"
+    t.integer  "preview_file_size"
+    t.datetime "preview_updated_at"
+    t.string   "project_file_name"
+    t.string   "project_content_type"
+    t.integer  "project_file_size"
+    t.datetime "project_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -111,6 +123,10 @@ ActiveRecord::Schema.define(version: 20150721000322) do
     t.string   "specialty"
     t.integer  "submissions"
     t.integer  "earnings"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

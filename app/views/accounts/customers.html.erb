@@ -51,7 +51,10 @@
 			<p><%= link_to 'Add your first project', new_project_path %></p>
 		</div>
 		<div dir-paginate="project in projects | filter:q | itemsPerPage: 4" class="widget widget-{{project.state}}" ng-show="state == project.state || state == 'all'">
-			<h2 class="widget-title">{{project.title}}<span>{{project.design_type}}</span></h2>
+			<h2 class="widget-title">{{project.title}}
+				<span>{{project.design_type}}</span>
+				<a href="/projects/new?step=4" class="fr" ng-if="project.stage == 3">resume order</a>
+			</h2>
 			<div class="widget-content">
 				<ul class="widget-content__list">
 					<li><svg class="icon icon-radio"><use xlink:href="{{checkStage(project.stage, 1)}}"></use></svg> Design Selection</li>
@@ -61,7 +64,7 @@
 				</ul>
 			</div>
 			<div class="widget-meta">
-				<a href="/projects/{{project.id}}/edit" class="button button-widget__purchase rightmag5">Resume order</a>
+				<a href="/projects/{{project.id}}" class="button button-widget__purchase rightmag5">View project</a>
 				<a href="/projects/{{project.id}}" class="button button-widget__decline" data-method="delete" data-confirm="Are you sure?" rel="nofollow">Delete project</a>
 				<time>Date created: <strong>{{project.created_at | amDateFormat: 'Do MMMM, YYYY' }}</strong></time>
 			</div>

@@ -33,11 +33,14 @@ $(function(){
   });
   $('#js-projectPost').submit(function(e){
     e.preventDefault();
-    var url = $(this).prop('action'), data = $(this).serialize();
+    var url = $(this).prop('action'), data = new FormData($('#js-projectPost')[0]);
+    $(this).find('.button-large').after(" loading... please wait");
     $.ajax({
       type: 'POST',
       url: url,
-      data: data
+      data: data,
+      processData: false,
+      contentType: false
     }).done(function(response){
       if(response.status == 'success'){
         setCookie('postStep4', 'saved');

@@ -23,10 +23,10 @@
     <li><%= link_to 'Profile', profile_settings_path, class: 'is_active' %></li>
   </ul>
 </nav>
-<%= form_for @settings, url: profile_update_path, html: {class: 'settings-form'} do |f|%>
+<%= form_for @settings, url: profile_update_path, html: {class: 'settings-form', multipart: true} do |f|%>
   <div class="field">
-    <%= f.label :picture, "Profile picture" %><br>
-    <%= f.file_field 'picture' %>
+    <%= f.label :avatar, "Profile picture" %><br>
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="field">

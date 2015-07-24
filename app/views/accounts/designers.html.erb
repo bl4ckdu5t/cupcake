@@ -27,7 +27,7 @@
 <section class=" [ section section-designer__dashboard ] container">
 	<div data-grid="2:12">
 		<div class="profile--box">
-			<%= image_tag 'avatar.png', alt: 'profile image', class: 'profile--avatar img-circular' %>
+			<%= image_tag current_user.avatar.url(:square), alt: 'profile image', class: 'profile--avatar img-circular' %>
 			<h3 class="profile--name" title="<%= "#{current_user.firstname} #{current_user.lastname}" %>">
 				<%= "#{current_user.firstname} #{current_user.lastname}" %>
 			</h3>

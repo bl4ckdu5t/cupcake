@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :projects do
     collection do
       get 'stream-api'
+      post 'submission'
       patch 'selecting' => 'projects#update_selecting'
       post 'selecting'
     end

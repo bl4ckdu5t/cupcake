@@ -1266,6 +1266,9 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 				content: ')';
 			}
 		}
+		> a{
+			font-size: 1.5rem;
+		}
 		.widget-draft &{
 		  border-bottom: solid thin darken($color-widget-draft, 5%);
 		}
@@ -1900,6 +1903,10 @@ p{
 	&--avatar{
 		float: left;
 		width: 11%;
+		img{
+			width: 100px;
+			height: 100px;
+		}
 	}
 	&--content{
 		float: left;
@@ -1948,6 +1955,7 @@ p{
 				margin: 2px 0 0;
 			}
 			em{ font-size: 1.4rem; }
+			img{ width: 150px; height: 150px; }
 		}
 	}
 	p{ padding: 10px 0 }

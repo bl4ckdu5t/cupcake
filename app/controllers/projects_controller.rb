@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
       project.package = params[:package]
       project.user_id = current_user.id
       brief_data = brief_params.except('utf8', 'authenticity_token', 'title', 'commit', 'controller', 'action',
-        'color1', 'color2', 'color3', 'design_type', 'package')
+        'color1', 'color2', 'color3', 'design_type', 'package', 'duration')
       brief_data[:color_choices] = ""
       (1..3).each { |x| brief_data[:color_choices] += params["color#{x}"]+':' }
       if project.save!
@@ -57,23 +57,31 @@ class ProjectsController < ApplicationController
 
   def update
     project = Project.find(params[:id])
-    project.title = params[:project][:title]
-    brief_data = brief_params.except('utf8','_method','authenticity_token','project','commit','controller','action','id','color1','color2',
-      'color3')
-    brief_data[:color_choices] = ""
-    (1..3).each { |x| brief_data[:color_choices] += params["color#{x}"]+':' }
-  	if project.save!
-      brief = Brief.find_by(project_id: project.id)
-      updated = brief.update_attributes(brief_data)
-      if updated
-        redirect_to :back, notice: 'Project successfully updated'
+    if current_user.id == project.user_id
+      project.title = params[:project][:title]
+      brief_data = brief_params.except('utf8','_method','authenticity_token','project','commit','controller','action','id','color1','color2',
+        'color3')
+      brief_data[:color_choices] = ""
+      if params[:color1].present?
+        (1..3).each { |x| brief_data[:color_choices] += params["color#{x}"]+':' }
       end
+    	if project.save!
+        brief = Brief.find_by(project_id: project.id)
+        updated = brief.update_attributes(brief_data)
+        if updated
+          redirect_to :back, notice: 'Project successfully updated'
+        end
+      end
+    else
+      redirect_to :back, notice: 'You have no access to this project'
     end
   end
 
   def show
     @project = Project.find(params[:id])
+    @brief = Brief.find_by(project_id: params[:id])
     @submissions = Submission.where(project_id: params[:id]).order(created_at: :desc)
+    @submission = Submission.new
     # Time difference between and now project creation in hours
     td = ((Time.now - @project.created_at) / 1.hour).round
     duration = @project.duration.blank? ? 0 : @project.duration
@@ -98,7 +106,17 @@ class ProjectsController < ApplicationController
     s.customer_id = params[:customer]
     s.rank = params[:rank]
     if s.save!
+      Notification.new({sender_id: s.project_id, receiver_id: s.designer_id, message: "Your design was ranked #{s.rank}"}).save
       render json: { status: 'success' }
+    end
+  end
+
+  def submission
+    s = Submission.new(submission_params)
+    if s.save
+      redirect_to :back, notice: 'Your design has been submitted'
+    else
+      redirect_to :back, notice: 'Your design failed to submit. Check to ensure you are using a valid file format'
     end
   end
 
@@ -106,6 +124,7 @@ class ProjectsController < ApplicationController
     s = Selection.find_by(project_id: params[:project], designer_id: params[:designer])
     s.rank = params[:rank]
     if s.save!
+      Notification.new({sender_id: s.project_id, receiver_id: s.designer_id, message: "Your design was ranked #{s.rank}"}).save
       render json: { status: 'success' }
     end
   end
@@ -121,6 +140,10 @@ class ProjectsController < ApplicationController
 
   def brief_params
     params.permit!
+  end
+
+  def submission_params
+    params.require(:submission).permit!
   end
   
 end

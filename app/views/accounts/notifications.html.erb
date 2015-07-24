@@ -27,7 +27,10 @@
 	<% end %>
 	<ul class="notifications">
 		<% @notifications.each do |n| %>
-		<li><h3><%= n.message %></h3><time><%= n.created_at.strftime('%B %e, %Y') %> at time <%= n.created_at.strftime('%R') %></time></li>
+		<li>
+			<h3><%= n.message %> <a href="/projects/<%= n.sender_id %>"> in this project</a></h3>
+			<time><%= n.created_at.strftime('%B %e, %Y') %> at time <%= n.created_at.strftime('%R') %></time>
+		</li>
 		<% end %>
 	</ul>
 </section>

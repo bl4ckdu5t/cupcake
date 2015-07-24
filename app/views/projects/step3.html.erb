@@ -18,11 +18,11 @@
 </header>
 <% if cookies[:postStep3].present? %>
 <section class="section-posting category-custom">
-	<%= form_tag({controller: "projects", action: "create"}, class: 'form--posting', id: 'js-projectPost') do %>
+	<%= form_tag({controller: "projects", action: "create"}, multipart: true, class: 'form--posting', id: 'js-projectPost') do %>
 	  <%= hidden_field_tag :design_type, cookies[:postStep2] %>
 	  <%= hidden_field_tag :package, cookies[:postStep3] %>
 		<%= label_tag 'title', 'Project Title', class: 'form--posting_title' %>
-		<%= text_field_tag 'title', nil,class: 'category-custom__title', placeholder: 'e.g Logo design for Hooli XYZ company' %>
+		<%= text_field_tag 'title', nil,class: 'category-custom__title', required: true, placeholder: 'e.g Logo design for Hooli XYZ company' %>
 		<h2>Add Brief</h2>
 		<ol>
 		<% if cookies[:postStep2] == 'logo' %>
@@ -72,7 +72,7 @@
 		<span><i class="color-box__preview"></i><input type="text" id="colorpicker2" class="color-box" name="color2"></span>
 		<span><i class="color-box__preview"></i><input type="text" id="colorpicker3" class="color-box" name="color3"></span>
 		<li>Upload sketch or sample if available</li>
-		<%= file_field_tag :sample, class: 'category-custom__file' %>
+		<%= file_field_tag :preview, class: 'category-custom__file' %>
 		<li>Additional Information:</li>
 		<%= text_area_tag :additional, nil, class: 'category-custom__desc' %>
 	  </ol>

@@ -1,11 +1,6 @@
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, "#{msg}<svg class='icon icon-clear notify-clear'><use xlink:href='#icon-clear'></use></svg>".html_safe, :class => 'notify' %>
+<% end %>
 <header class="header header-filler">
 	<svg class="icon icon-menu" id="js-toggle-nav"><use xlink:href="#icon-menu"></use></svg>
 	<nav class="authenticated-navigation">
@@ -45,32 +40,43 @@
 				<svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg> 
 				<%= !@project.duration ? 'No time limit' : @dl < 0 ? 'expired' : @dl == 0 ? "#{@hl} hours left" : "#{@dl} days left" %>
 			</time>
+			&nbsp;
+			<% if user_signed_in? %>
+			<% if current_user.id == @project.user_id %>
+			<%= link_to 'Edit Project', edit_project_path(params[:id]) %>
+			<% end %>
+			<% end %>
 		</div>
 	</h1>
 	<div class="project--preview ghost">
-		<%= image_tag 'http://images.strich.io/no-preview.jpg', class: 'project--preview__background' %>
-		<%= image_tag 'http://images.strich.io/no-preview.jpg', class: 'project--preview__image' %>
+		<% if @brief.present? %>
+		<%= image_tag @brief.preview.url, class: 'project--preview__background' %>
+		<%= image_tag @brief.preview.url(:medium), class: 'project--preview__image' %>
+		<% else %>
+		<%= image_tag 'http://placehold.it/300x300', class: 'project--preview__background' %>
+		<%= image_tag 'http://placehold.it/300x300', class: 'project--preview__image' %>
+		<% end %>
 	</div>
 	<div class="project--toggler"><svg class="icon icon-unfold-more"><use xlink:href="#icon-unfold-more"></use></svg></div>
 	<main class="project--content">
 		<article>
-			<% if @project.state == 'closed' %>
+			<% if @project.state == 'closed' or @dl < 0 %>
 			<p class="alert alert-warning txtcenter">Closed</p>
 			<% end %>
 			<% if Brief.find_by(project_id: @project.id).present? %>
 			<% brief = Brief.find_by(project_id: @project.id) %>
-			<h3>Company Name</h3>
-			<p><%= brief.company_name %></p>
-			<h3>Company Slogan</h3>
-			<p><%= brief.slogan %></p>
 			<% if @project.design_type == 'website' %>
 			<p><strong>Website:</strong> <%= brief.website %></p>
 			<h3>Website Pages</h3>
 			<p><%= brief.website_pages %></p>
 			<p><strong>Recommended website:</strong> <%= brief.recommended_website %></p>
 			<% elsif @project.design_type == 'logo' %>
+			<h3>Company Slogan</h3>
+			<p><%= brief.slogan %></p>
 			<p><strong>Note:</strong>	<%= brief.is_new == true ? 'This is a new design' : 'This is a redesign' %></p>
 			<% else %>
+			<h3>Company Name</h3>
+			<p><%= brief.company_name %></p>
 			<h3>Company description</h3>
 			<p><%= brief.company_description %></p>
 			<h3>Company Address</h3>
@@ -103,10 +109,16 @@
 					<!-- Start Thread -->
 					<% @submissions.each do |x| %>
 					<div class="comments--thread clearfix">
-						<div class="comments--avatar"><%= image_tag 'http://placehold.it/100x100', class: 'img-circular' %></div>
+						<div class="comments--avatar">
+							<% if User.exists?(x.designer_id) %>
+							<%= image_tag User.find(x.designer_id).avatar.url(:thumb), class: 'img-circular' %>
+							<% else %>
+							<%= image_tag 'avatar.png', class: 'img-circular' %>
+							<% end %>
+						</div>
 						<div class="comments--content">
 							<div class="comments--message">
-								<div class="comments--message__header"><%= User.find(x) ? "#{User.find(x.designer_id).firstname} #{User.find(x.designer_id).lastname}" : "Deactivated Account" %> <time>submitted on <%= x.created_at.strftime('%B %d, %Y') %></time></div>
+								<div class="comments--message__header"><%= User.exists?(x.designer_id) ? "#{User.find(x.designer_id).firstname} #{User.find(x.designer_id).lastname}" : "Deactivated Account" %> <time>submitted on <%= x.created_at.strftime('%B %d, %Y') %></time></div>
 								<div class="comments--message__text clearfix">
 									<%= image_tag 'http://placehold.it/150x150', class: 'fr' %>
 									<a href="" class="link__decorated">Download Package</a>
@@ -129,17 +141,19 @@
 					<!-- End Thread -->
 				</div>
 			</div>
-			<% elsif session[:usertype] == 'designer' && @project.paid == true %>
+			<% elsif session[:usertype] == 'designer' and @project.paid == true and @dl > 0 %>
 			<div class="comments">
 				<h4 class="comments--header">Submission</h4>
 				<div class="comments--form">
-					<form>
-						<label for="">Upload preview image (*.jpg, *.png, *.gif files only are accepted):</label><br>
-						<input type="file"><br>
-						<label for="">Upload project (*.zip, *.rar files only are accepted. You can pack all your file formats in a compressed zip file)</label><br>
-						<input type="file">
-						<p><input type="submit" class="button button-bordered button-large" value="Submit"></p>
-					</form>
+					<%= form_for @submission, url: submission_projects_path, html: { multipart: true } do |f| %>
+					  <%= f.hidden_field :designer_id, value: current_user.id %>
+					  <%= f.hidden_field :project_id, value: params[:id] %>
+						<%= f.label :preview, 'Upload preview image (*.jpg, *.png, *.gif files only are accepted):' %><br>
+						<%= f.file_field :preview %><br>
+						<%= f.label :project, 'Upload attachment (*.zip - Compress files in zip format):' %><br>
+						<%= f.file_field :project %>
+						<p><%= f.submit :submit, class: 'button button-bordered button-large' %></p>
+					<% end %>
 				</div>
 			</div>
 			<% end %>

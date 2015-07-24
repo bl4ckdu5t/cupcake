@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby "2.1.2"
-
+# AWS SDK with Paperclip for uploads
+gem 'paperclip'
+gem 'aws-sdk'
 # Newrelic for monitoring
 gem 'newrelic_rpm'
 # Angular Rails Templating for templating within Angular
