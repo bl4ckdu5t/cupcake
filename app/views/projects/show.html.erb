@@ -120,8 +120,8 @@
 							<div class="comments--message">
 								<div class="comments--message__header"><%= User.exists?(x.designer_id) ? "#{User.find(x.designer_id).firstname} #{User.find(x.designer_id).lastname}" : "Deactivated Account" %> <time>submitted on <%= x.created_at.strftime('%B %d, %Y') %></time></div>
 								<div class="comments--message__text clearfix">
-									<%= image_tag 'http://placehold.it/150x150', class: 'fr' %>
-									<a href="" class="link__decorated">Download Package</a>
+									<%= image_tag x.preview.url, class: 'fr' %>
+									<%= link_to 'Download Package', x.project.url, class: 'link__decorated' %>
 									<h5>Rank this</h5>
 									<em>Note that we award users based on your rating so make sure to not give 2 users the same rank</em>
 									<p class="js-rank" data-project="<%= x.project_id %>" data-customer="<%= @project.user_id %>" data-designer="<%= x.designer_id %>" data-x="<%= Selection.exists?(designer_id: x.designer_id, project_id: x.project_id) ? "y":"n" %>">
