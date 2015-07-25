@@ -8,7 +8,7 @@ class AccountsController < ApplicationController
     	redirect_to customer_path
     end
     @submissions_count = Submission.where(designer_id: current_user.id).count
-    @notification_presence = Notification.where(receiver_id: current_user.id, seen: false)
+    @notification_presence = Notification.where(user_id: current_user.id, seen: false)
 	end
 
 	def customers
@@ -43,6 +43,6 @@ class AccountsController < ApplicationController
 	private
 
 	def init
-    @notifications = Notification.where(receiver_id: current_user.id).order(updated_at: :desc)
+    @notifications = Notification.where(user_id: current_user.id).order(updated_at: :desc)
 	end
 end

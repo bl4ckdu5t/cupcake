@@ -106,7 +106,7 @@ class ProjectsController < ApplicationController
     s.customer_id = params[:customer]
     s.rank = params[:rank]
     if s.save!
-      Notification.new({sender_id: s.project_id, receiver_id: s.designer_id, message: "Your design was ranked #{s.rank}"}).save
+      Notification.new({sender_id: s.project_id, user_id: s.designer_id, message: "Your design was ranked #{s.rank}"}).save
       render json: { status: 'success' }
     end
   end
@@ -124,7 +124,7 @@ class ProjectsController < ApplicationController
     s = Selection.find_by(project_id: params[:project], designer_id: params[:designer])
     s.rank = params[:rank]
     if s.save!
-      Notification.new({sender_id: s.project_id, receiver_id: s.designer_id, message: "Your design was ranked #{s.rank}"}).save
+      Notification.new({sender_id: s.project_id, user_id: s.designer_id, message: "Your design was ranked #{s.rank}"}).save
       render json: { status: 'success' }
     end
   end

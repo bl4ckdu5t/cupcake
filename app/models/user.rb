@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
   has_many :projects, dependent: :destroy
-  has_many :notification, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   validates :firstname, presence: true
   validates :usertype, presence: true
   has_attached_file :avatar, bucket: 'designscook-assets', styles: {

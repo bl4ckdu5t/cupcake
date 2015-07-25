@@ -1,12 +1,14 @@
 default : &defaults
   access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
   secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-  bucket: <%= ENV['S3_BUCKET_NAME'] %>
 development: &defaults
   <<: *defaults
+  bucket: 'designscook-assets-test'
 
 test:
   <<: *defaults
+  bucket: 'designscook-assets-test'
 
 production:
   <<: *defaults
+  bucket: <%= ENV['S3_BUCKET_NAME'] %>
