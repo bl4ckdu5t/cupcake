@@ -959,6 +959,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 		height: 100%;
 		border-left: solid thin rgba(#bbb, .5);
 	}
+	a{ border-bottom: dotted 1px #aaa; }
 }
 .scrollup{
 	position: fixed;
