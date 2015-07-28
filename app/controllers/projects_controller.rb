@@ -94,7 +94,11 @@ class ProjectsController < ApplicationController
   end
 
   def stream_api
-    render json: Project.where(paid: true, state: 'open').order(created_at: :desc)
+    if params[:format] == 'xml'
+      render xml: Project.where(paid: true, state: 'open').order(created_at: :desc)
+    else
+      render json: Project.where(paid: true, state: 'open').order(created_at: :desc)
+    end
   end
 
   def selecting
