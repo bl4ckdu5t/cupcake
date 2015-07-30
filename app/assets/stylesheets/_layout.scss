@@ -35,6 +35,7 @@ input, textarea, select{ background: $white; font-family: $font-stack; }
 	color: $white;
 	&-landing{
 		@include tinted-bg(darken($color-brand-1, 12%), .95, "header-1.jpg", 100% 100%);
+		background-attachment: fixed;
   	height: 500px;
 	}
 	&-authentication{
